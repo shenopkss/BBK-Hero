@@ -24,5 +24,3 @@ setgut 3-2.gut .\gut\3-2.gut 3 2 比奇矿区2
 setgut 3-3.gut .\gut\3-3.gut 3 3 比奇矿区3
 
 del *.gut
-
-pause
