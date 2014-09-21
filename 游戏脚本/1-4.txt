@@ -1,0 +1,62 @@
+@比奇省
+
+SETSCENENAME "比奇省"
+SHOWSCENENAME
+SET 1 14
+@INITFIGHT 1 2 3 0 0 0 0 0 2 112 32
+callback
+
+银杏村:
+loadmap 1 3 1 8
+startchapter 1 3
+callback
+
+银杏村告示:
+message "银杏村"
+callback
+
+比奇矿洞入口:
+loadmap 3 1 1 0
+startchapter 3 1
+callback
+
+比奇矿洞告示:
+message "比奇矿洞"
+callback
+
+
+比奇南门:
+loadmap 1 2 23 43
+startchapter 1 2
+callback
+
+比奇东门:
+loadmap 1 2 46 25
+startchapter 1 2
+callback
+
+比奇北门:
+loadmap 1 2 23 1
+startchapter 1 2
+callback
+
+比奇西门:
+loadmap 1 2 1 25
+startchapter 1 2
+callback
+
+高级武士之家:
+loadmap 1 5 12 7
+startchapter 1 5
+callback
+
+
+gutevent 41 银杏村
+gutevent 42 银杏村告示
+gutevent 43 比奇矿洞入口
+gutevent 44 比奇矿洞告示
+gutevent 45 比奇南门
+gutevent 46 比奇东门
+gutevent 47 比奇北门
+gutevent 48 比奇西门
+gutevent 55 高级武士之家

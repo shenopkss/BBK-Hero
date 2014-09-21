@@ -1,0 +1,31 @@
+@游戏启动
+@随机出生地 银杏村 or 边界村
+
+loadmap 1 3 9 9 	@银杏村
+
+选择职业:
+SAY 0 "年轻的勇士，欢迎来到玛法大陆，情选择你的职业："
+menu 0 "战士 法师 道士"
+ifcmp 0 0 选择职业
+ifcmp 0 1 战士
+ifcmp 0 2 法师
+ifcmp 0 3 道士
+callback
+
+战士:
+message "以强有力的体格为基础，特殊之处在于用剑法及刀法等技术。"
+createactor 1 4 3
+startchapter 1 3
+callback
+
+法师:
+message "以长时间锻炼的魔法力为基础，能发挥强大的攻击型魔法，攻击力卓越，但体力较弱。"
+createactor 2 4 3
+startchapter 1 3
+callback
+
+道士:
+message "以强大的精神力作为基础，超强的治疗与用毒能力。博学多知，随机应变性强。"
+createactor 3 4 3
+startchapter 1 3
+callback

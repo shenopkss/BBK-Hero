@@ -1,0 +1,18 @@
+SETSCENENAME "比奇矿区一"
+SHOWSCENENAME
+SET 1 31
+callback
+
+比奇省:
+loadmap 1 4 57 17
+startchapter 1 4
+callback
+
+比奇矿区二:
+loadmap 3 2 1 0
+startchapter 3 2
+callback
+
+
+gutevent 41 比奇省
+gutevent 42 比奇矿区二

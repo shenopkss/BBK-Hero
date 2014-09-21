@@ -1,0 +1,18 @@
+SETSCENENAME "比奇矿区二"
+SHOWSCENENAME
+SET 1 32
+callback
+
+比奇矿区一:
+loadmap 3 1 1 24
+startchapter 3 1
+callback
+
+尸王大殿:
+loadmap 3 3 1 0
+startchapter 3 3
+callback
+
+
+gutevent 41 比奇矿区一
+gutevent 42 尸王大殿

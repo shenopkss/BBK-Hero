@@ -1,0 +1,10588 @@
+@响应游戏热键F1——查找
+
+menu 230 "允许存盘 禁止存盘"
+ifcmp 230 0 ExitLine
+ifcmp 230 1 OpenSave
+ifcmp 230 2 CloseSave
+
+OpenSave:
+ENABLESAVE
+return
+
+CloseSave:
+DISABLESAVE
+return
+
+ExitLine:
+return
+
+
+@开始游戏
+
+@------------------调试---------------------
+@loadmap 1 39 23 6
+@CREATEACTOR 1 4 3
+@STARTCHAPTER 7 1
+@---------------------------------------
+
+SHOWGUT 1 0 "引：                 天地玄黄，宇宙洪荒  自古道魔不两立，    世虽以道为正，道魔  之争却从未休止。    究其因，何以道正而  魔始未灭，          属正邪者，心也！    正所谓：             道非道，魔非魔      善恶在人心！                            江湖中有耳朵的人，绝无一人没有听见过“无机道长”这人的名字，江湖中有眼睛的人，也绝无一人不想瞧瞧“无机道长”绝世风采和他的绝代神功。        只因为任何人都知道，世上绝没有一个少女能抵挡“无机道长”的微微一笑，也绝没有一个英雄能抵挡“无机道长”的轻轻一剑！      任何人都相信，“无机道长”的剑非但能在百万军中取主帅之首级，也能将一根头发分成两根，而他的笑，却可令少女的心碎。        3月28日晚，无机和 当时危害人间的大魔头——赤血天魔依约在三清山的伏魔洞前进行生死决斗。              决斗后，无机负伤而归，赤血天魔不知所终。决斗结果无人知晓。  二十年后……                                                                                      "
+loadmap 1 2 15 0   
+MOVIE 1 2 0 0 2
+CREATEACTOR 1 4 3
+NPCSTEP 0 0 1
+say 1 "小蝴蝶，不要跑……"
+NPCSTEP 0 1 1
+say 1 "小蝴蝶，不要跑……"
+NPCSTEP 0 2 1
+say 1 "小蝴蝶，快出来……"
+NPCSTEP 0 3 1
+say 1 "小蝴蝶……,哪去了？？"
+CREATENPC 1 2 17 6
+MOVE 1 17 3
+MOVE 1 18 3
+say 0 "师兄，原来你在这啊，师父找不到你，正在无机阁大发雷霆呢，你快点到无机阁见师傅吧。"
+say 1 "好，你先走，我就去。"
+MOVE 1 17 3
+MOVE 1 17 6
+DELETENPC 1
+NPCSTEP 0 0 1
+NPCSTEP 0 1 1
+NPCSTEP 0 2 1
+NPCSTEP 0 3 1
+say 1 "咦，我的小蝴蝶哪去了？？"
+say 1 "还是先去见师父吧。"
+setevent 1
+SETMONEY 500
+
+@======属性测试和修改示例S=======
+@ATTRIBSET 1 0 2
+@ATTRIBTEST 1 0 12 lowaddr2 higaddr2
+@MESSAGE "2级"
+@goto addnext
+@lowaddr2:
+@MESSAGE "小于2级"
+@goto addnext
+@higaddr2:
+@MESSAGE "大于2级"
+@
+@addnext:
+@ATTRIBADD 1 0 10
+@ATTRIBTEST 1 0 12 lowaddr12 higaddr12
+@MESSAGE "12级"
+@goto chapnext
+@lowaddr12:
+@MESSAGE "小于12级"
+@goto chapnext
+@higaddr12:
+@MESSAGE "大于12级"
+@======属性测试和修改示例E=======
+
+chapnext:
+STARTCHAPTER 2 12
+callback
+
+
+
+@三清宫
+
+CREATEBOX 10 1 19 43
+CREATEBOX 12 2 21 43
+CREATEBOX 13 3 25 43
+SETSCENENAME "三清宫"
+SHOWSCENENAME
+
+callback
+
+三清山道:
+步云桥:
+DELALLNPC
+loadmap 1 8 0 1
+STARTCHAPTER 2 31
+callback
+
+百草地:
+DELALLNPC
+loadmap 1 2 14 8
+STARTCHAPTER 2 12
+callback
+
+无机阁:
+DELALLNPC
+loadmap 2 8 8 17
+STARTCHAPTER 1 3
+callback
+
+三清宫药房:
+DELALLNPC
+loadmap 2 9 5 8
+STARTCHAPTER 2 3
+callback
+
+三清宫丹房:
+DELALLNPC
+loadmap 2 6 6 13
+STARTCHAPTER 2 4
+callback
+
+师傅居:
+DELALLNPC
+loadmap 2 1 11 7
+STARTCHAPTER 2 5
+callback
+
+普通弟子居1:
+DELALLNPC
+loadmap 2 4 1 5
+STARTCHAPTER 2 6
+callback
+
+大师兄居:
+DELALLNPC
+loadmap 2 2 12 7
+STARTCHAPTER 2 7
+callback
+
+普通弟子居2:
+DELALLNPC
+loadmap 2 4 1 5
+STARTCHAPTER 2 8
+callback
+
+清风居:
+DELALLNPC
+loadmap 2 3 12 7
+STARTCHAPTER 2 10
+callback
+
+三清宫厨房:
+DELALLNPC
+loadmap 2 5 1 6
+STARTCHAPTER 2 11
+callback
+
+gutevent 41 三清山道
+gutevent 42 百草地
+gutevent 43 无机阁
+@gutevent 44 三清宫药房
+gutevent 45 三清宫丹房
+gutevent 46 师傅居
+gutevent 47 普通弟子居1
+gutevent 48 大师兄居
+gutevent 49 普通弟子居2
+gutevent 50 清风居
+gutevent 51 三清宫厨房
+
+
+@无机阁
+
+SETSCENENAME "无机阁"
+SHOWSCENENAME
+
+callback
+
+
+三清宫:
+delallnpc
+loadmap 1 1 18 6
+STARTCHAPTER 1 2
+callback
+
+无机洞:
+delallnpc
+loadmap 3 10 39 15
+STARTCHAPTER 1 4
+callback
+
+gutevent 41 三清宫
+gutevent 42 无机洞
+
+
+
+@无机洞迷宫
+
+
+INITFIGHT 28 29 30 33 36 37 0 0 2 112 32
+createbox 21 9 40 26
+createbox 22 9 37 46
+createbox 23 9 20 46
+createbox 24 9 4 34
+createbox 25 9 14 21
+createbox 26 9 13 8
+createbox 27 9 44 6
+createbox 28 9 23 19
+createbox 29 9 25 8
+
+if 1105 宝箱1已开
+goto 宝箱2开否
+宝箱1已开:
+deletebox 21
+宝箱2开否:
+if 1106 宝箱2已开
+goto 宝箱2未开
+宝箱2已开:
+deletebox 22
+宝箱2未开:
+if 1107 宝箱3已开
+goto 宝箱3未开
+宝箱3已开:
+deletebox 23
+宝箱3未开:
+if 1108 宝箱4已开
+goto 宝箱5开否
+宝箱4已开:
+deletebox 24
+宝箱5开否:
+if 1109 宝箱5已开
+goto 宝箱5未开
+宝箱5已开:
+deletebox 25
+宝箱5未开:
+if 1110 宝箱6已开
+goto 宝箱6未开
+宝箱6已开:
+deletebox 26
+宝箱6未开:
+if 1111 宝箱7已开
+goto 宝箱8开否
+宝箱7已开:
+deletebox 27
+宝箱8开否:
+if 1112 宝箱8已开
+goto 宝箱8未开
+宝箱8已开:
+deletebox 28
+宝箱8未开:
+if 1113 宝箱9已开
+goto 宝箱9未开
+宝箱9已开:
+deletebox 29
+宝箱9未开:
+
+createbox 1 14 17 29
+NPCSTEP 1 0 0
+createbox 2 11 43 19
+NPCSTEP 2 0 2
+SETSCENENAME "无机洞"
+SHOWSCENENAME
+
+callback
+
+
+无机洞:
+FIGHTDISENABLE
+delallnpc
+loadmap 3 9 9 4
+STARTCHAPTER 1 5
+callback
+
+无机阁:
+INITFIGHT 55 56 28 29 30 31 0 0 1 111 31
+delallnpc
+loadmap 2 8 9 0
+STARTCHAPTER 1 3
+callback
+
+宝箱1:
+if 1105 宝箱1开
+deletebox 21
+GAINGOODS 2 16
+setevent 1105
+宝箱1开:
+callback
+宝箱2:
+if 1106 宝箱2开
+deletebox 22
+GAINGOODS 1 6
+setevent 1106
+宝箱2开:
+callback
+宝箱3:
+if 1107 宝箱3开
+deletebox 23
+GAINGOODS 4 11
+setevent 1107
+宝箱3开:
+callback
+宝箱4:
+if 1108 宝箱4开
+deletebox 24
+GAINGOODS 3 15
+setevent 1108
+宝箱4开:
+callback
+宝箱5:
+if 1109 宝箱5开
+deletebox 25
+GAINGOODS 11 14
+setevent 1109
+宝箱5开:
+callback
+宝箱6:
+if 1110 宝箱6开
+deletebox 26
+GAINGOODS 11 6
+setevent 1110
+宝箱6开:
+callback
+宝箱7:
+if 1111 宝箱7开
+deletebox 27
+GAINGOODS 11 12
+setevent 1111
+宝箱7开:
+callback
+宝箱8:
+if 1112 宝箱8开
+deletebox 28
+GAINGOODS 9 14
+setevent 1112
+宝箱8开:
+callback
+宝箱9:
+if 1113 宝箱9开
+deletebox 29
+GAINGOODS 4 12
+setevent 1113
+宝箱9开:
+callback
+
+gutevent 21 宝箱1
+gutevent 22 宝箱2
+gutevent 23 宝箱3
+gutevent 24 宝箱4
+gutevent 25 宝箱5
+gutevent 26 宝箱6
+gutevent 27 宝箱7
+gutevent 28 宝箱8
+gutevent 29 宝箱9
+gutevent 49 无机洞
+gutevent 54 无机阁
+
+
+
+@无机洞
+
+
+createbox 1 25 9 3
+if 260 正常
+createnpc 2 1 9 8
+正常:
+SETSCENENAME "无机洞"
+SHOWSCENENAME
+
+callback
+
+
+无机洞:
+delallnpc
+loadmap 3 10 13 25
+STARTCHAPTER 1 4
+callback
+
+战无机:
+if 260 无机已死
+facetoface 0 2
+say 0 "无机:清风，师父在这里……"
+say 1 "师父——"
+say 2 "柳大哥，醒醒，他已经是魔了！"
+ENTERFIGHT 0 0 47 0 2 112 32 0 0 0 0 0 0 lossto 打败无机
+打败无机:
+say 0 "啊，哈哈，清风，谢……谢……你，我的心魔已被你打……散，将……混元金斗放在伏……伏……魔洞中的先天伏魔阵中心位置，可以将天下所有由万魔幻化变换成的妖怪吸收到阵中封印。我可以走得轻……松了……"
+deletenpc 2
+message "无机得到解脱"
+setevent 260
+无机已死:
+callback
+
+lossto:
+gameover
+callback
+
+gutevent 1 无机洞
+gutevent 45 战无机
+
+
+
+@三清宫
+
+FIGHTDISENABLE
+CREATEBOX 10 1 19 43
+CREATEBOX 12 2 21 43
+CREATEBOX 13 3 25 43
+SETSCENENAME "三清宫"
+SHOWSCENENAME
+
+CREATENPC 1 11 12 7
+CREATENPC 2 12 17 22
+CREATENPC 3 13 23 22
+CREATENPC 4 14 25 27
+CREATENPC 5 15 23 23
+CREATENPC 6 16 38 34
+CREATENPC 7 17 31 17
+CREATENPC 8 18 18 11
+
+@CREATEBOX 4 4 7  10
+@CREATEBOX 5 4 33 10
+callback
+
+三清山道:
+@setevent 25	@调试用
+if 25 步云桥
+if 21 下山
+if 19 见师父
+if 1 见师父
+say 1 "还是先去取伏魔剑吧！"
+callback
+见师父:
+say 1 "见师父去。"
+callback
+下山:
+say 1 "终于可以下山了，哈哈……"
+setevent 25
+步云桥:
+DELALLNPC
+loadmap 1 8 0 1
+STARTCHAPTER 2 31
+callback
+
+百草地:
+DELALLNPC
+loadmap 1 2 14 8
+STARTCHAPTER 2 12
+callback
+
+无机阁:
+DELALLNPC
+loadmap 2 7 8 17
+STARTCHAPTER 2 2
+callback
+
+三清宫药房:
+DELALLNPC
+loadmap 2 9 5 8
+STARTCHAPTER 2 3
+callback
+
+三清宫丹房:
+DELALLNPC
+loadmap 2 6 6 13
+STARTCHAPTER 2 4
+callback
+
+师傅居:
+DELALLNPC
+loadmap 2 1 11 7
+STARTCHAPTER 2 5
+callback
+
+普通弟子居1:
+DELALLNPC
+loadmap 2 4 1 5
+STARTCHAPTER 2 6
+callback
+
+大师兄居:
+DELALLNPC
+loadmap 2 2 12 7
+STARTCHAPTER 2 7
+callback
+
+普通弟子居2:
+DELALLNPC
+loadmap 2 4 1 5
+STARTCHAPTER 2 8
+callback
+
+清风居:
+DELALLNPC
+loadmap 2 3 12 7
+STARTCHAPTER 2 10
+callback
+
+三清宫厨房:
+DELALLNPC
+loadmap 2 5 1 6
+STARTCHAPTER 2 11
+callback
+
+游人1:
+say 0 "这里好大哦，我要小心点，不然要迷路。"
+callback
+游人2:
+say 0 "三清宫风景的确一流。"
+callback
+游人3:
+say 0 "清幽脱俗，不愧为道家圣地。"
+callback
+游人4:
+say 0 "听说这里的神仙很灵，有求必应。"
+callback
+游人5:
+say 0 "据说无机道人是道仙转世，今日一见，果然一副仙像。"
+callback
+游人6:
+say 0 "听说三清山的山门是名匠所琢，果然非凡。"
+callback
+游人7:
+say 0 "这里环境这么好，在这里住应该会长寿。"
+callback
+游人8:
+say 0 "世人只顾烟火起，吾自壬外云雾出；此身虽属归俗尘，但心无意凡土中……"
+callback
+
+
+gutevent 1 游人1
+gutevent 2 游人2
+gutevent 3 游人3
+gutevent 4 游人4
+gutevent 5 游人5
+gutevent 6 游人6
+gutevent 7 游人7
+gutevent 8 游人8
+
+gutevent 41 三清山道
+gutevent 42 百草地
+gutevent 43 无机阁
+gutevent 44 三清宫药房
+gutevent 45 三清宫丹房
+gutevent 46 师傅居
+gutevent 47 普通弟子居1
+gutevent 48 大师兄居
+gutevent 49 普通弟子居2
+gutevent 50 清风居
+gutevent 51 三清宫厨房
+
+
+@无机阁
+
+CREATENPC 9 1 11 8
+NPCSTEP 9 0 0
+
+CREATENPC 1 3 9 11
+CREATENPC 2 3 9 12
+CREATENPC 3 3 9 13
+CREATENPC 4 3 9 14
+NPCSTEP 1 0 0
+NPCSTEP 2 0 0
+NPCSTEP 3 0 0
+NPCSTEP 4 0 0
+
+CREATENPC 5 3 16 11
+CREATENPC 6 3 16 12
+CREATENPC 7 3 16 13
+CREATENPC 8 3 16 14
+NPCSTEP 5 0 1
+NPCSTEP 6 0 1
+NPCSTEP 7 0 1
+NPCSTEP 8 0 1
+
+createbox 20 18 4 2
+createbox 21 18 10 2
+createbox 22 18 16 3
+
+SETSCENENAME "无机阁"
+SHOWSCENENAME
+callback
+
+师父训:
+if 216 去钟山
+if 215 回山复命
+if 21 准备下山
+if 19 取回宝剑复命
+if 1 师父训示
+goto 去取剑
+师父训示:
+say 1 "弟子拜见师父，不知师父急招弟子，有何吩咐？"
+facetoface 0 9
+say 0 "哼&$#!一天到晚就知道玩，上次比武大会拿了个倒数第二，现在还不好好练功，就会给我丢脸。"
+say 1 "师父，我不是在玩，我是在练一种我自创的功夫，我打给你看……"
+say 0 "好了好了，听好，为师近观天象，发现山下被一股妖气弥绕，且有渐浓之势，本想你下山去看看。"
+say 1 "好啊，我这就起程。"
+say 0 "听好，看你这样子，下山准又要给我丢脸。你去后山伏魔洞，取出伏魔剑，方可下山。"
+say 0 "要取伏魔剑，先得过三关，第一，打开存放宝剑的机关门；第二，打败护剑兽；第三，躲过落石。也该磨练磨练了，去吧。"
+say 1 "请问师父，过这三关要用什么方法？"
+say 0 "这就要靠你自己了。"
+say 1 "是，师父。"
+CLREVENT 1
+callback
+去取剑:
+say 0 "去吧，取了剑回来见我。"
+say 1 "是，师父。"
+callback
+取回宝剑复命:
+say 1 "师父，弟子已取回宝剑。"
+facetoface 0 9
+say 0 "呵呵，取到了是在我预料之中的！怎么样，没事吧。"
+say 1 "我拔出宝剑时地动山摇的，好象出了大事了，出山洞时还被石头砸伤了手。"
+say 0 "哦，快去包扎一下吧。把剑放在我这里吧。"
+usegoods 14 12 没剑
+MESSAGE "伏魔剑交给了无机子"
+say 0 "你回去收拾，下山去吧。记住，除魔卫道，是你的本分，要以天下苍生为念。"
+say 1 "是，师父。"
+setevent 21
+callback
+准备下山:
+say 0 "你回去收拾，下山去吧。"
+say 1 "是，师父。"
+callback
+回山复命:
+setevent 216
+facetoface 0 9
+say 1 "师父，弟子此次下山察看，发现原来是山下忘忧村有一个半人半蛇的妖怪在作乱，弟子已经把他消灭，不过还是有村民死伤。"
+say 0 "正好，刚刚你师叔玄虚子飞鸽传书，钟山有大批妖魔进犯，请求支援。"
+say 1 "那我再去走一趟。"
+say 0 "你以经过山下磨练，应该可行，我要坐镇这里，防止调虎离山之计。"
+say 0 "此去路途遥远，你稍作消息再走。"
+say 1 "是。"
+callback
+去钟山:
+say 0 "去吧。"
+callback
+
+三清宫:
+delallnpc
+loadmap 1 1 18 6
+STARTCHAPTER 2 1
+callback
+
+宝箱1:
+if 1001 宝箱1开
+GAINGOODS 8 18
+setevent 1001
+宝箱1开:
+callback
+宝箱2:
+if 1002 宝箱2开
+GAINGOODS 8 21
+setevent 1002
+宝箱2开:
+callback
+宝箱3:
+if 1003 宝箱3开
+GAINGOODS 8 19
+setevent 1003
+宝箱3开:
+callback
+
+没剑:
+callback
+
+
+gutevent 9 师父训
+gutevent 20 宝箱1
+gutevent 21 宝箱2
+gutevent 22 宝箱3
+gutevent 41 三清宫
+
+
+
+@三清宫药房
+
+SETSCENENAME "三清宫药房"
+SHOWSCENENAME
+callback
+
+三清宫:
+delallnpc
+loadmap 1 1 5 11
+if 259 回马枪
+STARTCHAPTER 2 1
+callback
+回马枪:
+STARTCHAPTER 1 2
+callback
+
+买卖:
+say 0 "这里有不少的好药才供选择。"
+BUY "9001 9002 9003 9008 9009 9010 9021 9026 9027 10001 12001 12002 12003 8022 8027"
+callback
+
+gutevent 41 三清宫
+gutevent 42 买卖
+
+
+
+@三清宫丹房
+
+createbox 1 18 4 2
+createbox 2 18 12 2
+SETSCENENAME "三清宫丹房"
+SHOWSCENENAME
+callback
+
+三清宫:
+delallnpc
+loadmap 1 1 31 11
+if 259 回马枪
+STARTCHAPTER 2 1
+callback
+回马枪:
+STARTCHAPTER 1 2
+callback
+
+宝箱1:
+if 1004 宝箱1开
+GAINGOODS 11 6
+setevent 1004
+宝箱1开:
+callback
+宝箱2:
+if 1005 宝箱2开
+GAINGOODS 11 6
+setevent 1005
+宝箱2开:
+callback
+
+gutevent 1 宝箱1
+gutevent 2 宝箱2
+gutevent 41 三清宫
+
+
+@师傅居
+
+createbox 1 18 15 3
+createbox 2 18 7 12
+createbox 3 18 4 12
+SETSCENENAME "师傅居"
+SHOWSCENENAME
+callback
+
+三清宫:
+delallnpc
+loadmap 1 1 12 22
+if 259 回马枪
+STARTCHAPTER 2 1
+callback
+回马枪:
+STARTCHAPTER 1 2
+callback
+
+宝箱1:
+if 1006 宝箱1开
+GAINGOODS 8 3
+setevent 1006
+宝箱1开:
+callback
+宝箱2:
+if 1007 宝箱2开
+GAINGOODS 9 9
+setevent 1007
+宝箱2开:
+callback
+宝箱3:
+if 1008 宝箱3开
+GAINGOODS 9 27
+setevent 1008
+宝箱3开:
+callback
+
+gutevent 1 宝箱1
+gutevent 2 宝箱2
+gutevent 3 宝箱3
+gutevent 41 三清宫
+
+
+
+@普通弟子居1
+
+createbox 21 18 7 2
+createbox 22 18 14 3
+SETSCENENAME "普通弟子居1"
+SHOWSCENENAME
+callback
+
+三清宫:
+delallnpc
+loadmap 1 1 25 22
+if 259 回马枪
+STARTCHAPTER 2 1
+callback
+回马枪:
+STARTCHAPTER 1 2
+callback
+
+
+宝箱2:
+if 1013 宝箱2开
+GAINGOODS 9 22
+setevent 1013
+宝箱2开:
+callback
+宝箱3:
+if 1014 宝箱3开
+GAINMONEY 50
+setevent 1014
+宝箱3开:
+callback
+
+gutevent 21 宝箱2
+gutevent 22 宝箱3
+gutevent 41 三清宫
+
+
+
+@大师兄居
+
+createbox 1 18 7 3
+createbox 2 18 7 12
+SETSCENENAME "大师兄居"
+SHOWSCENENAME
+callback
+
+三清宫:
+delallnpc
+loadmap 1 1 12 25
+if 259 回马枪
+STARTCHAPTER 2 1
+callback
+回马枪:
+STARTCHAPTER 1 2
+callback
+
+宝箱1:
+if 1008 宝箱1开
+GAINGOODS 2 1
+setevent 1008
+宝箱1开:
+callback
+宝箱2:
+if 1009 宝箱2开
+GAINMONEY 150
+setevent 1009
+宝箱2开:
+callback
+
+gutevent 1 宝箱1
+gutevent 2 宝箱2
+gutevent 41 三清宫
+
+
+@普通弟子居2
+
+createbox 21 18 14 13
+createbox 22 18 4 13
+SETSCENENAME "普通弟子居2"
+SHOWSCENENAME
+callback
+
+三清宫:
+delallnpc
+loadmap 1 1 25 25
+if 259 回马枪
+STARTCHAPTER 2 1
+callback
+回马枪:
+STARTCHAPTER 1 2
+callback
+
+宝箱2:
+if 1015 宝箱2开
+GAINGOODS 11 5
+setevent 1015
+宝箱2开:
+callback
+宝箱3:
+if 1016 宝箱3开
+GAINMONEY 80
+setevent 1016
+宝箱3开:
+callback
+
+gutevent 21 宝箱2
+gutevent 22 宝箱3
+gutevent 41 三清宫
+
+
+
+@清风居
+
+createbox 1 18 5 4
+createbox 2 18 6 4
+createbox 20 18 8 3
+createbox 21 18 11 6
+createbox 22 18 5 12
+SETSCENENAME "清风居"
+SHOWSCENENAME
+callback
+
+三清宫:
+delallnpc
+loadmap 1 1 12 28
+if 259 回马枪
+STARTCHAPTER 2 1
+callback
+回马枪:
+STARTCHAPTER 1 2
+callback
+
+宝箱1:
+if 1010 宝箱1开
+GAINGOODS 1 1
+setevent 1010
+宝箱1开:
+callback
+宝箱2:
+if 1011 宝箱2开
+GAINGOODS 3 1
+setevent 1011
+宝箱2开:
+callback
+宝箱3:
+if 1012 宝箱3开
+GAINMONEY 200
+setevent 1012
+宝箱3开:
+callback
+
+休息:
+if 252 不休息
+IFCMP 1 1 已休息
+message "休息片刻 体力恢复"
+set 1 1
+RESUMEACTORHP 1 100
+callback
+已休息:
+say 1 "休息过了，精神不错，该出去了。"
+不休息:
+callback
+
+gutevent 1 休息
+gutevent 2 休息
+gutevent 20 宝箱1
+gutevent 21 宝箱2
+gutevent 22 宝箱3
+gutevent 41 三清宫
+
+
+
+@三清宫厨房
+
+createbox 1 18 6 6
+createbox 2 18 15 14
+createbox 3 18 6 3
+SETSCENENAME "三清宫厨房"
+SHOWSCENENAME
+callback
+
+三清宫:
+delallnpc
+loadmap 1 1 25 28
+if 259 回马枪
+STARTCHAPTER 2 1
+callback
+回马枪:
+STARTCHAPTER 1 2
+callback
+
+宝箱1:
+if 1017 宝箱1开
+GAINGOODS 9 3
+setevent 1017
+宝箱1开:
+callback
+宝箱2:
+if 1018 宝箱2开
+GAINGOODS 9 22
+setevent 1018
+宝箱2开:
+callback
+宝箱3:
+if 1019 宝箱3开
+GAINGOODS 9 16
+setevent 1019
+宝箱3开:
+callback
+
+gutevent 1 宝箱1
+gutevent 2 宝箱2
+gutevent 3 宝箱3
+gutevent 41 三清宫
+
+
+
+@百草地
+
+createbox 1 18 17 2
+createbox 2 18 4 2
+createbox 3 18 7 9
+SETSCENENAME "百草地"
+SHOWSCENENAME
+if 1 outback
+INITFIGHT 1 2 3 4 0 0 0 0 2 112 32
+outback:
+callback
+
+三清宫:
+delallnpc
+loadmap 1 1 1 3
+if 259 回马枪
+STARTCHAPTER 2 1
+callback
+回马枪:
+STARTCHAPTER 1 2
+callback
+
+竹林山道:
+IF 1 去见师父
+delallnpc
+loadmap 1 3 22 7
+STARTCHAPTER 2 13
+callback
+去见师父:
+say 1 "还是先去见师父再来玩吧。"
+callback
+
+宝箱1:
+if 1020 宝箱1开
+GAINGOODS 11 5
+setevent 1020
+宝箱1开:
+callback
+宝箱2:
+if 1021 宝箱2开
+GAINGOODS 7 9
+setevent 1021
+宝箱2开:
+callback
+宝箱3:
+if 1121 宝箱2开
+GAINGOODS 11 7
+setevent 1121
+宝箱3开:
+callback
+
+gutevent 1 宝箱1
+gutevent 2 宝箱2
+gutevent 3 宝箱3
+gutevent 41 三清宫
+gutevent 42 竹林山道
+
+
+
+@竹林山道
+
+SETSCENENAME "竹林山道"
+SHOWSCENENAME
+callback
+
+百草地:
+delallnpc
+loadmap 1 2 1 1
+STARTCHAPTER 2 12
+callback
+
+后山浮桥:
+delallnpc
+loadmap 1 4 22 6
+STARTCHAPTER 2 15
+callback
+
+三清坟场:
+delallnpc
+loadmap 1 7 1 15
+STARTCHAPTER 2 14
+callback
+
+gutevent 41 百草地
+gutevent 42 后山浮桥
+gutevent 43 三清坟场
+
+
+
+
+@三清坟场
+
+SETSCENENAME "三清坟场"
+SHOWSCENENAME
+callback
+
+竹林山道:
+delallnpc
+loadmap 1 3 14 2
+STARTCHAPTER 2 13
+callback
+
+
+gutevent 41 竹林山道
+
+
+
+@后山浮桥
+
+SETSCENENAME "后山浮桥"
+SHOWSCENENAME
+callback
+
+竹林山道:
+delallnpc
+loadmap 1 3 1 0
+STARTCHAPTER 2 13
+callback
+
+伏魔山道:
+delallnpc
+loadmap 1 5 12 5
+STARTCHAPTER 2 16
+callback
+
+gutevent 41 竹林山道
+gutevent 42 伏魔山道
+
+
+
+
+@伏魔山道
+
+SETSCENENAME "伏魔山道"
+SHOWSCENENAME
+callback
+
+后山浮桥:
+delallnpc
+loadmap 1 4 1 1
+STARTCHAPTER 2 15
+callback
+
+伏魔洞口:
+delallnpc
+loadmap 1 6 3 14
+STARTCHAPTER 2 17
+callback
+
+gutevent 41 后山浮桥
+gutevent 42 伏魔洞口
+
+
+
+
+@伏魔洞口
+if 260 正常
+INITFIGHT 2 3 4 0 0 0 0 0 2 112 32
+SETSCENENAME "伏魔洞口"
+SHOWSCENENAME
+if 31 山已塌
+if 19 挡路石
+goto 正常
+挡路石:
+say 1 "手好痛哦。还好跑得快，不然准连命都丢了。"
+CREATEBOX 1 10 6 3
+CREATEBOX 2 10 7 3
+CREATEBOX 3 10 6 4
+CREATEBOX 4 10 7 4
+NPCSTEP 0 0 1
+say 1 "哇，又塌了，太恐怖了，回去见师父。"
+setevent 31
+正常:
+callback
+山已塌:
+CREATEBOX 1 10 6 3
+CREATEBOX 2 10 7 3
+CREATEBOX 3 10 6 4
+CREATEBOX 4 10 7 4
+callback
+
+伏魔山道:
+delallnpc
+loadmap 1 5 1 1
+STARTCHAPTER 2 16
+callback
+
+伏魔洞:
+delallnpc
+loadmap 3 1 13 25
+STARTCHAPTER 2 18
+callback
+
+gutevent 41 伏魔山道
+gutevent 42 伏魔洞
+
+
+
+
+@伏魔洞
+SETSCENENAME "伏魔洞"
+SHOWSCENENAME
+if 260 回马枪
+INITFIGHT 2 3 4 0 0 0 0 0 2 112 32
+if 19 light1
+CREATEBOX 1 8 16 11
+light1:
+if 11 light2
+goto 有门
+light2:
+if 12 light3
+goto 有门
+light3:
+if 13 light4
+goto 有门
+light4:
+if 14 light5
+goto 有门
+light5:
+if 15 light6
+goto 有门
+light6:
+if 16 light7
+goto 有门
+light7:
+if 17 light8
+goto 有门
+light8:
+if 18 开门
+有门:
+CREATEBOX 2 6 16 14
+CREATEBOX 3 6 17 14
+开门:
+callback
+回马枪:
+createbox 18 18 16 11
+createbox 19 18 17 11
+createbox 17 18 16 10
+createbox 20 18 17 10
+createnpc 21 28 13 10
+createnpc 22 29 12 13
+createnpc 23 30 19 13
+createnpc 24 31 20 10
+callback
+
+取剑:
+setevent 19
+say 1 "果然是好剑！可以跟师父复命下山了。"
+ENTERFIGHT 0 10 11 10 2 112 32 0 0 0 10 0 0 lost win    @打护剑神
+lost:
+gameover
+callback
+win:
+say 1 "这护剑神果然厉害，差点我就打不过了。"
+DELETENPC 1
+showscreen
+gaingoods 14 12
+say 1 "好剑！"
+say 1 "感觉好象有点不对……，什么声音？？？"
+NPCSTEP 0 0 1
+NPCSTEP 0 1 1
+NPCSTEP 0 2 1
+NPCSTEP 0 3 1
+MOVIE 1 1 0 0 2
+delallnpc
+loadmap 1 6 3 2
+STARTCHAPTER 2 17
+callback
+
+伏魔洞口:
+delallnpc
+loadmap 1 6 3 1
+STARTCHAPTER 2 17
+callback
+
+灯洞1:
+delallnpc
+loadmap 3 2 0 9
+STARTCHAPTER 2 19
+callback
+
+
+灯洞2:
+delallnpc
+loadmap 3 3 0 1
+STARTCHAPTER 2 20
+callback
+
+灯洞3:
+delallnpc
+loadmap 3 4 15 18
+STARTCHAPTER 2 21
+callback
+
+灯洞4:
+delallnpc
+loadmap 3 5 0 0
+STARTCHAPTER 2 22
+callback
+
+灯洞5:
+delallnpc
+loadmap 3 2 0 9
+STARTCHAPTER 2 23
+callback
+
+灯洞6:
+delallnpc
+loadmap 3 3 0 1
+STARTCHAPTER 2 24
+callback
+
+灯洞7:
+delallnpc
+loadmap 3 4 15 18
+STARTCHAPTER 2 25
+callback
+
+灯洞8:
+delallnpc
+loadmap 3 5 0 0
+STARTCHAPTER 2 26
+callback
+
+护剑兽话:
+say 0 "护剑神:谁人如此大胆，竟敢触动伏魔宝剑？"
+say 1 "差点忘了，还有护剑神。"
+say 0 "你是谁？"
+say 1 "废话少说，看招！"
+callback
+
+放混元金斗:
+createnpc 39 25 17 10
+facetoface 39 0
+say 0 "护剑神:小子，又回来干吗？上次输给你我不服气，这次我不用帮手也能赢你。"
+CHOICE "免战" "欠扁" 比试
+say 1 "现在妖魔为患，除妖要紧。"
+say 0 "护剑神:好，今天你先除妖，改日我们再比。"
+goto 除妖要紧
+比试:
+ENTERFIGHT 0 0 63 0 2 112 32 0 0 0 30 0 0 lost 打赢超打护剑神
+打赢超打护剑神:
+say 0 "护剑神:哎，后生可畏呀！没想到我又输了。罢罢罢，好没面子呀，我去也。"
+除妖要紧:
+delallnpc
+createbox 30 41 16 11
+createbox 31 18 17 11
+message "混元金斗正位"
+showscreen
+message "妖魔立即消失"
+movie 1 3 0 0 0
+delallnpc
+message "若干年后"
+loadmap 2 7 7 5
+NPCSTEP 0 0 0
+CREATENPC 1 3 9 11
+CREATENPC 2 3 9 12
+CREATENPC 3 3 9 13
+CREATENPC 4 3 9 14
+NPCSTEP 1 0 0
+NPCSTEP 2 0 0
+NPCSTEP 3 0 0
+NPCSTEP 4 0 0
+
+CREATENPC 5 3 16 11
+CREATENPC 6 3 16 12
+CREATENPC 7 3 16 13
+CREATENPC 8 3 16 14
+NPCSTEP 5 0 1
+NPCSTEP 6 0 1
+NPCSTEP 7 0 1
+NPCSTEP 8 0 1
+
+createnpc 20 2 11 13
+move 20 11 9
+say 0 "道士:禀报掌门师兄，我已经找到蟋蟀和蝴蝶最多的地方了。"
+NPCSTEP 0 2 0
+say 1 "哦，快带我去。"
+say 0 "道士:是。"
+createnpc 21 6 17 7
+move 21 12 7
+say 2 "儿子都那么大了，还只知道玩，没有一点像做父亲的样儿！"
+say 1 "哎呀！老婆子又来啦，我们快逃，不然我非被念叨的爆牙而亡不可。"
+SHOWGUT 0 0 "  ====制作群组====    游戏引擎：          通宵虫  南方小鬼                        游戏制作：          通宵虫  南方小鬼                        游戏测试：          众多网友                                游戏序：            纯蓝守护者(网友)                            步步高游戏组           2004年6月                                                              "
+movie 1 4 0 0 0
+gameover
+callback
+
+战斗1:
+ENTERFIGHT 0 17 28 16 2 112 32 0 0 0 0 0 0 lost 战斗1胜
+战斗1胜:
+deletenpc 21
+callback
+战斗2:
+ENTERFIGHT 0 15 29 14 2 112 32 0 0 0 0 0 0 lost 战斗2胜
+战斗2胜:
+deletenpc 22
+callback
+战斗3:
+ENTERFIGHT 0 13 30 12 2 112 32 0 0 0 0 0 0 lost 战斗3胜
+战斗3胜:
+deletenpc 23
+callback
+战斗4:
+ENTERFIGHT 0 17 31 12 2 112 32 0 0 0 0 0 0 lost 战斗4胜
+战斗4胜:
+deletenpc 24
+callback
+
+超打护剑神:
+say 0 "护剑神:让你看看我的新绝招！"
+say 1 "我也不会很菜，看谁厉害。"
+callback
+
+gutevent 1 取剑
+gutevent 10 护剑兽话
+gutevent 17 放混元金斗
+gutevent 18 放混元金斗
+gutevent 19 放混元金斗
+gutevent 20 放混元金斗
+gutevent 21 战斗1
+gutevent 22 战斗2
+gutevent 23 战斗3
+gutevent 24 战斗4
+gutevent 30 超打护剑神
+gutevent 41 伏魔洞口
+gutevent 42 灯洞1
+gutevent 43 灯洞2
+gutevent 44 灯洞3
+gutevent 45 灯洞4
+gutevent 46 灯洞5
+gutevent 47 灯洞6
+gutevent 48 灯洞7
+gutevent 49 灯洞8
+
+
+
+@灯洞1
+
+CREATEBOX 21 9 6 5
+SETSCENENAME "灯洞1"
+SHOWSCENENAME
+CREATEBOX 1 7 12 6
+CREATEBOX 2 11 4 3
+CREATEBOX 3 10 20 3
+NPCSTEP 2 0 0
+if 11 灯灭
+callback
+灯灭:
+NPCMOVEMOD 1 0
+NPCSTEP 1 0 0
+callback
+
+战护灯兽:
+if 11 已战胜
+ENTERFIGHT 0 0 10 0 2 112 32 0 0 0 10 0 0 lost win
+lost:
+gameover
+callback
+win:
+say 1 "搞定灯一。"
+setevent 11
+NPCMOVEMOD 1 0
+NPCSTEP 1 0 0
+已战胜:
+callback
+
+护灯兽话:
+say 0 "护灯兽一：谁在这里撒野。"
+callback
+
+伏魔洞:
+delallnpc
+loadmap 3 1 21 18
+STARTCHAPTER 2 18
+callback
+
+宝箱3:
+if 1022 宝箱3开
+GAINMONEY 100
+deletebox 21
+setevent 1022
+宝箱3开:
+callback
+
+gutevent 21 宝箱3
+gutevent 1 战护灯兽
+gutevent 10 护灯兽话
+gutevent 41 伏魔洞
+
+
+
+
+@灯洞2
+
+CREATEBOX 21 9 7 5
+CREATEBOX 22 9 28 5
+CREATEBOX 1 7 17 5
+CREATEBOX 2 11 4 15
+CREATEBOX 3 9 6 5
+CREATEBOX 4 9 29 5
+SETSCENENAME "灯洞2"
+if 61 宝箱一已开
+goto 宝箱二开否
+宝箱一已开:
+deletebox 3
+宝箱二开否:
+if 62 宝箱二已开
+goto 宝箱二未开
+宝箱二已开:
+deletebox 4
+宝箱二未开:
+if 1023 宝箱1已开
+goto 宝箱2开否
+宝箱1已开:
+deletebox 21
+宝箱2开否:
+if 1024 宝箱2已开
+goto 宝箱2未开
+宝箱2已开:
+deletebox 22
+宝箱2未开:
+NPCSTEP 2 0 0
+if 12 灯灭
+SHOWSCENENAME
+callback
+灯灭:
+NPCMOVEMOD 1 0
+NPCSTEP 1 0 0
+SHOWSCENENAME
+callback
+
+战护灯兽:
+if 12 已战胜
+ENTERFIGHT 0 0 10 0 2 112 32 0 0 0 10 0 0 lost win
+lost:
+gameover
+callback
+win:
+say 1 "搞定灯二。"
+setevent 12
+NPCMOVEMOD 1 0
+NPCSTEP 1 0 0
+已战胜:
+callback
+
+护灯兽话:
+say 0 "护灯兽二：谁在这里撒野。"
+callback
+
+
+伏魔洞:
+delallnpc
+loadmap 3 1 21 19
+STARTCHAPTER 2 18
+callback
+
+开宝箱一:
+if 61 宝箱一开
+GAINGOODS 7 2
+DELETEbox 3
+setevent 61
+宝箱一开:
+callback
+开宝箱二:
+if 62 宝箱二开
+GAINGOODS 6 1
+DELETEbox 4
+setevent 62
+宝箱二开:
+callback
+
+宝箱1:
+if 1023 宝箱1开
+DELETEbox 21
+GAINGOODS 6 1
+setevent 1023
+宝箱1开:
+callback
+宝箱2:
+if 1024 宝箱2开
+DELETEbox 22
+GAINGOODS 7 2
+setevent 1024
+宝箱2开:
+callback
+
+gutevent 21 宝箱1
+gutevent 22 宝箱2
+gutevent 1 战护灯兽
+gutevent 3 开宝箱一
+gutevent 4 开宝箱二
+gutevent 10 护灯兽话
+gutevent 41 伏魔洞
+
+
+
+
+@灯洞3
+
+CREATEBOX 21 18 7 8
+CREATEBOX 22 18 4 12
+CREATEBOX 23 18 16 6
+SETSCENENAME "灯洞3"
+SHOWSCENENAME
+CREATEBOX 1 7 11 13
+CREATEBOX 2 11 4 3
+NPCSTEP 2 0 0
+if 13 灯灭
+callback
+灯灭:
+NPCMOVEMOD 1 0
+NPCSTEP 1 0 0
+callback
+
+战护灯兽:
+if 13 已战胜
+ENTERFIGHT 0 0 10 0 2 112 32 0 0 0 10 0 0 lost win
+lost:
+gameover
+callback
+win:
+say 1 "搞定灯三。"
+setevent 13
+NPCMOVEMOD 1 0
+NPCSTEP 1 0 0
+已战胜:
+callback
+
+护灯兽话:
+say 0 "护灯兽三：谁在这里撒野。"
+callback
+
+
+伏魔洞:
+delallnpc
+loadmap 3 1 21 20
+STARTCHAPTER 2 18
+callback
+
+灯洞3:
+loadmap 3 4 5 0
+callback
+
+
+宝箱1:
+if 1025 宝箱1开
+GAINGOODS 8 8
+setevent 1025
+宝箱1开:
+callback
+宝箱2:
+if 1026 宝箱2开
+GAINGOODS 8 30
+setevent 1026
+宝箱2开:
+callback
+宝箱3:
+if 1027 宝箱3开
+GAINGOODS 8 1
+setevent 1027
+宝箱3开:
+callback
+
+gutevent 21 宝箱1
+gutevent 22 宝箱2
+gutevent 23 宝箱3
+gutevent 1 战护灯兽
+gutevent 10 护灯兽话
+gutevent 41 伏魔洞
+gutevent 43 灯洞3
+
+
+
+
+@灯洞4
+
+SETSCENENAME "灯洞4"
+SHOWSCENENAME
+CREATEBOX 1 7 5 8
+CREATEBOX 2 11 4 5
+CREATEBOX 3 10 8 5
+NPCSTEP 2 0 0
+if 14 灯灭
+callback
+灯灭:
+NPCMOVEMOD 1 0
+NPCSTEP 1 0 0
+callback
+
+战护灯兽:
+if 14 已战胜
+ENTERFIGHT 0 0 10 0 2 112 32 0 0 0 10 0 0 lost win
+lost:
+gameover
+callback
+win:
+say 1 "搞定灯四。"
+setevent 14
+NPCMOVEMOD 1 0
+NPCSTEP 1 0 0
+已战胜:
+callback
+
+护灯兽话:
+say 0 "护灯兽四：谁在这里撒野。"
+callback
+
+
+伏魔洞:
+delallnpc
+loadmap 3 1 21 21
+STARTCHAPTER 2 18
+callback
+
+gutevent 1 战护灯兽
+gutevent 10 护灯兽话
+gutevent 41 伏魔洞
+
+
+
+
+@灯洞5
+
+CREATEBOX 21 9 17 5
+if 1028 宝箱1已开
+goto 宝箱2开否
+宝箱1已开:
+deletebox 21
+宝箱2开否:
+SETSCENENAME "灯洞5"
+SHOWSCENENAME
+CREATEBOX 1 7 8 3
+CREATEBOX 2 11 20 3
+CREATEBOX 3 10 4 3
+NPCSTEP 2 0 1
+if 15 灯灭
+callback
+灯灭:
+NPCMOVEMOD 1 0
+NPCSTEP 1 0 0
+callback
+
+战护灯兽:
+if 15 已战胜
+ENTERFIGHT 0 0 10 0 2 112 32 0 0 0 10 0 0 lost win
+lost:
+gameover
+callback
+win:
+say 1 "搞定灯五。"
+setevent 15
+NPCMOVEMOD 1 0
+NPCSTEP 1 0 0
+已战胜:
+callback
+
+护灯兽话:
+say 0 "护灯兽五：谁在这里撒野。"
+callback
+
+
+伏魔洞:
+delallnpc
+loadmap 3 1 4 18
+STARTCHAPTER 2 18
+callback
+
+宝箱1:
+if 1028 宝箱1开
+deletebox 21
+GAINGOODS 8 1
+setevent 1028
+宝箱1开:
+callback
+
+gutevent 21 宝箱1
+gutevent 1 战护灯兽
+gutevent 10 护灯兽话
+gutevent 42 伏魔洞
+
+
+
+
+@灯洞6
+
+CREATEBOX 21 9 7 5
+CREATEBOX 22 9 28 5
+if 1029 宝箱1已开
+goto 宝箱2开否
+宝箱1已开:
+deletebox 21
+宝箱2开否:
+if 1030 宝箱2已开
+goto 宝箱2未开
+宝箱2已开:
+deletebox 22
+宝箱2未开:
+
+SETSCENENAME "灯洞6"
+SHOWSCENENAME
+CREATEBOX 1 7 17 5
+CREATEBOX 2 11 31 15
+CREATEBOX 3 9 6 5
+CREATEBOX 4 9 29 5
+if 63 宝箱一已开
+goto 宝箱二开否
+宝箱一已开:
+deletebox 3
+宝箱二开否:
+if 64 宝箱二已开
+goto 宝箱二未开
+宝箱二已开:
+deletebox 4
+宝箱二未开:
+NPCSTEP 2 0 1
+if 16 灯灭
+callback
+灯灭:
+NPCMOVEMOD 1 0
+NPCSTEP 1 0 0
+callback
+
+战护灯兽:
+if 16 已战胜
+ENTERFIGHT 0 0 10 0 2 112 32 0 0 0 10 0 0 lost win
+lost:
+gameover
+callback
+win:
+say 1 "搞定灯六。"
+setevent 16
+NPCMOVEMOD 1 0
+NPCSTEP 1 0 0
+已战胜:
+callback
+
+护灯兽话:
+say 0 "护灯兽六：谁在这里撒野。"
+callback
+
+
+伏魔洞:
+delallnpc
+loadmap 3 1 2 18
+STARTCHAPTER 2 18
+callback
+
+开宝箱一:
+if 63 宝箱一开
+deletebox 3
+GAINGOODS 8 13
+setevent 63
+宝箱一开:
+callback
+开宝箱二:
+if 64 宝箱二开
+deletebox 4
+GAINGOODS 6 1
+setevent 64
+宝箱二开:
+callback
+
+宝箱1:
+if 1029 宝箱1开
+deletebox 21
+GAINGOODS 8 9
+setevent 1029
+宝箱1开:
+callback
+宝箱2:
+if 1030 宝箱2开
+deletebox 21
+GAINGOODS 8 17
+setevent 1030
+宝箱2开:
+callback
+
+gutevent 21 宝箱1
+gutevent 22 宝箱2
+gutevent 1 战护灯兽
+gutevent 3 开宝箱一
+gutevent 4 开宝箱二
+gutevent 10 护灯兽话
+gutevent 42 伏魔洞
+
+
+
+
+@灯洞7
+
+CREATEBOX 21 18 16 6
+SETSCENENAME "灯洞7"
+SHOWSCENENAME
+CREATEBOX 1 7 11 13
+CREATEBOX 2 11 19 3
+NPCSTEP 2 0 1
+if 17 灯灭
+callback
+灯灭:
+NPCMOVEMOD 1 0
+NPCSTEP 1 0 0
+callback
+
+战护灯兽:
+if 17 已战胜
+ENTERFIGHT 0 0 10 0 2 112 32 0 0 0 10 0 0 lost win
+lost:
+gameover
+callback
+win:
+say 1 "搞定灯七。"
+setevent 17
+NPCMOVEMOD 1 0
+NPCSTEP 1 0 0
+已战胜:
+callback
+
+护灯兽话:
+say 0 "护灯兽七：谁在这里撒野。"
+callback
+
+
+伏魔洞:
+delallnpc
+loadmap 3 1 4 20
+STARTCHAPTER 2 18
+callback
+
+灯洞7:
+loadmap 3 4 7 0
+callback
+
+宝箱1:
+if 1031 宝箱1开
+GAINGOODS 8 10
+setevent 1031
+宝箱1开:
+callback
+
+gutevent 21 宝箱1
+gutevent 1 战护灯兽
+gutevent 10 护灯兽话
+gutevent 42 伏魔洞
+gutevent 43 灯洞7
+
+
+
+
+@灯洞8
+
+SETSCENENAME "灯洞8"
+SHOWSCENENAME
+CREATEBOX 1 7 7 8
+CREATEBOX 2 11 8 5
+CREATEBOX 3 10 4 5
+NPCSTEP 2 0 1
+if 18 灯灭
+callback
+灯灭:
+NPCMOVEMOD 1 0
+NPCSTEP 1 0 0
+callback
+
+战护灯兽:
+if 18 已战胜
+ENTERFIGHT 0 0 10 0 2 112 32 0 0 0 10 0 0 lost win
+lost:
+gameover
+callback
+win:
+say 1 "搞定灯八。"
+setevent 18
+NPCMOVEMOD 1 0
+NPCSTEP 1 0 0
+已战胜:
+callback
+
+护灯兽话:
+say 0 "护灯兽八：谁在这里撒野。"
+callback
+
+
+伏魔洞:
+delallnpc
+loadmap 3 1 4 21
+STARTCHAPTER 2 18
+callback
+
+gutevent 1 战护灯兽
+gutevent 10 护灯兽话
+gutevent 42 伏魔洞
+
+
+
+
+@步云桥
+
+SETSCENENAME "步云桥"
+SHOWSCENENAME
+callback
+
+摩天顶:
+loadmap 1 9 8 0
+STARTCHAPTER 2 32
+callback
+三清宫:
+loadmap 1 1 18 39
+if 259 回马枪
+STARTCHAPTER 2 1
+callback
+回马枪:
+STARTCHAPTER 1 2
+callback
+
+gutevent 41 摩天顶
+gutevent 42 三清宫
+
+
+
+@摩天顶
+
+if 259 正常
+if 254 回马枪
+goto 正常
+回马枪:
+createbox 1 40 11 7
+createbox 2 18 12 7
+createbox 3 40 7 11
+createbox 4 18 8 11
+createbox 5 40 11 15
+createbox 6 18 12 15
+createbox 7 40 15 11
+createbox 8 18 16 11
+createbox 9 41 11 11
+createbox 10 18 12 11
+正常:
+SETSCENENAME "摩天顶"
+SHOWSCENENAME
+callback
+
+步云桥:
+if 259 上山
+if 254 lossto
+上山:
+loadmap 1 8 0 43
+STARTCHAPTER 2 31
+callback
+观星亭:
+setevent 100
+loadmap 1 10 30 1
+STARTCHAPTER 2 34
+
+@loadmap 1 12 10 5
+@STARTCHAPTER 2 33
+callback
+竖桥:
+竖桥1上:
+setevent 101
+loadmap 1 11 0 1
+STARTCHAPTER 2 35
+callback
+callback
+
+东苍龙:
+if 255 败苍龙
+if 2002 斗苍龙
+斗苍龙:
+CHOICE "    取消" "使用苍龙之精" 打败苍龙
+goto lossto
+打败苍龙:
+usegoods 14 8 没此物品
+setevent 255
+败苍龙:
+callback
+西白虎:
+if 256 败白虎
+if 2002 斗白虎
+goto lossto
+斗白虎:
+CHOICE "    取消" "使用白虎之精" 打败白虎
+goto 败白虎
+打败白虎:
+usegoods 14 9 没此物品
+setevent 256
+败白虎:
+callback
+南朱雀:
+if 257 败朱雀
+if 2002 斗朱雀
+goto lossto
+斗朱雀:
+CHOICE "    取消" "使用朱雀之精" 打败朱雀
+goto 败朱雀
+打败朱雀:
+usegoods 14 10 没此物品
+setevent 257
+败朱雀:
+callback
+北玄武:
+if 258 败玄武
+if 2002 斗玄武
+goto lossto
+斗玄武:
+CHOICE "    取消" "使用玄武之精" 打败玄武
+goto 败玄武
+打败玄武:
+usegoods 14 11 没此物品
+setevent 258
+败玄武:
+callback
+
+没此物品:
+message "没此物品"
+lossto:
+message "魂魄被吸走"
+gameover
+callback
+
+
+进诛仙阵:
+if 254 戴天星灯否
+goto 戴天星灯
+戴天星灯否:
+if 2002 戴天星灯
+goto lossto
+戴天星灯:
+callback
+
+战诛仙:
+if 2002 开战诛仙
+goto lossto
+开战诛仙:
+if 255 苍龙败
+goto lossto
+苍龙败:
+if 256 白虎败
+goto lossto
+白虎败:
+if 257 朱雀败
+goto lossto
+朱雀败:
+if 257 玄武败
+goto lossto
+玄武败:
+ENTERFIGHT 0 0 46 0 1 111 31 0 0 0 20 0 0 lossto 打败诛仙
+打败诛仙:
+setevent 259
+message "四象诛仙阵被破"
+delallnpc
+showscreen
+gaingoods 14 13
+callback
+
+诛仙话:
+say 0 "诛仙:谁人如此大胆，敢闯我诛仙阵，我叫你魂飞魄散！"
+callback
+
+gutevent 1 北玄武
+gutevent 2 北玄武
+gutevent 3 西白虎
+gutevent 4 西白虎
+gutevent 5 南朱雀
+gutevent 6 南朱雀
+gutevent 7 东苍龙
+gutevent 8 东苍龙
+gutevent 9 战诛仙
+gutevent 10 战诛仙
+gutevent 20 诛仙话
+gutevent 41 竖桥
+gutevent 42 步云桥
+gutevent 43 观星亭
+gutevent 44 进诛仙阵
+
+
+
+
+
+
+@观星亭
+
+SETSCENENAME "观星亭"
+SHOWSCENENAME
+if 260 回马枪
+if 90 箱子开
+CREATEBOX 1 9 13 3
+箱子开:
+callback
+回马枪:
+if 1104 箱子开
+CREATEBOX 1 9 13 3
+callback
+
+摩天顶:
+setevent 100
+delallnpc
+loadmap 1 10 1 1
+STARTCHAPTER 2 34
+callback
+
+开箱子:
+if 260 回箱子
+setevent 90
+GAINGOODS 6 8
+deletenpc 1
+callback
+回箱子:
+CHOICE "取消" "使用万能钥匙" 打开
+callback
+没有钥匙:
+message "没有钥匙"
+callback
+打开:
+usegoods 14 2 没有钥匙
+setevent 1104
+GAINGOODS 7 32
+deletenpc 1
+callback
+
+gutevent 1 开箱子
+gutevent 41 摩天顶
+
+
+
+@横桥
+
+SETSCENENAME "横桥"
+callback
+
+左出口:
+if 100 观星亭
+if 101 台4
+if 102 横桥1右
+if 103 横桥2右
+if 104 台11右
+if 105 台14右
+if 106 台21右
+if 107 横桥6右
+if 108 台22右
+if 109 台23右
+callback
+观星亭:
+clrevent 100
+loadmap 1 12 10 5
+STARTCHAPTER 2 33
+callback
+台4:
+clrevent 101
+setevent 104
+loadmap 1 15 8 5
+STARTCHAPTER 2 38
+callback
+横桥1右:
+clrevent 102
+setevent 101
+loadmap 1 10 30 1
+STARTCHAPTER 2 34
+callback
+横桥2右:
+clrevent 103
+setevent 102
+loadmap 1 10 30 1
+STARTCHAPTER 2 34
+callback
+台11右:
+clrevent 104
+setevent 111
+loadmap 1 15 8 5
+STARTCHAPTER 2 38
+callback
+台14右:
+clrevent 105
+setevent 114
+loadmap 1 14 8 5
+STARTCHAPTER 2 37
+callback
+台21右:
+clrevent 106
+setevent 121
+loadmap 1 15 8 5
+STARTCHAPTER 2 38
+callback
+横桥6右:
+clrevent 107
+setevent 101
+loadmap 1 10 30 1
+STARTCHAPTER 2 34
+callback
+台22右:
+clrevent 108
+setevent 122
+loadmap 1 15 8 5
+STARTCHAPTER 2 38
+callback
+台23右:
+clrevent 109
+setevent 123
+loadmap 1 14 8 5
+STARTCHAPTER 2 37
+callback
+
+
+右出口:
+if 100 摩天顶
+if 101 横桥2左
+if 102 横桥3左
+if 103 台6左
+if 104 台12左
+if 105 台15左
+if 106 横桥7左
+if 107 台22左
+if 108 台23左
+if 109 台24左
+callback
+摩天顶:
+clrevent 100
+loadmap 1 9 1 7
+STARTCHAPTER 2 32
+callback
+横桥2左:
+clrevent 101
+setevent 102
+loadmap 1 10 1 1
+STARTCHAPTER 2 34
+callback
+横桥3左:
+clrevent 102
+setevent 103
+loadmap 1 10 1 1
+STARTCHAPTER 2 34
+callback
+台6左:
+clrevent 103
+setevent 106
+loadmap 1 15 1 5
+STARTCHAPTER 2 38
+callback
+台12左:
+clrevent 104
+setevent 112
+loadmap 1 15 1 5
+STARTCHAPTER 2 38
+callback
+台15左:
+clrevent 105
+setevent 115
+loadmap 1 14 1 5
+STARTCHAPTER 2 37
+callback
+横桥7左:
+clrevent 106
+setevent 107
+loadmap 1 10 1 1
+STARTCHAPTER 2 34
+callback
+台22左:
+clrevent 107
+setevent 122
+loadmap 1 15 1 5
+STARTCHAPTER 2 38
+callback
+台23左:
+clrevent 108
+setevent 123
+loadmap 1 14 1 5
+STARTCHAPTER 2 37
+callback
+台24左:
+clrevent 109
+setevent 124
+loadmap 1 15 1 5
+STARTCHAPTER 2 38
+callback
+
+gutevent 41 右出口
+gutevent 42 左出口
+
+
+@竖桥
+
+SETSCENENAME "竖桥"
+callback
+
+上出口:
+if 101 摩天顶
+if 102 台5
+if 103 台3下
+if 104 台4下
+if 105 台6下
+if 106 竖桥3
+if 107 竖桥5下
+if 108 台11下
+if 109 台13下
+if 110 台16下
+if 111 竖桥8下
+if 112 竖桥9下
+if 113 竖桥10下
+if 114 竖桥12下
+callback
+摩天顶:
+clrevent 101
+loadmap 1 9 8 17
+STARTCHAPTER 2 32
+callback
+台5:
+clrevent 102
+setevent 105
+loadmap 1 17 4 8
+STARTCHAPTER 2 40
+callback
+台3下:
+loadmap 1 15 4 9
+STARTCHAPTER 2 38
+callback
+台4下:
+loadmap 1 15 4 9
+STARTCHAPTER 2 38
+callback
+台6下:
+clrevent 105
+setevent 106
+loadmap 1 15 4 9
+STARTCHAPTER 2 38
+callback
+竖桥3:
+clrevent 106
+setevent 103
+loadmap 1 11 0 33
+STARTCHAPTER 2 35
+callback
+竖桥5下:
+clrevent 107
+setevent 105
+loadmap 1 11 0 33
+STARTCHAPTER 2 35
+callback
+台11下:
+clrevent 108
+setevent 104
+loadmap 1 15 4 9
+STARTCHAPTER 2 38
+callback
+台13下:
+clrevent 109
+setevent 113
+loadmap 1 15 4 9
+STARTCHAPTER 2 38
+callback
+台16下:
+clrevent 110
+setevent 116
+loadmap 1 15 4 9
+STARTCHAPTER 2 38
+callback
+竖桥8下:
+clrevent 111
+setevent 108
+loadmap 1 11 0 33
+STARTCHAPTER 2 35
+callback
+竖桥9下:
+clrevent 112
+setevent 109
+loadmap 1 11 0 33
+STARTCHAPTER 2 35
+callback
+竖桥10下:
+clrevent 113
+setevent 110
+loadmap 1 11 0 33
+STARTCHAPTER 2 35
+callback
+竖桥12下:
+clrevent 114
+setevent 112
+loadmap 1 11 0 33
+STARTCHAPTER 2 35
+callback
+
+
+
+下出口:
+if 101 台4
+if 102 台6
+if 103 竖桥6
+if 104 台9上
+if 105 竖桥7
+if 106 台12上
+if 107 台16上
+if 108 竖桥11上
+if 109 竖桥12上
+if 110 竖桥13上
+if 111 台19上
+if 112 竖桥14上
+if 113 台20上
+if 114 台22上
+callback
+台4:
+clrevent 101
+setevent 104
+loadmap 1 15 4 1
+STARTCHAPTER 2 38
+callback
+台6:
+clrevent 102
+setevent 104
+loadmap 1 15 4 1
+STARTCHAPTER 2 38
+callback
+竖桥6:
+clrevent 103
+setevent 106
+loadmap 1 11 0 1
+STARTCHAPTER 2 35
+callback
+台9上:
+clrevent 104
+setevent 109
+loadmap 1 13 4 2
+STARTCHAPTER 2 36
+callback
+竖桥7:
+clrevent 105
+setevent 107
+loadmap 1 11 0 1
+STARTCHAPTER 2 35
+callback
+台12上:
+clrevent 106
+setevent 112
+loadmap 1 15 4 1
+STARTCHAPTER 2 38
+callback
+台16上:
+clrevent 107
+setevent 116
+loadmap 1 15 4 1
+STARTCHAPTER 2 38
+callback
+竖桥11上:
+clrevent 108
+setevent 111
+loadmap 1 11 0 1
+STARTCHAPTER 2 35
+callback
+竖桥12上:
+clrevent 109
+setevent 112
+loadmap 1 11 0 1
+STARTCHAPTER 2 35
+callback
+竖桥13上:
+clrevent 110
+setevent 113
+loadmap 1 11 0 1
+STARTCHAPTER 2 35
+callback
+台19上:
+clrevent 111
+setevent 119
+loadmap 1 13 4 2
+STARTCHAPTER 2 36
+callback
+竖桥14上:
+clrevent 112
+setevent 114
+loadmap 1 11 0 1
+STARTCHAPTER 2 35
+callback
+台20上:
+clrevent 113
+setevent 120
+loadmap 1 13 4 2
+STARTCHAPTER 2 36
+callback
+台22上:
+clrevent 114
+setevent 122
+loadmap 1 15 4 1
+STARTCHAPTER 2 38
+callback
+
+gutevent 41 上出口
+gutevent 42 下出口
+
+
+@歇息台子1
+
+
+SETSCENENAME "歇息台子"
+callback
+
+上出口:
+if 109 竖桥4下
+if 119 竖桥11下
+if 120 竖桥13下
+callback
+竖桥4下:
+clrevent 109
+setevent 104
+loadmap 1 11 0 33
+STARTCHAPTER 2 35
+callback
+竖桥11下:
+clrevent 119
+setevent 111
+loadmap 1 11 0 33
+STARTCHAPTER 2 35
+callback
+竖桥13下:
+clrevent 119
+setevent 113
+loadmap 1 11 0 33
+STARTCHAPTER 2 35
+callback
+
+下出口:
+if 109 台13上
+if 119 台21上
+if 120 台24上
+callback
+台13上:
+clrevent 109
+setevent 113
+loadmap 1 15 4 1
+STARTCHAPTER 2 38
+callback
+台21上:
+clrevent 119
+setevent 121
+loadmap 1 15 4 1
+STARTCHAPTER 2 38
+callback
+台24上:
+clrevent 120
+setevent 124
+loadmap 1 15 4 1
+STARTCHAPTER 2 38
+callback
+
+gutevent 41 上出口
+gutevent 42 下出口
+
+
+@歇息台子2
+
+
+SETSCENENAME "歇息台子"
+callback
+
+左出口:
+if 114 台13右
+if 115 横桥5右
+if 123 横桥8右
+callback
+台13右:
+clrevent 114
+setevent 113
+loadmap 1 15 8 5
+STARTCHAPTER 2 38
+callback
+横桥5右:
+clrevent 115
+setevent 105
+loadmap 1 10 30 1
+STARTCHAPTER 2 34
+callback
+横桥8右:
+clrevent 123
+setevent 108
+loadmap 1 10 30 1
+STARTCHAPTER 2 34
+callback
+
+右出口:
+if 114 横桥5左
+if 115 台16左
+if 123 横桥9左
+callback
+横桥5左:
+clrevent 114
+setevent 105
+loadmap 1 10 1 1
+STARTCHAPTER 2 34
+callback
+台16左:
+clrevent 115
+setevent 116
+loadmap 1 15 1 5
+STARTCHAPTER 2 38
+callback
+横桥9左:
+clrevent 123
+setevent 109
+loadmap 1 10 1 1
+STARTCHAPTER 2 34
+callback
+
+gutevent 41 左出口
+gutevent 42 右出口
+
+
+@歇息台子3
+
+
+SETSCENENAME "歇息台子"
+callback
+
+上出口:
+if 103 台1下
+if 104 竖桥1下
+if 106 竖桥2下
+if 111 台8下
+if 112 竖桥6下
+if 113 台9下
+if 116 竖桥7下
+if 121 台19下
+if 122 竖桥14下
+if 124 台20下
+callback
+台1下:
+clrevent 103
+setevent 101
+loadmap 1 17 4 8
+STARTCHAPTER 2 40
+callback
+竖桥1下:
+clrevent 104
+setevent 101
+loadmap 1 11 0 33
+STARTCHAPTER 2 35
+callback
+竖桥2下:
+clrevent 106
+setevent 102
+loadmap 1 11 0 33
+STARTCHAPTER 2 35
+callback
+台8下:
+clrevent 111
+setevent 108
+loadmap 1 17 4 8
+STARTCHAPTER 2 40
+callback
+竖桥6下:
+clrevent 112
+setevent 106
+loadmap 1 11 0 33
+STARTCHAPTER 2 35
+callback
+台9下:
+clrevent 113
+setevent 109
+loadmap 1 13 4 6
+STARTCHAPTER 2 36
+callback
+竖桥7下:
+clrevent 116
+setevent 107
+loadmap 1 11 0 33
+STARTCHAPTER 2 35
+callback
+台19下:
+clrevent 121
+setevent 119
+loadmap 1 13 4 6
+STARTCHAPTER 2 36
+callback
+竖桥14下:
+clrevent 122
+setevent 114
+loadmap 1 11 0 33
+STARTCHAPTER 2 35
+callback
+台20下:
+clrevent 124
+setevent 120
+loadmap 1 13 4 6
+STARTCHAPTER 2 36
+callback
+
+
+下出口:
+if 103 竖桥3上
+if 104 竖桥4上
+if 106 竖桥5上
+if 111 竖桥8上
+if 112 台18上
+if 113 竖桥9上
+if 116 竖桥10上
+if 121 台28上
+if 122 三清山入口
+if 124 台26上
+callback
+竖桥3上:
+@clrevent 103
+@setevent 103
+loadmap 1 11 0 1
+STARTCHAPTER 2 35
+callback
+竖桥4上:
+@clrevent 104
+@setevent 104
+loadmap 1 11 0 1
+STARTCHAPTER 2 35
+callback
+竖桥5上:
+clrevent 106
+setevent 105
+loadmap 1 11 0 1
+STARTCHAPTER 2 35
+callback
+竖桥8上:
+clrevent 111
+setevent 108
+loadmap 1 11 0 1
+STARTCHAPTER 2 35
+callback
+台18上:
+clrevent 112
+setevent 118
+loadmap 1 16 4 1
+STARTCHAPTER 2 39
+callback
+竖桥9上:
+clrevent 113
+setevent 109
+loadmap 1 11 0 1
+STARTCHAPTER 2 35
+callback
+竖桥10上:
+clrevent 116
+setevent 110
+loadmap 1 11 0 1
+STARTCHAPTER 2 35
+callback
+台28上:
+clrevent 121
+setevent 128
+loadmap 1 16 4 1
+STARTCHAPTER 2 39
+callback
+三清山入口:
+clrevent 122
+loadmap 1 20 7 1
+STARTCHAPTER 2 43
+callback
+台26上:
+clrevent 124
+setevent 126
+loadmap 1 16 4 1
+STARTCHAPTER 2 39
+callback
+
+
+
+左出口:
+if 103 台2右
+if 104 台3右
+if 106 横桥3右
+if 111 台10右
+if 112 横桥4右
+if 113 台12右
+if 116 台15右
+if 121 台27右
+if 122 横桥7右
+if 124 横桥9右
+callback
+台2右:
+clrevent 103
+setevent 102
+loadmap 1 19 8 4
+STARTCHAPTER 2 42
+callback
+台3右:
+clrevent 104
+setevent 103
+loadmap 1 15 8 5
+STARTCHAPTER 2 38
+callback
+横桥3右:
+clrevent 106
+setevent 103
+loadmap 1 10 30 1
+STARTCHAPTER 2 34
+callback
+台10右:
+clrevent 111
+setevent 110
+loadmap 1 19 8 4
+STARTCHAPTER 2 42
+callback
+横桥4右:
+clrevent 112
+setevent 104
+loadmap 1 10 30 1
+STARTCHAPTER 2 34
+callback
+台12右:
+clrevent 113
+setevent 112
+loadmap 1 15 8 5
+STARTCHAPTER 2 38
+callback
+台15右:
+clrevent 116
+setevent 115
+loadmap 1 14 8 5
+STARTCHAPTER 2 37
+callback
+台27右:
+clrevent 121
+setevent 127
+loadmap 1 19 8 4
+STARTCHAPTER 2 42
+callback
+横桥7右:
+clrevent 122
+setevent 107
+loadmap 1 10 30 1
+STARTCHAPTER 2 34
+callback
+横桥9右:
+clrevent 124
+setevent 109
+loadmap 1 10 30 1
+STARTCHAPTER 2 34
+callback
+
+
+
+右出口:
+if 103 台4左
+if 104 横桥1左
+if 106 台7左
+if 111 横桥4左
+if 112 台13左
+if 113 台14左
+if 116 台17左
+if 121 横桥6左
+if 122 横桥8左
+if 124 台25左
+callback
+台4左:
+clrevent 103
+setevent 104
+loadmap 1 15 1 5
+STARTCHAPTER 2 38
+callback
+横桥1左:
+clrevent 104
+setevent 101
+loadmap 1 10 1 1
+STARTCHAPTER 2 34
+callback
+台7左:
+clrevent 106
+setevent 107
+loadmap 1 18 1 4
+STARTCHAPTER 2 41
+callback
+横桥4左:
+clrevent 111
+setevent 104
+loadmap 1 10 1 1
+STARTCHAPTER 2 34
+callback
+台13左:
+clrevent 112
+setevent 113
+loadmap 1 15 1 5
+STARTCHAPTER 2 38
+callback
+台14左:
+clrevent 113
+setevent 114
+loadmap 1 14 1 5
+STARTCHAPTER 2 37
+callback
+台17左:
+clrevent 116
+setevent 117
+loadmap 1 18 1 4
+STARTCHAPTER 2 41
+callback
+横桥6左:
+clrevent 121
+setevent 106
+loadmap 1 10 1 1
+STARTCHAPTER 2 34
+callback
+横桥8左:
+clrevent 122
+setevent 108
+loadmap 1 10 1 1
+STARTCHAPTER 2 34
+callback
+台25左:
+clrevent 124
+setevent 125
+loadmap 1 18 1 4
+STARTCHAPTER 2 41
+callback
+
+gutevent 41 上出口
+gutevent 42 下出口
+gutevent 43 右出口
+gutevent 44 左出口
+
+
+@歇息台子4
+
+if 260 回马枪
+if 118 开闭18
+if 126 开闭26
+if 128 开闭28
+开闭18:
+if 71 箱子开
+goto 箱子
+开闭26:
+if 72 箱子开
+goto 箱子
+开闭28:
+if 73 箱子开
+goto 箱子
+回马枪:
+if 118 开闭1101
+if 126 开闭1102
+if 128 开闭1103
+开闭1101:
+if 1101 箱子开
+goto 箱子
+开闭1102:
+if 1102 箱子开
+goto 箱子
+开闭1103:
+if 1103 箱子开
+箱子:
+CREATEBOX 1 9 12 12
+箱子开:
+SETSCENENAME "歇息台子"
+callback
+
+上出口:
+delallnpc
+if 118 台12下
+if 126 台24下
+if 128 台21下
+callback
+台12下:
+clrevent 118
+setevent 112
+loadmap 1 15 4 9
+STARTCHAPTER 2 38
+callback
+台24下:
+clrevent 126
+setevent 124
+loadmap 1 15 4 9
+STARTCHAPTER 2 38
+callback
+台21下:
+clrevent 128
+setevent 121
+loadmap 1 15 4 9
+STARTCHAPTER 2 38
+callback
+
+宝箱:
+if 260 回箱子
+deletenpc 1
+if 118 开18
+if 126 开26
+if 128 开28
+callback
+开18:
+setevent 71
+GAINGOODS 1 3
+callback
+开26:
+setevent 72
+GAINGOODS 1 7
+callback
+开28:
+setevent 73
+GAINGOODS 3 7
+callback
+回箱子:
+deletenpc 1
+if 118 开1101
+if 126 开1102
+if 128 开1103
+callback
+开1101:
+setevent 1101
+GAINGOODS 1 15
+callback
+开1102:
+setevent 1102
+GAINGOODS 3 13
+callback
+开1103:
+setevent 1103
+GAINGOODS 5 5
+callback
+
+gutevent 1 宝箱
+gutevent 41 上出口
+
+
+@歇息台子5
+
+if 101 开闭18
+if 105 开闭26
+if 108 开闭28
+开闭18:
+if 74 箱子开
+goto 箱子
+开闭26:
+if 252 回马枪箱
+goto 箱子开
+回马枪箱:
+if 75 箱子开
+goto 箱子
+开闭28:
+if 76 箱子开
+箱子:
+CREATEBOX 1 9 4 5
+箱子开:
+SETSCENENAME "歇息台子"
+callback
+
+下出口:
+delallnpc
+if 101 台3上
+if 105 竖桥2上
+if 108 台11上
+callback
+台3上:
+clrevent 101
+setevent 103
+loadmap 1 15 4 1
+STARTCHAPTER 2 38
+callback
+竖桥2上:
+clrevent 105
+setevent 102
+loadmap 1 11 0 1
+STARTCHAPTER 2 35
+callback
+台11上:
+clrevent 108
+setevent 111
+loadmap 1 15 4 1
+STARTCHAPTER 2 38
+callback
+
+宝箱:
+deletenpc 1
+if 101 开18
+if 105 开26
+if 108 开28
+callback
+开18:
+setevent 74
+GAINGOODS 4 3
+callback
+开26:
+setevent 75
+GAINGOODS 5 4
+callback
+开28:
+setevent 76
+GAINGOODS 7 24
+callback
+
+gutevent 1 宝箱
+gutevent 41 下出口
+
+
+@歇息台子6
+
+
+if 107 开闭18
+if 117 开闭26
+if 125 开闭28
+开闭18:
+if 77 箱子开
+goto 箱子
+开闭26:
+if 78 箱子开
+goto 箱子
+开闭28:
+if 79 箱子开
+箱子:
+CREATEBOX 1 9 4 5
+箱子开:
+SETSCENENAME "歇息台子"
+callback
+
+左出口:
+delallnpc
+if 107 台6右
+if 117 台16右
+if 125 台24右
+callback
+台6右:
+clrevent 107
+setevent 106
+loadmap 1 15 8 5
+STARTCHAPTER 2 38
+callback
+台16右:
+clrevent 117
+setevent 116
+loadmap 1 15 8 5
+STARTCHAPTER 2 38
+callback
+台24右:
+clrevent 125
+setevent 124
+loadmap 1 15 8 5
+STARTCHAPTER 2 38
+callback
+
+宝箱:
+deletenpc 1
+if 107 开18
+if 117 开26
+if 125 开28
+callback
+开18:
+setevent 77
+GAINGOODS 8 2
+callback
+开26:
+setevent 78
+GAINGOODS 11 2
+callback
+开28:
+setevent 79
+GAINGOODS 9 3
+callback
+
+gutevent 1 宝箱
+gutevent 41 左出口
+
+
+@歇息台子7
+
+
+if 102 开闭18
+if 110 开闭26
+if 127 开闭28
+开闭18:
+if 80 箱子开
+goto 箱子
+开闭26:
+if 81 箱子开
+goto 箱子
+开闭28:
+if 82 箱子开
+箱子:
+CREATEBOX 1 9 4 5
+箱子开:
+SETSCENENAME "歇息台子"
+callback
+
+右出口:
+delallnpc
+if 102 台3左
+if 110 台11左
+if 127 台21左
+callback
+台3左:
+clrevent 102
+setevent 103
+loadmap 1 15 1 5
+STARTCHAPTER 2 38
+callback
+台11左:
+clrevent 110
+setevent 111
+loadmap 1 15 1 5
+STARTCHAPTER 2 38
+callback
+台21左:
+clrevent 127
+setevent 121
+loadmap 1 15 1 5
+STARTCHAPTER 2 38
+callback
+
+宝箱:
+deletenpc 1
+if 102 开18
+if 110 开26
+if 127 开28
+callback
+开18:
+setevent 80
+GAINGOODS 7 3
+callback
+开26:
+setevent 81
+GAINGOODS 6 1
+callback
+开28:
+setevent 82
+GAINGOODS 5 1
+callback
+
+gutevent 1 宝箱
+gutevent 41 右出口
+
+
+@三清山入口
+
+FIGHTDISENABLE
+CREATEBOX 21 18 6 4
+CREATEBOX 22 18 4 8
+SETSCENENAME "三清山入口"
+callback
+
+歇息台:
+if 254 回马枪
+if 216 去钟山
+if 215 正常
+if 19 除妖
+回马枪:
+INITFIGHT 55 56 28 29 30 33 0 0 1 111 31
+正常:
+setevent 122
+delallnpc
+loadmap 1 15 4 9
+STARTCHAPTER 2 38
+除妖:
+say 1 "还没完成师父交代的事，怎么可以回去呢！"
+callback
+去钟山:
+say 1 "去支援师叔要紧。"
+callback
+
+
+告示:
+say 0 "告示：三清山"
+callback
+野外斜路:
+if 254 没回头
+if 216 支援
+if 215 复命
+支援:
+delallnpc
+loadmap 1 25 1 5
+STARTCHAPTER 2 44
+callback
+复命:
+say 1 "还是先回山复命吧。"
+callback
+没回头:
+say 0 "我们已经不能回头了。"
+callback
+
+宝箱1:
+if 1032 宝箱1开
+GAINGOODS 8 27
+setevent 1032
+宝箱1开:
+callback
+宝箱2:
+if 1033 宝箱2开
+GAINGOODS 9 3
+setevent 1033
+宝箱2开:
+callback
+
+gutevent 21 宝箱1
+gutevent 22 宝箱2
+gutevent 41 歇息台
+gutevent 42 野外斜路
+gutevent 43 告示
+
+
+
+@野外斜路
+
+CREATEBOX 21 18 6 2
+CREATEBOX 22 18 26 4
+SETSCENENAME "三清山入口"
+callback
+
+三清山入口:
+loadmap 1 20 22 7
+STARTCHAPTER 2 43
+callback
+
+原野阡:
+setevent 101
+loadmap 1 21 1 0
+STARTCHAPTER 2 45
+callback
+
+
+宝箱1:
+if 1034 宝箱1开
+GAINGOODS 9 8
+setevent 1034
+宝箱1开:
+callback
+宝箱2:
+if 1035 宝箱2开
+GAINGOODS 11 3
+setevent 1035
+宝箱2开:
+callback
+
+gutevent 21 宝箱1
+gutevent 22 宝箱2
+gutevent 41 原野阡
+gutevent 42 三清山入口
+
+
+@原野阡
+
+
+INITFIGHT 2 3 2 3 2 3 2 3 2 112 32
+SETSCENENAME "原野阡"
+callback
+
+
+左出口:
+FIGHTDISENABLE
+if 101 野外斜路
+if 102 转折路口3右
+if 103 忘忧村右
+if 104 转折路口3右-
+callback
+野外斜路:
+clrevent 101
+loadmap 1 25 21 5
+STARTCHAPTER 2 44
+callback
+转折路口3右:
+clrevent 102
+setevent 101
+loadmap 1 28 3 9
+STARTCHAPTER 2 49
+callback
+忘忧村右:
+clrevent 103
+loadmap 1 23 18 7
+STARTCHAPTER 3 1
+callback
+转折路口3右-:
+clrevent 104
+setevent 102
+loadmap 1 28 3 9
+STARTCHAPTER 2 49
+callback
+
+
+右出口:
+FIGHTDISENABLE
+if 101 转折路口2左
+if 102 忘忧村左
+if 103 转折路口2左-
+if 104 转折路口1左
+callback
+转折路口2左:
+@clrevent 101
+@setevent 101
+loadmap 1 27 1 0
+STARTCHAPTER 2 48
+callback
+忘忧村左:
+clrevent 102
+loadmap 1 23 1 5
+STARTCHAPTER 3 1
+callback
+转折路口2左-:
+clrevent 103
+setevent 102
+loadmap 1 27 1 0
+STARTCHAPTER 2 48
+callback
+转折路口1左:
+clrevent 104
+loadmap 1 26 0 10
+STARTCHAPTER 2 51
+callback
+
+
+gutevent 41 左出口
+gutevent 42 右出口
+
+
+
+@原野陌
+
+INITFIGHT 2 3 2 3 2 3 2 3 2 112 32
+SETSCENENAME "原野陌"
+callback
+
+
+上出口:
+FIGHTDISENABLE
+if 101 转折路口2下
+if 102 忘忧村下
+if 103 转折路口2下-
+if 104 转折路口5下
+if 105 原野陌2下
+callback
+转折路口2下:
+@clrevent 101
+@setevent 101
+loadmap 1 27 7 10
+STARTCHAPTER 2 48
+callback
+忘忧村下:
+clrevent 102
+loadmap 1 23 1 24
+if 254 最后回村
+STARTCHAPTER 3 1
+callback
+最后回村:
+STARTCHAPTER 3 13
+callback
+转折路口2下-:
+clrevent 103
+setevent 102
+loadmap 1 27 7 10
+STARTCHAPTER 2 48
+callback
+转折路口5下:
+clrevent 104
+setevent 102
+loadmap 1 30 8 15
+STARTCHAPTER 2 50
+callback
+原野陌2下:
+clrevent 105
+setevent 102
+loadmap 1 22 0 26
+STARTCHAPTER 2 46
+callback
+
+
+下出口:
+FIGHTDISENABLE
+if 101 转折路口3上
+if 102 原野陌5上
+if 103 转折路口3上-
+if 104 转折路口1上
+if 105 转折路口5上
+callback
+转折路口3上:
+@clrevent 101
+@setevent 101
+loadmap 1 28 0 0
+STARTCHAPTER 2 49
+callback
+原野陌5上:
+clrevent 102
+setevent 105
+loadmap 1 22 0 0
+STARTCHAPTER 2 46
+callback
+转折路口3上-:
+clrevent 103
+setevent 102
+loadmap 1 28 0 0
+STARTCHAPTER 2 49
+callback
+转折路口1上:
+clrevent 104
+loadmap 1 26 6 0
+STARTCHAPTER 2 51
+callback
+转折路口5上:
+clrevent 105
+setevent 101
+loadmap 1 30 8 0
+STARTCHAPTER 2 50
+callback
+
+gutevent 41 下出口
+gutevent 42 上出口
+
+
+@转折路口2
+
+SETSCENENAME "转折路口"
+callback
+
+
+左出口:
+if 101 原野阡右
+if 102 原野阡右-
+callback
+原野阡右:
+@clrevent 101
+loadmap 1 21 22 0
+STARTCHAPTER 2 45
+callback
+原野阡右-:
+clrevent 102
+setevent 103
+loadmap 1 21 22 0
+STARTCHAPTER 2 45
+callback
+
+
+下出口:
+if 101 原野陌上
+if 102 原野陌上-
+callback
+原野陌上:
+@clrevent 101
+loadmap 1 22 0 0
+STARTCHAPTER 2 46
+callback
+原野陌上-:
+clrevent 102
+setevent 103
+loadmap 1 22 0 0
+STARTCHAPTER 2 46
+callback
+
+gutevent 41 左出口
+gutevent 42 下出口
+
+
+@转折路口3
+
+SETSCENENAME "转折路口"
+callback
+
+
+右出口:
+if 101 原野阡左
+if 102 原野阡左-
+callback
+原野阡左:
+clrevent 101
+setevent 102
+loadmap 1 21 0 0
+STARTCHAPTER 2 45
+callback
+原野阡左-:
+clrevent 102
+setevent 104
+loadmap 1 21 0 0
+STARTCHAPTER 2 45
+callback
+
+
+上出口:
+if 101 原野陌下
+if 102 原野陌下-
+callback
+原野陌下:
+@clrevent 101
+@setevent 101
+loadmap 1 22 0 26
+STARTCHAPTER 2 46
+callback
+原野陌下-:
+clrevent 102
+setevent 103
+loadmap 1 22 0 26
+STARTCHAPTER 2 46
+callback
+
+gutevent 41 右出口
+gutevent 42 上出口
+
+
+@转折路口5
+
+SETSCENENAME "转折路口"
+if 254 回马枪
+callback
+回马枪:
+callback
+
+
+上出口:
+if 101 原野陌5下
+if 102 石梦城
+callback
+原野陌5下:
+clrevent 101
+setevent 105
+loadmap 1 22 0 26
+STARTCHAPTER 2 46
+callback
+石梦城:
+if 216 贪玩
+clrevent 102
+loadmap 1 37 5 24
+STARTCHAPTER 5 1
+callback
+
+
+下出口:
+if 101 毒瘴林
+if 102 原野陌4上
+callback
+毒瘴林:
+clrevent 101
+loadmap 1 33 1 0
+STARTCHAPTER 4 1
+callback
+原野陌4上:
+clrevent 102
+setevent 104
+loadmap 1 22 0 0
+STARTCHAPTER 2 46
+callback
+
+
+
+左出口:
+if 101 愚人居
+if 102 工地
+callback
+愚人居:
+if 254 无法回去
+clrevent 101
+loadmap 1 31 10 4
+STARTCHAPTER 2 52
+无法回去:
+callback
+工地:
+MESSAGE "前方施工中，行人止步！"
+callback
+
+右出口:
+if 101 忘忧坟场
+if 102 建业城
+callback
+忘忧坟场:
+clrevent 101
+loadmap 1 32 1 4
+STARTCHAPTER 2 53
+callback
+建业城:
+if 216 去钟山
+goto 贪玩
+去钟山:
+clrevent 102
+setevent 101
+loadmap 1 21 1 0
+STARTCHAPTER 6 1
+callback
+贪玩:
+say 1 "还是办正事要紧。"
+callback
+
+gutevent 41 左出口
+gutevent 42 上出口
+gutevent 43 右出口
+gutevent 44 下出口
+
+
+
+
+@转折路口1
+
+SETSCENENAME "转折路口"
+callback
+
+
+左出口:
+setevent 104
+loadmap 1 21 22 0
+STARTCHAPTER 2 45
+callback
+上出口:
+setevent 104
+loadmap 1 22 0 26
+STARTCHAPTER 2 46
+callback
+callback
+
+gutevent 42 上出口
+gutevent 41 左出口
+
+
+@愚人居
+
+CREATEBOX 21 18 15 10
+SETSCENENAME "愚人居"
+if 254 回马枪
+callback
+回马枪:
+if 2008 虫子
+goto 不点卡片
+虫子:
+createnpc 30 32 4 11
+不点卡片:
+if 2010 不点
+goto 小鬼卡片
+不点:
+createnpc 31 34 8 4
+小鬼卡片:
+if 2009 小鬼
+callback
+小鬼:
+createnpc 32 33 8 6
+callback
+
+
+转折路口:
+delallnpc
+setevent 101
+loadmap 1 30 0 7
+STARTCHAPTER 2 50
+callback
+
+宝箱1:
+if 1044 宝箱1开
+GAINGOODS 11 13
+setevent 1044
+宝箱1开:
+callback
+
+虫子话:
+if 263 不换破衣
+if 262 不还虫子卡片
+say 0 "异域人通宵虫:哎，我的卡片怎么在你手上？"
+CHOICE "不给" "奉还" 奉还虫子
+不还虫子卡片:
+@say 0 "异域人通宵虫:哎，这世道怎么这样呢？"
+@setevent 262
+say 0 "异域人通宵虫:那我这里有件破衣服，不过要你拿身上所有的钱来换，怎么样？"
+CHOICE "不换" "交换" 交换
+不换破衣:
+say 0 "异域人通宵虫:年轻人，有头脑，但是缺乏冒险精神。"
+setevent 263
+callback
+交换:
+setmoney 0
+gaingoods 2 18
+say 0 "异域人通宵虫:哈哈，有钱啦！！哈……哈……哈……哈……"
+deletenpc 30
+callback
+奉还虫子:
+usegoods 14 5 没虫子卡片
+say 0 "异域人通宵虫:好，看你还我卡片的份上，我教你一招。"
+LEARNMAGIC 1 1 11
+deletenpc 30
+callback
+
+
+没虫子卡片:
+message "没有虫子卡片"
+say 0 "异域人通宵虫:我最讨厌骗我的人了，你会后悔的！"
+setmoney 0
+deletenpc 30
+callback
+
+不点话:
+say 0 "异域人不点点:我BF说你要去大战了，让我趁机来发点财，不过，你得给我不点卡片才行哦。呵呵！"
+CHOICE "不给" "交出" 不点发财
+没不点卡片:
+say 0 "异域人不点点:哼，没卡片我是不会卖东西给你的。"
+deletenpc 31
+callback
+不点发财:
+usegoods 14 7 没不点卡片
+buy "7010 7011 7012 7031 4010 2017 2015 1014 8019 8020 8026 8007 9006 9007 9014 9015 9020 10004 12004 12005 12006"
+say 0 "异域人不点点:我发完财了，拜拜，我去也……"
+deletenpc 31
+callback
+
+小鬼话:
+if 261 不还小鬼卡片
+say 0 "异域人南方小鬼:我的游戏组成员卡丢了，不知道你见到没有？"
+say 1 "……"
+say 0 "异域人南方小鬼:哦？！你找到了我的卡片？把它还给我吧，我教你一招绝世武功。"
+CHOICE "不给" "奉还" 奉还
+say 0 "异域人南方小鬼:哼，你小子别后悔。"
+setevent 261
+callback
+奉还:
+usegoods 14 7 没小鬼卡片
+LEARNMAGIC 1 3 8
+say 0 "异域人南方小鬼:哈哈哈哈，年轻人，有前途。"
+deletenpc 32
+callback
+不还小鬼卡片:
+say 0 "异域人南方小鬼:现在想还啊，我现在不要了。"
+callback
+没小鬼卡片:
+say 0 "异域人南方小鬼:你怎么能卖了呢，我要你陪。"
+USEMONEY 8000
+say 0 "异域人南方小鬼:哈哈"
+deletenpc 32
+callback
+
+
+gutevent 21 宝箱1
+gutevent 30 虫子话
+gutevent 31 不点话
+gutevent 32 小鬼话
+gutevent 41 转折路口
+
+
+@忘忧坟场
+
+SETSCENENAME "忘忧坟场"
+callback
+转折路口:
+delallnpc
+setevent 101
+loadmap 1 30 16 7
+STARTCHAPTER 2 50
+callback
+
+gutevent 41 转折路口
+
+
+@忘忧村
+
+CREATEBOX 21 18 6 2
+CREATEBOX 22 18 4 11
+CREATEBOX 23 18 23 26
+if 206 蔡开门
+goto 关门
+蔡开门:
+CREATEBOX 2 19 10 7
+NPCSTEP 2 0 0
+关门:
+SETSCENENAME "忘忧村"
+SHOWSCENENAME
+CREATEBOX 1 4 15 3
+callback
+
+原野阡2右:
+setevent 102
+loadmap 1 21 22 0
+STARTCHAPTER 2 45
+callback
+原野阡3左:
+if 216 看小梅
+已加入:
+setevent 103
+loadmap 1 21 1 0
+STARTCHAPTER 2 45
+callback
+看小梅:
+if 217 已加入
+say 1 "对了，先去看看小梅。"
+callback
+
+原野陌:
+setevent 102
+loadmap 1 22 0 1
+STARTCHAPTER 2 46
+callback
+
+村长家:
+delallnpc
+loadmap 1 24 8 1
+STARTCHAPTER 3 9
+callback
+
+武器店:
+delallnpc
+loadmap 2 17 4 9
+STARTCHAPTER 3 2
+callback
+
+杂货店:
+delallnpc
+loadmap 2 16 5 1
+STARTCHAPTER 3 3
+callback
+
+东东家:
+delallnpc
+loadmap 2 11 8 13
+STARTCHAPTER 3 4
+callback
+
+老孟家:
+delallnpc
+loadmap 2 11 8 13
+STARTCHAPTER 3 5
+callback
+
+疯子家:
+delallnpc
+loadmap 2 13 12 1
+STARTCHAPTER 3 6
+callback
+
+阿霞家:
+delallnpc
+loadmap 2 12 11 1
+STARTCHAPTER 3 7
+callback
+
+蔡婆家:
+if 206 找蔡婆婆
+callback
+找蔡婆婆:
+delallnpc
+loadmap 2 10 8 15
+STARTCHAPTER 3 8
+callback
+
+宝箱1:
+if 1036 宝箱1开
+GAINGOODS 12 6
+setevent 1036
+宝箱1开:
+callback
+宝箱2:
+if 1037 宝箱2开
+GAINGOODS 9 16
+setevent 1037
+宝箱2开:
+callback
+宝箱3:
+if 1038 宝箱3开
+GAINGOODS 9 27
+setevent 1038
+宝箱3开:
+callback
+
+gutevent 21 宝箱1
+gutevent 22 宝箱2
+gutevent 23 宝箱3
+gutevent 41 原野阡2右
+gutevent 42 原野阡3左
+gutevent 43 原野陌
+gutevent 44 村长家
+gutevent 46 武器店
+gutevent 47 杂货店
+gutevent 48 东东家
+gutevent 49 老孟家
+gutevent 50 疯子家
+gutevent 51 阿霞家
+gutevent 52 蔡婆家
+
+
+
+
+@武器店
+
+CREATEBOX 21 18 5 5
+CREATENPC 1 14 12 10
+NPCMOVEMOD 1 0
+SETSCENENAME "武器店"
+if 1043 已开
+goto 未开
+已开:
+deletebox 21
+未开:
+callback
+
+忘忧村:
+delallnpc
+loadmap 1 23 13 12
+STARTCHAPTER 3 1
+callback
+
+买武器:
+facetoface 1 0
+say 0 "我这里有许多上好武器。"
+BUY "7001 7002 7015 7016 7024 7025 4001 4002 2001 2002 2008 2009 8001 8002 8017"
+callback
+
+宝箱1:
+if 1043 宝箱1开
+GAINGOODS 8 4
+setevent 1043
+宝箱1开:
+callback
+
+gutevent 21 宝箱1
+gutevent 41 忘忧村
+gutevent 42 买武器
+
+
+@杂货店
+
+CREATENPC 1 16 11 11
+NPCMOVEMOD 1 0
+SETSCENENAME "杂货店"
+callback
+
+忘忧村:
+delallnpc
+loadmap 1 23 2 7
+STARTCHAPTER 3 1
+callback
+买武器:
+facetoface 1 0
+say 0 "我这里有许多上好货物。"
+BUY "6001 6002 5001 5005 1001 1002 1007 1008 3001 3002 3007 3008 8003 8008 8010 8011 8012 8026 12004"
+callback
+gutevent 41 忘忧村
+gutevent 42 买武器
+
+
+@东东家
+
+CREATEBOX 21 18 4 11
+CREATENPC 1 22 15 5
+SETSCENENAME "东东家"
+callback
+
+忘忧村:
+delallnpc
+loadmap 1 23 16 4
+STARTCHAPTER 3 1
+callback
+
+东东:
+if 216 妖怪已死
+if 205 妖怪
+setevent 205
+say 0 "最近蔡婆婆很是奇怪，老把自己关在房里。"
+callback
+妖怪:
+say 0 "东东:哎，最近妖魔太厉害了，搞得人心惶惶……"
+callback
+妖怪已死:
+say 0 "东东:妖怪死了，现在宽松多了，晚上也可以出去走走了。"
+callback
+
+宝箱1:
+if 1040 宝箱1开
+GAINGOODS 4 1
+setevent 1040
+宝箱1开:
+callback
+
+gutevent 21 宝箱1
+gutevent 1 东东
+gutevent 41 忘忧村
+
+
+
+@老孟家
+
+CREATENPC 1 24 15 5
+SETSCENENAME "老孟家"
+callback
+
+忘忧村:
+delallnpc
+loadmap 1 23 17 12
+STARTCHAPTER 3 1
+callback
+
+老孟:
+if 201 送信
+say 0 "老孟:我男友阿军好久没回来看我了，我很想他，请你帮我带封信给他。"
+gaingoods 14 3
+say 1 "那他现在在哪里呢？"
+say 0 "他现在在建业城"
+setevent 201
+送信:
+say 0 "不知道他什么时候会回来。"
+callback
+
+gutevent 1 老孟
+gutevent 41 忘忧村
+
+
+
+@疯子家
+
+CREATENPC 1 23 15 5
+SETSCENENAME "疯子家"
+callback
+
+忘忧村:
+delallnpc
+loadmap 1 23 17 16
+STARTCHAPTER 3 1
+callback
+
+疯子:
+say 0 "别人都叫我“疯子”，其实我很帅的！"
+callback
+gutevent 1 疯子
+gutevent 41 忘忧村
+
+
+
+@阿霞家
+
+CREATEBOX 21 18 13 12
+CREATENPC 1 21 15 5
+SETSCENENAME "阿霞家"
+callback
+
+忘忧村:
+delallnpc
+loadmap 1 23 2 11
+STARTCHAPTER 3 1
+callback
+
+阿霞:
+if 206 对话
+if 205 蔡大妈事
+对话:
+say 0 "阿霞:当开发部的文员要干的事也挺多的。"
+callback
+蔡大妈事:
+setevent 206
+say 0 "阿霞:好几天没见到蔡婆婆的女儿小画家了，石梦城中恶霸李虎经常在光天化日之下强抢民女，蔡婆婆几天前到石梦城赶集，不知会不会，真是可怕啊……"
+callback
+
+宝箱1:
+if 1039 宝箱1开
+GAINGOODS 6 2
+setevent 1039
+宝箱1开:
+callback
+
+gutevent 21 宝箱1
+gutevent 1 阿霞
+gutevent 41 忘忧村
+
+
+
+@蔡婆家
+
+CREATEBOX 21 18 15 3
+CREATENPC 1 8 15 5
+SETSCENENAME "蔡婆家"
+callback
+
+忘忧村:
+delallnpc
+loadmap 1 23 6 5
+STARTCHAPTER 3 1
+callback
+
+蔡大妈:
+if 222 送完宝
+if 214 得救
+if 207 答应救人
+setevent 207
+say 0 "我的女儿啊……现在剩下我一个老人家，孤苦伶仃的，不如死了一了百了！"
+say 1 "婆婆请不要轻生，我愿将你女儿救出。"
+say 0 "那李虎是城中恶霸，打手上百人，你还是别去送死了。"
+say 1 "婆婆不要当心，我功夫很好的。不是我吹牛，别说上百人，就是上千人我也能顷刻撂倒。"
+say 0 "真的！如能救出小女，我愿不惜任何代价！拜托了，道长。"
+答应救人:
+say 0 "拜托了"
+callback
+得救:
+setevent 222
+say 0 "哎呀，恩公，你来啦，我女儿已经回来了，现在在他姨夫家住了。"
+say 0 "我有件家传之宝，送给恩公,请不要嫌弃。"
+GAINGOODS 6 17
+say 1 "多谢了。"
+callback
+送完宝:
+say 0 "有空多来坐坐。"
+callback
+
+宝箱1:
+if 1041 宝箱1开
+GAINGOODS 12 4
+setevent 1041
+宝箱1开:
+callback
+
+gutevent 21 宝箱1
+gutevent 1 蔡大妈
+gutevent 41 忘忧村
+
+
+
+@村长家
+
+if 215 村长已死
+CREATENPC 1 9 18 6
+村长已死:
+SETSCENENAME "村长家"
+callback
+
+忘忧村:
+delallnpc
+loadmap 1 23 12 23
+STARTCHAPTER 3 1
+callback
+
+慕容厨房:
+delallnpc
+loadmap 2 14 5 4
+STARTCHAPTER 3 10
+callback
+
+慕容主房:
+delallnpc
+loadmap 2 15 7 1
+STARTCHAPTER 3 11
+callback
+
+村长:
+if 202 去除妖
+say 1 "您好，我是三清宫无机子的弟子柳清风，请问您是忘忧村村长吗？"
+say 0 "正是，老夫慕容玄，请问道长有何指教？"
+say 1 "师父说这里有妖魔，我是奉师命而来的。"
+say 0 "道长原来是来帮我们除妖的，终于有救星了！"
+say 1 "果真有妖，师父还真是当之无愧。"
+say 0 "那妖怪是个半人半蛇的怪物，两天前来我们村里索要童男，如若不给就要灭我全村。我村已有四人被害。"
+say 1 "可知妖怪现在何处？"
+say 0 "只知其出入村南瘴气林。"
+say 1 "村长放心，我这就去把他除了。"
+say 0 "老夫有一女，自幼习医，可助你一臂之力。"
+CREATENPC 2 6 9 6
+MOVE 2 16 6
+@facetoface 1 2
+facetoface 0 2
+say 2 "我愿与道长前去除妖。"
+say 1 "那就即可起程。"
+say 0 "道长，小梅，多加小心啊！"
+CREATEACTOR 2 4 3
+deletenpc 2
+message "慕容小梅加入队列"
+setevent 202
+去除妖:
+@facetoface 0 1
+say 0 "多加小心啊！"
+callback
+
+gutevent 1 村长
+gutevent 41 忘忧村
+gutevent 42 慕容主房
+gutevent 43 慕容厨房
+
+
+
+@慕容厨房
+
+SETSCENENAME "慕容厨房"
+callback
+
+村长家:
+delallnpc
+loadmap 1 24 1 3
+STARTCHAPTER 3 9
+callback
+
+gutevent 41 村长家
+
+
+
+@慕容主房
+
+CREATEBOX 21 18 4 21
+if 217 正常
+if 216 小梅
+goto 正常
+小梅:
+CREATENPC 1 6 12 8
+正常:
+SETSCENENAME "慕容主房"
+callback
+
+村长家:
+delallnpc
+loadmap 1 24 3 7
+STARTCHAPTER 3 9
+callback
+
+小梅话:
+say 1 "小梅。"
+say 2 "柳大哥，你来看我，太好了。"
+say 1 "我这次要去钟山帮我师叔除妖，路过就随便来看看你。"
+say 2 "除妖……我也要去。"
+say 1 "这次与上次不同，连我师叔都告急了，很危险。"
+say 2 "我不怕，现在就剩我一人了，没什么牵挂，相信我爹在的话，也会赞成的！"
+say 1 "…………好吧。"
+CREATEACTOR 2 4 3
+deletenpc 1
+message "慕容小梅加入队列"
+setevent 217
+callback
+
+宝箱1:
+if 1042 宝箱1开
+GAINGOODS 2 8
+setevent 1042
+宝箱1开:
+callback
+
+gutevent 21 宝箱1
+gutevent 1 小梅话
+gutevent 41 村长家
+
+
+
+@蛇妖逃走后场景
+
+loadmap 1 32 0 10
+say 1 "怎么到了这里了。"
+say 2 "慕容小梅:这里是忘忧坟场，离忘忧村很近。"
+say 1 "不好，如果那老妖从这里出来，肯定到村里去了，快回去看看。"
+
+movie 1 3 0 0 0
+loadmap 1 23 8 4
+
+CREATEBOX 1 24 15 6
+CREATEBOX 2 23 15 7
+
+say 0 "蛇妖:竟敢找人来对付我，我要杀光所有人……"
+say 1 "住手——"
+CREATENPC 3 6  14 7
+NPCSTEP   1 1 1
+say 2 "啊！爹——"
+MESSAGE "慕容小梅昏倒了！"
+DELETEACTOR 2
+say 1 "我和你拼了！"
+ENTERFIGHT 0 0 5 0 2 112 32 0 0 0 0 0 0 lossto winto
+lossto:
+gameover
+callback
+winto:
+say 1 "小梅，醒醒！"
+delallnpc
+movie 1 3 0 0 0
+loadmap 1 32 10 5
+CREATENPC 1 6 14 6
+NPCSTEP 1 1 0
+NPCSTEP 0 0 0
+say 1 "小梅，不要太伤心，节哀……"
+say 0 "嗯.我会照顾自己的。"
+delallnpc
+movie 1 3 0 0 0
+loadmap 1 25 21 5
+CREATENPC 1 6 26 8
+CREATENPC 2 20 27 9
+NPCSTEP 1 3 0
+NPCSTEP 2 3 0
+NPCSTEP 0 1 0
+NPCMOVEMOD 1 0
+NPCMOVEMOD 2 0
+say 1 "我要回去复师命了，你们不用再送了。"
+say 2 "保重，以后要多回来看我们。"
+say 0 "小画家:柳大哥再见。"
+callback
+
+慕容小梅:
+say 2 "一路小心。"
+callback
+小画家:
+say 0 "小画家:柳大哥再见。"
+callback
+
+回山:
+delallnpc
+loadmap 1 20 22 7
+STARTCHAPTER 2 43
+callback
+
+gutevent 1 慕容小梅
+gutevent 2 小画家
+gutevent 42 回山
+
+
+
+@忘忧村
+
+SETSCENENAME "忘忧村"
+SHOWSCENENAME
+CREATEBOX 1 4 15 3
+callback
+
+原野阡2右:
+setevent 102
+loadmap 1 21 22 0
+STARTCHAPTER 2 45
+callback
+原野阡3左:
+say 1 "先上山再说。"
+callback
+
+原野陌:
+setevent 102
+loadmap 1 22 0 1
+STARTCHAPTER 2 46
+callback
+
+
+
+gutevent 41 原野阡2右
+gutevent 42 原野阡3左
+gutevent 43 原野陌
+
+
+
+@毒瘴林入口
+
+CREATEBOX 21 18 11 4
+SETSCENENAME "毒瘴林入口"
+callback
+
+转折路口:
+setevent 101
+loadmap 1 30 8 15
+STARTCHAPTER 2 50
+callback
+
+
+森林道路:
+if 2000 芦藤雌甲
+无法进入:
+setevent 203
+say 1 "此处瘴气如此之重，根本不法进入！"
+callback
+芦藤雌甲:
+if 2001 芦藤雄甲
+goto 无法进入
+芦藤雄甲:
+loadmap 1 34 0 0
+STARTCHAPTER 4 3
+callback
+猎人居:
+loadmap 2 11 8 13
+STARTCHAPTER 4 2
+callback
+
+宝箱1:
+if 1045 宝箱1开
+GAINGOODS 9 17
+setevent 1045
+宝箱1开:
+callback
+
+gutevent 21 宝箱1
+gutevent 41 转折路口
+gutevent 42 森林道路
+gutevent 43 猎人居
+
+
+@猎人居
+
+CREATENPC 1 19 15 10
+SETSCENENAME "猎人居"
+callback
+
+毒瘴林入口:
+delallnpc
+loadmap 1 33 9 3
+STARTCHAPTER 4 1
+callback
+猎人:
+if 204 对话
+if 202 出发
+对话:
+facetoface 0 1
+say 0 "我家世代在此处以猎为生，对这里的环境非常熟悉。"
+callback
+出发:
+if 203 打探
+goto 对话
+打探:
+facetoface 0 1
+setevent 204
+say 1 "请问猎户，如何才能进此地的瘴气林？"
+say 0 "此地林中瘴气非常厉害，除非身穿“芦藤甲”，否则，就是进去了，半刻即死。"
+say 1 "这“芦藤甲”是何宝物？"
+say 0 "传说是鲁公所制的护甲，可以避毒，现在传到其后人鲁斧。其家便在离这里不远的石梦城。"
+say 1 "多谢！"
+callback
+
+gutevent 1 猎人
+gutevent 41 毒瘴林入口
+
+
+
+
+@森林道路
+
+INITFIGHT 2 3 2 3 2 3 2 3 2 112 32
+SETSCENENAME "森林道路"
+callback
+
+
+毒瘴林入口:
+FIGHTDISENABLE
+loadmap 1 33 15 13
+STARTCHAPTER 4 1
+callback
+森林道路2:
+FIGHTDISENABLE
+loadmap 1 38 2 2
+STARTCHAPTER 4 4
+callback
+
+gutevent 41 毒瘴林入口
+gutevent 42 森林道路2
+
+
+@森林道路2
+
+INITFIGHT 2 3 2 3 2 3 2 3 2 112 32
+SETSCENENAME "森林道路2"
+callback
+
+
+森林道路:
+FIGHTDISENABLE
+loadmap 1 34 22 0
+STARTCHAPTER 4 3
+callback
+人蛇窟入口:
+FIGHTDISENABLE
+loadmap 1 35 0 11
+STARTCHAPTER 4 5
+callback
+
+gutevent 41 森林道路
+gutevent 42 人蛇窟入口
+
+
+@人蛇窟入口
+
+FIGHTDISENABLE
+SETSCENENAME "人蛇窟入口"
+callback
+
+
+森林道路2:
+loadmap 1 38 15 13
+STARTCHAPTER 4 4
+callback
+人蛇窟入口:
+loadmap 3 6 10 54
+STARTCHAPTER 4 6
+callback
+
+gutevent 41 森林道路2
+gutevent 42 人蛇窟入口
+
+
+@蛇窟山洞
+
+CREATEBOX 21 9 9 6
+CREATEBOX 22 9 11 6
+CREATEBOX 23 9 13 6
+CREATEBOX 24 9 15 6
+CREATEBOX 25 9 17 6
+CREATEBOX 26 9 10 11
+CREATEBOX 27 9 12 11
+CREATEBOX 28 9 14 11
+CREATEBOX 29 9 16 11
+CREATEBOX 30 9 21 36
+
+if 1046 1已开
+goto 1未开
+1已开:
+deletebox 21
+1未开:
+if 1047 2已开
+goto 2未开
+2已开:
+deletebox 22
+2未开:
+if 1048 3已开
+goto 3未开
+3已开:
+deletebox 23
+3未开:
+if 1049 4已开
+goto 4未开
+4已开:
+deletebox 24
+4未开:
+if 1050 5已开
+goto 5未开
+5已开:
+deletebox 25
+5未开:
+if 1051 6已开
+goto 6未开
+6已开:
+deletebox 26
+6未开:
+if 1052 7已开
+goto 7未开
+7已开:
+deletebox 27
+7未开:
+if 1053 8已开
+goto 8未开
+8已开:
+deletebox 28
+8未开:
+if 1054 9已开
+goto 9未开
+9已开:
+deletebox 29
+9未开:
+if 1055 10已开
+goto 10未开
+10已开:
+deletebox 30
+10未开:
+
+INITFIGHT 12 13 15 16 15 15 15 15 2 112 32
+SETSCENENAME "蛇窟山洞"
+callback
+
+人蛇窟入口:
+loadmap 1 35 7 0
+STARTCHAPTER 4 5
+callback
+
+蛇窟山洞2:
+loadmap 3 7 16 1
+STARTCHAPTER 4 7
+callback
+
+蛇窟隐洞:
+if 1055 宝箱已拿
+setevent 1055
+loadmap 3 9 0 0
+STARTCHAPTER 4 10
+宝箱已拿:
+callback
+
+宝箱1:
+if 1046 宝箱1开
+GAINGOODS 8 8
+setevent 1046
+deletebox 21
+宝箱1开:
+callback
+宝箱2:
+if 1047 宝箱2开
+deletebox 22
+GAINGOODS 8 9
+setevent 1047
+宝箱2开:
+callback
+宝箱3:
+if 1048 宝箱3开
+deletebox 23
+GAINGOODS 8 10
+setevent 1048
+宝箱3开:
+callback
+宝箱4:
+if 1049 宝箱4开
+deletebox 24
+GAINGOODS 8 11
+setevent 1049
+宝箱4开:
+callback
+宝箱5:
+if 1050 宝箱5开
+deletebox 25
+GAINGOODS 8 12
+setevent 1050
+宝箱5开:
+callback
+宝箱6:
+if 1051 宝箱6开
+deletebox 26
+GAINGOODS 8 24
+setevent 1051
+宝箱6开:
+callback
+宝箱7:
+if 1052 宝箱7开
+deletebox 27
+GAINGOODS 8 27
+setevent 1052
+宝箱7开:
+callback
+宝箱8:
+if 1053 宝箱8开
+deletebox 28
+GAINGOODS 9 9
+setevent 1053
+宝箱8开:
+callback
+宝箱9:
+if 1054 宝箱9开
+deletebox 29
+GAINmoney 200
+setevent 1054
+宝箱9开:
+callback
+宝箱10:
+if 1055 宝箱10开
+deletebox 30
+GAINGOODS 11 3
+setevent 1055
+宝箱10开:
+callback
+
+gutevent 21 宝箱1
+gutevent 22 宝箱2
+gutevent 23 宝箱3
+gutevent 24 宝箱4
+gutevent 25 宝箱5
+gutevent 26 宝箱6
+gutevent 27 宝箱7
+gutevent 28 宝箱8
+gutevent 29 宝箱9
+gutevent 30 宝箱10
+gutevent 41 人蛇窟入口
+gutevent 42 蛇窟山洞2
+gutevent 43 蛇窟隐洞
+
+
+
+
+@蛇窟山洞2
+
+CREATEBOX 21 9 9 5
+CREATEBOX 22 18 20 20
+CREATEBOX 23 9 8 9
+if 1057 宝箱1已开
+goto 宝箱2开否
+宝箱1已开:
+deletebox 21
+宝箱2开否:
+if 1058 宝箱3已开
+goto 宝箱3未开
+宝箱3已开:
+deletebox 23
+宝箱3未开:
+CREATEBOX 1 9 18 17
+if 89 宝箱已开
+goto 宝箱未开
+宝箱已开:
+deletebox 1
+宝箱未开:
+
+SETSCENENAME "蛇窟山洞2"
+callback
+
+蛇窟山洞1:
+loadmap 3 6 20 3
+STARTCHAPTER 4 6
+callback
+
+蛇窟山洞3:
+loadmap 3 8 21 1
+STARTCHAPTER 4 8
+callback
+
+宝箱:
+if 89 宝箱开
+setevent 89
+GAINGOODS 4 4
+deletenpc 1
+宝箱开:
+callback
+
+宝箱1:
+if 1056 宝箱1开
+deletebox 21
+GAINGOODS 9 2
+setevent 1056
+宝箱1开:
+callback
+宝箱2:
+if 1057 宝箱2开
+GAINGOODS 11 10
+setevent 1057
+宝箱2开:
+callback
+宝箱3:
+if 1058 宝箱3开
+deletebox 23
+GAINGOODS 11 14
+setevent 1058
+宝箱3开:
+callback
+
+gutevent 21 宝箱1
+gutevent 22 宝箱2
+gutevent 23 宝箱3
+gutevent 1 宝箱
+gutevent 41 蛇窟山洞1
+gutevent 42 蛇窟山洞3
+
+
+
+
+@蛇窟山洞3
+
+CREATEBOX 21 9 4 24
+CREATEBOX 22 18 11 2
+CREATEBOX 23 9 8 24
+CREATEBOX 24 9 25 27
+if 1331 宝箱1已开
+goto 宝箱2开否
+宝箱1已开:
+deletebox 21
+宝箱2开否:
+if 1333 宝箱2已开
+goto 宝箱2未开
+宝箱2已开:
+deletebox 23
+宝箱2未开:
+if 1334 宝箱3已开
+goto 宝箱3未开
+宝箱3已开:
+deletebox 24
+宝箱3未开:
+
+if 215 动石
+createbox 3 24 4 20
+createbox 2 10 13 6
+goto 正常
+动石:
+createbox 2 10 22 5
+正常:
+createbox 1 13 4 8
+SETSCENENAME "蛇窟山洞3"
+callback
+
+蛇窟山洞2:
+delallnpc
+loadmap 3 7 2 1
+STARTCHAPTER 4 7
+callback
+
+蛇窟宝洞:
+delallnpc
+loadmap 3 9 5 0
+STARTCHAPTER 4 9
+callback
+
+开打:
+if 215 打败蛇妖
+say 0 "蛇妖:我是叫你们天黑后将童男送到瘴气林口，你们现在来这里干嘛？"
+say 1 "老妖，看清楚，道爷我是来收拾你的！"
+ENTERFIGHT 0 0 5 0 2 112 32 0 6 0 39 40 0 lossto winto
+打败蛇妖:
+callback
+
+lossto:
+gameover
+callback
+winto:
+setevent 215
+say 0 "蛇妖:你们够狠，我要把你们封死在洞里。"
+movie 1 3 0 0 0
+deletenpc 3
+showscreen
+message "蛇妖逃走"
+deletenpc 2
+createbox 2 10 22 5
+say 1 "这回可麻烦了！"
+say 2 "到处看看吧。"
+callback
+
+对话:
+say 0 "蛇妖:呀，口气不小，正好有点饿了，拿你们当点心。"
+callback
+对话2:
+say 0 "蛇妖:看来这点心还不太容易吃到。"
+say 1 "小梅，柳大哥今晚请你吃蛇羹。"
+say 0 "蛇妖:小子还越来越狂了。"
+callback
+
+
+宝箱1:
+if 1331 宝箱1开
+deletebox 21
+GAINGOODS 11 15
+setevent 1331
+宝箱1开:
+callback
+宝箱2:
+if 1332 宝箱2开
+GAINGOODS 11 10
+setevent 1332
+宝箱2开:
+callback
+宝箱3:
+if 1333 宝箱3开
+deletebox 23
+GAINGOODS 11 11
+setevent 1333
+宝箱3开:
+callback
+宝箱4:
+if 1334 宝箱4开
+deletebox 24
+GAINGOODS 9 1
+setevent 1334
+宝箱4开:
+callback
+
+gutevent 21 宝箱1
+gutevent 22 宝箱2
+gutevent 23 宝箱3
+gutevent 24 宝箱4
+gutevent 39 对话
+gutevent 40 对话2
+gutevent 41 蛇窟山洞2
+gutevent 42 蛇窟宝洞
+gutevent 43 开打
+
+
+
+
+@蛇窟宝洞
+
+CREATEBOX 1 14 15 3
+CREATEBOX 2 15 6 6
+CREATEBOX 3 15 6 7
+CREATEBOX 4 15 6 9
+CREATEBOX 5 15 12 6
+CREATEBOX 6 16 12 7
+CREATEBOX 7 17 13 7
+SETSCENENAME "蛇窟宝洞"
+callback
+
+忘忧坟场:
+FIGHTDISENABLE
+@delallnpc
+@loadmap 1 32 0 10
+STARTCHAPTER 3 12
+callback
+
+宝物1:
+if 83 宝物1开
+setevent 83
+GAINGOODS 8 13
+宝物1开:
+callback
+宝物2:
+if 84 宝物2开
+setevent 84
+GAINGOODS 8 15
+宝物2开:
+callback
+宝物3:
+if 85 宝物3开
+setevent 85
+GAINGOODS 8 16
+宝物3开:
+callback
+宝物4:
+if 86 宝物4开
+setevent 86
+GAINGOODS 11 5
+宝物4开:
+callback
+宝物5:
+if 87 宝物5开
+setevent 87
+GAINGOODS 11 2
+宝物5开:
+callback
+宝物6:
+if 88 宝物6开
+setevent 88
+GAINGOODS 2 10
+宝物6开:
+callback
+
+gutevent 2 宝物1
+gutevent 3 宝物2
+gutevent 4 宝物3
+gutevent 5 宝物4
+gutevent 6 宝物5
+gutevent 7 宝物6
+gutevent 42 忘忧坟场
+
+
+
+
+@蛇窟隐洞
+
+CREATEBOX 8 14 4 3
+NPCSTEP 8 0 0
+CREATEBOX 2 15 6 6
+CREATEBOX 3 15 6 7
+CREATEBOX 4 15 6 9
+CREATEBOX 5 15 12 6
+CREATEBOX 6 16 12 7
+CREATEBOX 7 17 13 7
+SETSCENENAME "蛇窟隐洞"
+callback
+
+蛇窟山洞:
+delallnpc
+loadmap 3 6 20 35
+STARTCHAPTER 4 6
+callback
+
+
+宝物1:
+if 1065 宝物1开
+setevent 1065
+GAINGOODS 9 25
+宝物1开:
+callback
+宝物2:
+if 1066 宝物2开
+setevent 1066
+GAINGOODS 10 1
+宝物2开:
+callback
+宝物3:
+if 1067 宝物3开
+setevent 1067
+GAINGOODS 3 9
+宝物3开:
+callback
+宝物4:
+if 1068 宝物4开
+setevent 1068
+GAINGOODS 6 11
+宝物4开:
+callback
+宝物5:
+if 1069 宝物5开
+setevent 1069
+GAINGOODS 8 30
+宝物5开:
+callback
+宝物6:
+if 1070 宝物6开
+setevent 1070
+GAINGOODS 9 5
+宝物6开:
+callback
+
+gutevent 2 宝物1
+gutevent 3 宝物2
+gutevent 4 宝物3
+gutevent 5 宝物4
+gutevent 6 宝物5
+gutevent 7 宝物6
+gutevent 41 蛇窟山洞
+
+
+
+@石梦城
+
+
+createbox 22 18 40 26
+CREATENPC 5 15 4 8
+CREATENPC 6 16 11 7
+CREATENPC 7 17 8 22
+CREATENPC 8 18 40 23
+CREATENPC 9 13 22 25
+CREATENPC 10 14 25 10
+if 209 打败门卫
+CREATENPC 1 10 28 10
+NPCMOVEMOD 1 0
+NPCSTEP 1 3 0
+CREATENPC 2 10 28 11
+NPCMOVEMOD 2 0
+NPCSTEP 2 3 0
+打败门卫:
+if 212 得知密道
+CREATEBOX 21 10 41 4
+得知密道:
+SETSCENENAME "石梦城"
+SHOWSCENENAME
+callback
+
+
+转折路口:
+delallnpc
+setevent 102
+loadmap 1 30 8 0
+STARTCHAPTER 2 50
+callback
+老王家:
+delallnpc
+loadmap 2 11 8 13
+STARTCHAPTER 5 2
+callback
+药店:
+delallnpc
+loadmap 2 9 6 9
+STARTCHAPTER 5 3
+callback
+民宅1:
+delallnpc
+loadmap 2 10 8 16
+STARTCHAPTER 5 4
+callback
+民宅2:
+delallnpc
+loadmap 2 11 8 13
+STARTCHAPTER 5 5
+callback
+民宅3:
+delallnpc
+loadmap 2 10 8 16
+STARTCHAPTER 5 6
+callback
+杂货店:
+delallnpc
+loadmap 2 16 5 0
+STARTCHAPTER 5 7
+callback
+民宅4:
+delallnpc
+loadmap 2 13 12 0
+STARTCHAPTER 5 8
+callback
+当铺:
+delallnpc
+loadmap 2 19 6 0
+STARTCHAPTER 5 9
+callback
+客栈:
+delallnpc
+loadmap 2 21 6 9
+STARTCHAPTER 5 10
+callback
+武器店:
+delallnpc
+loadmap 2 17 4 9
+STARTCHAPTER 5 11
+callback
+民宅5:
+delallnpc
+loadmap 2 10 8 16
+STARTCHAPTER 5 12
+callback
+鲁斧家:
+delallnpc
+loadmap 2 11 8 13
+STARTCHAPTER 5 13
+callback
+李俯西厢房:
+delallnpc
+loadmap 2 25 6 11
+STARTCHAPTER 5 14
+callback
+李俯客厅:
+delallnpc
+loadmap 2 20 6 12
+STARTCHAPTER 5 15
+callback
+李俯东厢房:
+if 1130 得钥匙
+goto 未得钥匙
+得钥匙:
+CHOICE "取消" "使用钥匙" 使用钥匙
+未得钥匙:
+callback
+使用钥匙:
+usegoods 14 4 没有钥匙
+delallnpc
+loadmap 2 25 7 11
+STARTCHAPTER 5 16
+callback
+没有钥匙:
+message "没有钥匙"
+callback
+李俯密道:
+delallnpc
+loadmap 3 10 0 1
+STARTCHAPTER 5 17
+callback
+李俯下人房:
+delallnpc
+loadmap 2 4 0 5
+STARTCHAPTER 5 18
+callback
+李俯厨房:
+delallnpc
+loadmap 2 5 0 6
+STARTCHAPTER 5 19
+callback
+李俯下房:
+delallnpc
+loadmap 2 15 8 0
+STARTCHAPTER 5 20
+callback
+
+李虎门卫:
+if 208 开打
+say 0 "这里不是玩的地方，到别处去！"
+callback
+开打:
+say 0 "谁要是敢在这里撒野，他的腿就要被打断！"
+say 1 "这两条狗还挺凶的@#%@#!@#"
+ENTERFIGHT 0 6 7 0 1 111 31 0 0 0 39 0 0 lossto winto
+lossto:
+gameover
+winto:
+setevent 209
+DELETENPC 1
+DELETENPC 2
+say 1 "哼，收拾你们还不是小菜一碟。"
+callback
+对骂:
+say 0 "门卫一:小子，想死是吧，我成全你。"
+say 0 "门卫二:把那小妞送给霸爷。"
+say 1 "小梅，不用怕，这两个小意思。"
+say 3 "嗯，不要跟他们多说，打狗。"
+callback
+
+闯李俯:
+if 210 无战斗
+INITFIGHT 6 7 8 0 0 0 0 0 1 111 31
+无战斗:
+callback
+
+出李俯:
+FIGHTDISENABLE
+callback
+游人1:
+say 0 "有空来城里玩玩也不错。"
+callback
+游人2:
+say 0 "城里就是繁华。"
+callback
+say 0 "不知道哪里有卖花。"
+游人3:
+say 0 "今年的雨水不错，应该有个好收成。"
+callback
+游人4:
+say 0 "这座城中有一户大宅，是李虎的府上。"
+callback
+游人5:
+say 0 "得饶人处且饶人，你会有好报的。"
+callback
+游人6:
+say 0 "非淡泊无以明志，非宁静无以至远。"
+callback
+
+宝箱1:
+if 1059 宝箱1开
+GAINGOODS 8 6
+setevent 1059
+宝箱1开:
+callback
+
+gutevent 22 宝箱1
+gutevent 1 李虎门卫
+gutevent 2 李虎门卫
+gutevent 5 游人1
+gutevent 6 游人2
+gutevent 7 游人3
+gutevent 8 游人4
+gutevent 9 游人5
+gutevent 10 游人6
+gutevent 39 对骂
+gutevent 41 转折路口
+gutevent 42 老王家
+gutevent 43 药店
+gutevent 44 民宅1
+gutevent 45 民宅2
+gutevent 46 民宅3
+gutevent 47 杂货店
+gutevent 48 民宅4
+gutevent 49 当铺
+gutevent 50 客栈
+gutevent 51 武器店
+gutevent 52 民宅5
+gutevent 53 鲁斧家
+gutevent 54 李俯西厢房
+gutevent 55 李俯客厅
+gutevent 56 李俯东厢房
+gutevent 57 李俯密道
+gutevent 58 李俯下人房
+gutevent 59 李俯厨房
+gutevent 60 李俯下房
+gutevent 61 闯李俯
+gutevent 62 出李俯
+
+
+
+@老王家
+
+CREATENPC 1 18 11 13
+if 211 老王
+goto 正常
+老王:
+NPCMOVEMOD 1 0
+CREATENPC 2 13 12 13
+NPCMOVEMOD 2 0
+正常:
+SETSCENENAME "老王家"
+callback
+
+石梦城:
+loadmap 1 37 1 21
+STARTCHAPTER 5 1
+callback
+
+对话:
+if 212 客套话
+if 211 感谢
+goto 等待
+感谢:
+setevent 212
+say 0 "老王:大侠，您来啦？欢迎！"
+say 0 "老王:这是我娘子，她以前在李府当过奶妈，对李府的情况很熟悉。"
+say 0 "王妻:谢谢您放了我相公。"
+say 1 "得饶人处且饶人，况且老王也不是什么大恶人。"
+say 0 "王妻:我以前在李府当奶妈时，常常听其他下人议论李府有密道。"
+say 1 "是吗？"
+say 0 "老王:真的，我也听过。"
+callback
+客套话:
+say 0 "老王:大侠有空常来。"
+callback
+等待:
+say 0 "王妻:不知老王还回不回来吃饭。"
+callback
+
+gutevent 1 对话
+gutevent 2 对话
+gutevent 41 石梦城
+
+
+
+@药店
+
+SETSCENENAME "药店"
+callback
+
+石梦城:
+loadmap 1 37 1 12
+STARTCHAPTER 5 1
+callback
+买武器:
+say 0 "我这里有许多上好药物。"
+BUY "9001 9002 9003 9004 9008 9009 9010 9018 9022 9024 9026 9027 10001 12001 12002 12003 12006 8021 8022 8027"
+callback
+gutevent 42 买武器
+gutevent 41 石梦城
+
+
+
+@民宅1
+
+SETSCENENAME "民宅1"
+callback
+
+石梦城:
+loadmap 1 37 6 12
+STARTCHAPTER 5 1
+callback
+
+gutevent 41 石梦城
+
+
+
+@民宅2
+
+SETSCENENAME "民宅2"
+callback
+
+石梦城:
+loadmap 1 37 14 12
+STARTCHAPTER 5 1
+callback
+
+gutevent 41 石梦城
+
+
+
+@民宅3
+
+SETSCENENAME "民宅3"
+callback
+
+石梦城:
+loadmap 1 37 17 12
+STARTCHAPTER 5 1
+callback
+
+gutevent 41 石梦城
+
+
+
+@杂货店
+
+CREATENPC 1 16 11 11
+NPCMOVEMOD 1 0
+SETSCENENAME "杂货店"
+callback
+
+石梦城:
+loadmap 1 37 1 6
+STARTCHAPTER 5 1
+callback
+买武器:
+facetoface 1 0
+say 0 "我这里有许多上好货物。"
+BUY "6001 6002 6003 6004 5001 5005 1001 1002 1007 1008 1009 3001 3002 3003 3007 3008 3009 8003 8008 8009 8010 8011 8012 8026 12003 12004"
+callback
+gutevent 41 石梦城
+gutevent 42 买武器
+
+
+
+@民宅4
+
+SETSCENENAME "民宅4"
+callback
+
+石梦城:
+loadmap 1 37 9 6
+STARTCHAPTER 5 1
+callback
+
+gutevent 41 石梦城
+
+
+
+@当铺
+
+SETSCENENAME "当铺"
+callback
+
+石梦城:
+loadmap 1 37 14 6
+STARTCHAPTER 5 1
+callback
+当货:
+say 0 "我这里是最公道的。"
+sale
+callback
+gutevent 41 石梦城
+gutevent 42 当货
+
+
+
+@客栈
+
+SETSCENENAME "客栈"
+callback
+
+石梦城:
+loadmap 1 37 2 5
+STARTCHAPTER 5 1
+callback
+
+gutevent 41 石梦城
+
+
+
+@武器店
+
+CREATENPC 1 14 12 10
+NPCMOVEMOD 1 0
+SETSCENENAME "武器店"
+callback
+
+石梦城:
+loadmap 1 37 9 5
+STARTCHAPTER 5 1
+callback
+买武器:
+facetoface 1 0
+say 0 "我这里有许多上好武器。"
+BUY "7002 7003 7004 7016 7017 7018 7025 7026 7027 4001 4002 4003 4004 2001 2002 2003 2008 2009 2010 8001 8002 8004 8005 8017 8029"
+callback
+
+gutevent 41 石梦城
+gutevent 42 买武器
+
+
+
+@民宅5
+
+SETSCENENAME "民宅5"
+callback
+
+石梦城:
+loadmap 1 37 17 5
+STARTCHAPTER 5 1
+callback
+
+gutevent 41 石梦城
+
+
+
+@鲁斧家
+
+CREATENPC 1 26 16 10
+SETSCENENAME "鲁斧家"
+callback
+
+石梦城:
+delallnpc
+loadmap 1 37 21 5
+STARTCHAPTER 5 1
+callback
+
+鲁斧:
+if 223 好事
+if 210 想送
+if 208 道谢
+if 204 对话
+goto 闲话
+对话:
+say 1 "请问这是不是鲁公后人的住处？"
+say 0 "正是，在下鲁斧，请问道长有何事？"
+say 1 "由于要进忘忧村南瘴气林除妖，想借芦藤甲一用。"
+say 0 "哎，道长来得迟了点，昨天，城中恶霸李虎带了一班人将其抢了去。"
+if 207 算总帐
+say 1 "我这就帮你夺回来，不过之后，你得先借我一用。"
+say 0 "那是当然，先道谢了。"
+goto 道谢
+算总帐:
+say 1 "又是他，我这就帮你夺回来，不过之后，你得先借我一用。"
+say 0 "那是当然，先道谢了。"
+道谢:
+say 0 "先道谢了。"
+setevent 208
+callback
+callback
+想送:
+setevent 223
+say 1 "鲁先生，我已夺回宝物。"
+say 0 "除魔卫道，我愿将宝物相赠。"
+say 1 "多谢了。"
+callback
+好事:
+say 0 "做了件好事。"
+callback
+闲话:
+say 0 "我本是鲁公后裔，可惜家道没落啊……"
+callback
+
+gutevent 1 鲁斧
+gutevent 41 石梦城
+
+
+
+@李俯西厢房
+
+SETSCENENAME "李俯西厢房"
+callback
+
+石梦城:
+loadmap 1 37 29 3
+STARTCHAPTER 5 1
+callback
+
+gutevent 41 石梦城
+
+
+
+@李俯客厅
+
+createbox 21 18 10 3
+if 210 打败李虎
+CREATENPC 1 25 12 7
+INITFIGHT 6 7 8 0 0 0 0 0 1 111 31
+打败李虎:
+SETSCENENAME "李俯客厅"
+callback
+
+石梦城:
+loadmap 1 37 34 3
+STARTCHAPTER 5 1
+callback
+
+打李虎:
+ENTERFIGHT 0 6 9 7 1 111 31 0 6 0 39 40 0 lossto winto
+lossto:
+gameover
+callback
+winto:
+setevent 210
+DELETENPC 1
+say 1 "多行不义必自毙。"
+GAINGOODS 4 13
+GAINGOODS 4 14
+if 207 得钥匙
+goto 正常
+得钥匙:
+GAINGOODS 14 4
+setevent 1130
+正常:
+FIGHTDISENABLE
+callback
+李虎话:
+say 0 "不知死活的小辈，土都动到太岁头上来了。"
+say 1 "李虎，你作恶多端，今天我要替天行道！"
+callback
+战斗话:
+say 0 "小子，有两下子。"
+say 1 "少废话，看招！"
+callback
+
+宝箱1:
+if 1060 宝箱1开
+GAINGOODS 9 19
+setevent 1060
+宝箱1开:
+callback
+
+gutevent 21 宝箱1
+gutevent 1 打李虎
+gutevent 39 李虎话
+gutevent 40 战斗话
+gutevent 41 石梦城
+
+
+
+@李俯东厢房
+
+if 214 得救
+say 0 "少女:救命啊……"
+CREATEBOX 1 22 8 3
+得救:
+SETSCENENAME "李俯东厢房"
+callback
+
+石梦城:
+delallnpc
+loadmap 1 37 39 3
+STARTCHAPTER 5 1
+callback
+
+小画家:
+say 1 "别怕，我来救你。"
+deletenpc 1
+CREATENPC 2 20 8 3
+facetoface 0 2
+say 0 "少女:多谢两位大侠救命之恩！"
+say 1 "你应该就是蔡婆婆的女儿小画家吧？"
+say 0 "小画家:是。"
+say 1 "蔡婆婆在家等你呢，快回家去吧。"
+say 0 "小画家:多谢大侠"
+movie 1 3 0 0 0
+deletenpc 2
+message "小画家离开"
+setevent 214
+say 1 "行侠仗义的感觉还真好。"
+callback
+
+gutevent 1 小画家
+gutevent 41 石梦城
+
+
+
+@李俯密道
+
+INITFIGHT 2 4 6 7 8 0 0 0 2 112 32
+CREATEBOX 1 11 4 3
+NPCSTEP 1 0 2
+CREATEBOX 2 14 17 3
+NPCSTEP 2 0 1
+SETSCENENAME "李俯密道"
+callback
+
+石梦城:
+FIGHTDISENABLE
+delallnpc
+loadmap 1 37 41 2
+STARTCHAPTER 5 1
+callback
+
+李俯宝库:
+FIGHTDISENABLE
+delallnpc
+loadmap 3 9 0 8
+STARTCHAPTER 5 21
+callback
+
+gutevent 41 石梦城
+gutevent 50 李俯宝库
+
+
+
+@李俯下人房
+
+if 211 正常
+if 213 正常
+if 210 老王
+goto 正常
+老王:
+CREATENPC 1 13 5 13
+正常:
+SETSCENENAME "李俯下人房"
+callback
+
+石梦城:
+delallnpc
+loadmap 1 37 39 7
+STARTCHAPTER 5 1
+callback
+
+老王对话:
+say 0 "老王:我可是一个普通的下人，你别杀我好吗？"
+CHOICE "放走" "杀死" 杀死
+goto 放走
+杀死:
+say 2 "不要听他的鬼话，每次干坏事都是他带的路。"
+ENTERFIGHT 0 0 19 0 1 111 31 0 0 0 39 0 0 lossto winto
+lossto:
+gameover
+callback
+winto:
+setevent 213
+deletenpc 1
+say 1 "不知悔改，死不足惜！"
+callback
+放走:
+say 1 "你走吧，好自为之。"
+say 0 "多谢大侠！我家就住在石梦城，有事可以去找我。"
+movie 1 3 0 0 0
+deletenpc 1
+message "老王离开了"
+setevent 211
+callback
+
+老王战:
+say 0 "老王:老虎不发威，当我是病猫，我才不怕你们，放马过来吧！"
+callback
+gutevent 1 老王对话
+gutevent 39 老王战
+gutevent 41 石梦城
+
+
+
+@李俯厨房
+
+SETSCENENAME "李俯厨房"
+callback
+
+石梦城:
+loadmap 1 37 39 9
+STARTCHAPTER 5 1
+callback
+
+gutevent 41 石梦城
+
+
+
+@李俯下房
+
+createbox 21 18 19 4
+createbox 22 18 7 4
+createbox 23 18 5 4
+createbox 24 18 16 7
+createbox 25 18 7 10
+SETSCENENAME "李俯下房"
+callback
+
+石梦城:
+loadmap 1 37 32 12
+STARTCHAPTER 5 1
+callback
+
+宝箱1:
+if 1061 宝箱1开
+GAINGOODS 12 5
+setevent 1061
+宝箱1开:
+callback
+宝箱2:
+if 1062 宝箱2开
+GAINGOODS 11 14
+setevent 1062
+宝箱2开:
+callback
+宝箱3:
+if 1063 宝箱3开
+GAINGOODS 9 26
+setevent 1063
+宝箱3开:
+callback
+宝箱4:
+if 1064 宝箱4开
+GAINGOODS 12 5
+setevent 1064
+宝箱4开:
+callback
+宝箱5:
+if 1065 宝箱5开
+GAINGOODS 8 4
+setevent 1065
+宝箱5开:
+callback
+
+gutevent 21 宝箱1
+gutevent 22 宝箱2
+gutevent 23 宝箱3
+gutevent 24 宝箱4
+gutevent 25 宝箱5
+gutevent 41 石梦城
+
+
+
+@李俯宝库
+
+CREATEBOX 8 11 4 12
+NPCSTEP 8 0 0
+CREATEBOX 2 15 6 6
+CREATEBOX 3 15 6 7
+CREATEBOX 4 15 6 9
+CREATEBOX 5 15 12 6
+@if 69 宝箱7
+CREATEBOX 6 16 12 7
+@宝箱7:
+@if 69 宝箱1
+CREATEBOX 7 17 13 7
+@宝箱1:
+@if 65 宝箱1开
+@goto 宝箱2
+@宝箱1开:
+@DELETEBOX 2
+@宝箱2:
+@if 65 宝箱2开
+@goto 宝箱3
+@宝箱2开:
+@DELETEBOX 3
+@宝箱3:
+@if 65 宝箱3开
+@goto 宝箱4
+@宝箱3开:
+@DELETEBOX 4
+@宝箱4:
+@if 65 宝箱4开
+@goto 正常
+@宝箱4开:
+@DELETEBOX 5
+@正常:
+SETSCENENAME "李俯宝库"
+callback
+
+李俯密道:
+delallnpc
+loadmap 3 10 13 1
+STARTCHAPTER 5 17
+callback
+
+
+宝物1:
+if 65 宝物1开
+setevent 65
+GAINGOODS 6 7
+宝物1开:
+callback
+宝物2:
+if 66 宝物2开
+setevent 66
+GAINGOODS 9 12
+GAINGOODS 11 4
+宝物2开:
+callback
+宝物3:
+if 67 宝物3开
+setevent 67
+GAINGOODS 11 1
+宝物3开:
+callback
+宝物4:
+if 68 宝物4开
+setevent 68
+GAINGOODS 8 4
+GAINGOODS 8 25
+宝物4开:
+callback
+宝物5:
+if 69 宝物5开
+setevent 69
+GAINmoney 1000
+宝物5开:
+callback
+宝物6:
+if 70 宝物6开
+setevent 70
+GAINGOODS 9 11
+宝物6开:
+callback
+
+gutevent 2 宝物1
+gutevent 3 宝物2
+gutevent 4 宝物3
+gutevent 5 宝物4
+gutevent 6 宝物5
+gutevent 7 宝物6
+gutevent 43 李俯密道
+
+
+
+@原野阡
+
+INITFIGHT 2 3 2 3 2 3 2 3 2 112 32
+SETSCENENAME "原野阡"
+callback
+
+左出口:
+FIGHTDISENABLE
+if 101 转折路口5
+if 102 森林道路1右
+if 103 转折路口4
+if 104 森林道路3右
+if 105 建业城右
+if 106 森林道路4右
+if 107 白水镇右
+if 108 森林道路5右
+if 109 南北村右
+if 110 森林道路6右
+if 111 酆都城右
+if 112 森林道路7右
+if 113 转折路口3
+
+callback
+
+转折路口5:
+if 216 贪玩
+clrevent 101
+setevent 102
+loadmap 1 30 15 7
+STARTCHAPTER 2 50
+callback
+贪玩:
+say 1 "还是师叔的事要紧。"
+callback
+
+森林道路1右:
+clrevent 102
+setevent 101
+loadmap 1 34 22 0
+STARTCHAPTER 6 3
+callback
+
+转折路口4:
+clrevent 103
+setevent 104
+loadmap 1 29 6 0
+STARTCHAPTER 6 7
+callback
+
+森林道路3右:
+clrevent 104
+setevent 103
+loadmap 1 34 22 0
+STARTCHAPTER 6 3
+callback
+
+建业城右:
+if 224 下山寻钟
+if 216 贪玩
+下山寻钟:
+clrevent 105
+loadmap 1 39 22 5
+STARTCHAPTER 7 1
+callback
+
+森林道路4右:
+@message "正常"
+clrevent 106
+setevent 104
+loadmap 1 34 22 0
+STARTCHAPTER 6 3
+callback
+
+白水镇右:
+clrevent 107
+loadmap 1 42 14 5
+STARTCHAPTER 9 1
+callback
+
+森林道路5右:
+clrevent 108
+setevent 105
+loadmap 1 34 22 0
+STARTCHAPTER 6 3
+callback
+
+南北村右:
+clrevent 109
+loadmap 1 23 18 6
+STARTCHAPTER 10 1
+callback
+
+森林道路6右:
+clrevent 110
+setevent 106
+loadmap 1 34 22 0
+STARTCHAPTER 6 3
+callback
+
+酆都城右:
+clrevent 111
+loadmap 1 43 21 2
+STARTCHAPTER 11 1
+callback
+
+森林道路7右:
+clrevent 112
+setevent 107
+loadmap 1 34 22 0
+STARTCHAPTER 6 3
+callback
+
+转折路口3:
+clrevent 113
+setevent 102
+loadmap 1 28 6 9
+STARTCHAPTER 6 6
+callback
+
+
+右出口:
+FIGHTDISENABLE
+if 101 森林道路1左
+if 102 转折路口1-1
+if 103 森林道路2左
+if 104 转折路口1-2
+if 105 转折路口1-3
+if 106 建业城左
+if 107 森林道路4左
+if 108 转折路口2
+if 109 森林道路5左
+if 110 南北村左
+if 111 森林道路6左
+if 112 酆都城左
+if 113 森林道路7左
+
+callback
+
+森林道路1左:
+loadmap 1 34 1 0
+STARTCHAPTER 6 3
+callback
+
+转折路口1-1:
+clrevent 102
+setevent 101
+loadmap 1 26 1 9
+STARTCHAPTER 6 4
+callback
+
+森林道路2左:
+clrevent 103
+setevent 102
+loadmap 1 34 1 0
+STARTCHAPTER 6 3
+callback
+
+转折路口1-2:
+clrevent 104
+setevent 102
+loadmap 1 26 1 9
+STARTCHAPTER 6 4
+callback
+
+转折路口1-3:
+clrevent 105
+setevent 103
+loadmap 1 26 1 9
+STARTCHAPTER 6 4
+callback
+
+建业城左:
+@message "也正常"
+clrevent 106
+loadmap 1 39 1 6
+STARTCHAPTER 7 1
+callback
+
+森林道路4左:
+clrevent 107
+setevent 104
+loadmap 1 34 1 0
+STARTCHAPTER 6 3
+callback
+
+转折路口2:
+clrevent 108
+loadmap 1 27 1 1
+STARTCHAPTER 6 5
+callback
+
+森林道路5左:
+clrevent 109
+setevent 105
+loadmap 1 34 1 0
+STARTCHAPTER 6 3
+callback
+
+南北村左:
+clrevent 110
+loadmap 1 23 1 5
+STARTCHAPTER 10 1
+callback
+
+森林道路6左:
+clrevent 111
+setevent 106
+loadmap 1 34 1 0
+STARTCHAPTER 6 3
+callback
+
+酆都城左:
+@clrevent 112
+@loadmap 1 43 0 2
+@STARTCHAPTER 11 1
+say 1 "我看我们要快点赶去鹤鸣山。"
+callback
+
+森林道路7左:
+clrevent 113
+setevent 107
+loadmap 1 34 1 0
+STARTCHAPTER 6 3
+callback
+
+
+gutevent 41 左出口
+gutevent 42 右出口
+
+
+
+
+@原野陌
+
+INITFIGHT 2 3 2 3 2 3 2 3 2 112 32
+SETSCENENAME "原野陌"
+callback
+
+上出口:
+FIGHTDISENABLE
+if 101 原野陌2下
+if 102 转折路口4
+if 103 原野陌4下
+if 104 建业城
+if 105 转折路口2
+if 106 北海
+if 107 南北村下
+if 108 鹤鸣山
+message "上出口异常"
+callback
+
+原野陌2下:
+clrevent 101
+setevent 102
+loadmap 1 22 0 25
+STARTCHAPTER 6 2
+callback
+转折路口4:
+clrevent 102
+@setevent 103
+loadmap 1 29 0 9
+STARTCHAPTER 6 7
+callback
+原野陌4下:
+clrevent 103
+setevent 104
+loadmap 1 22 0 25
+STARTCHAPTER 6 2
+callback
+
+建业城:
+clrevent 104
+if 218 正常
+goto 认识袁
+正常:
+loadmap 1 39 11 21
+STARTCHAPTER 7 1
+callback
+认识袁:
+STARTCHAPTER 7 14
+callback
+
+转折路口2:
+clrevent 105
+loadmap 1 27 6 9
+STARTCHAPTER 6 5
+callback
+
+北海:
+clrevent 106
+loadmap 1 45 9 0
+STARTCHAPTER 6 14
+callback
+
+南北村下:
+clrevent 107
+loadmap 1 23 1 23
+STARTCHAPTER 10 1
+callback
+
+鹤鸣山:
+clrevent 108
+loadmap 1 41 7 8
+STARTCHAPTER 14 1
+callback
+
+
+
+下出口:
+FIGHTDISENABLE
+if 101 转折路口1-1
+if 102 原野陌1上
+if 103 转折路口1-2
+if 104 原野陌3上
+if 105 白水镇
+if 106 南北村上
+if 107 转折路口3-1
+if 108 转折路口3-2
+message "下出口异常"
+callback
+
+转折路口1-1:
+loadmap 1 26 6 1
+STARTCHAPTER 6 4
+callback
+原野陌1上:
+clrevent 102
+setevent 101
+loadmap 1 22 0 1
+STARTCHAPTER 6 2
+callback
+转折路口1-2:
+clrevent 103
+setevent 102
+loadmap 1 26 6 1
+STARTCHAPTER 6 4
+callback
+原野陌3上:
+clrevent 104
+setevent 103
+loadmap 1 22 0 1
+STARTCHAPTER 6 2
+callback
+
+白水镇:
+clrevent 105
+loadmap 1 42 7 1
+STARTCHAPTER 9 1
+callback
+
+南北村上:
+clrevent 106
+loadmap 1 23 11 1
+STARTCHAPTER 10 1
+callback
+
+转折路口3-1:
+clrevent 107
+setevent 101
+loadmap 1 28 0 1
+STARTCHAPTER 6 6
+callback
+转折路口3-2:
+clrevent 108
+setevent 102
+loadmap 1 28 0 1
+STARTCHAPTER 6 6
+callback
+
+
+
+gutevent 41 下出口
+gutevent 42 上出口
+
+
+@森林道路
+
+INITFIGHT 2 3 2 3 2 3 2 3 2 112 32
+SETSCENENAME "森林道路"
+callback
+
+左出口:
+FIGHTDISENABLE
+if 101 原野阡1右
+if 102 原野阡3右
+if 103 森林道路2右
+if 104 原野阡7右
+if 105 原野阡9右
+if 106 原野阡11右
+if 107 原野阡13右
+callback
+
+原野阡1右:
+loadmap 1 21 22 0
+STARTCHAPTER 6 1
+callback
+原野阡3右:
+clrevent 102
+setevent 103
+loadmap 1 21 22 0
+STARTCHAPTER 6 1
+callback
+森林道路2右:
+clrevent 103
+setevent 102
+loadmap 1 34 22 0
+STARTCHAPTER 6 3
+callback
+原野阡7右:
+clrevent 104
+setevent 107
+loadmap 1 21 22 0
+STARTCHAPTER 6 1
+callback
+原野阡9右:
+clrevent 105
+setevent 109
+loadmap 1 21 22 0
+STARTCHAPTER 6 1
+callback
+原野阡11右:
+clrevent 106
+setevent 111
+loadmap 1 21 22 0
+STARTCHAPTER 6 1
+callback
+原野阡13右:
+clrevent 107
+setevent 113
+loadmap 1 21 22 0
+STARTCHAPTER 6 1
+callback
+
+
+右出口:
+FIGHTDISENABLE
+if 101 原野阡2左
+if 102 森林道路3左
+if 103 原野阡4左
+if 104 原野阡6左
+if 105 原野阡8左
+if 106 原野阡10左
+if 107 原野阡12左
+callback
+
+原野阡2左:
+clrevent 101
+setevent 102
+loadmap 1 21 1 0
+STARTCHAPTER 6 1
+callback
+森林道路3左:
+clrevent 102
+setevent 103
+loadmap 1 21 1 0
+STARTCHAPTER 6 3
+callback
+原野阡4左:
+clrevent 103
+setevent 104
+loadmap 1 21 1 0
+STARTCHAPTER 6 1
+callback
+原野阡6左:
+clrevent 104
+setevent 106
+loadmap 1 21 1 0
+STARTCHAPTER 6 1
+callback
+原野阡8左:
+clrevent 105
+setevent 108
+loadmap 1 21 1 0
+STARTCHAPTER 6 1
+callback
+原野阡10左:
+clrevent 106
+setevent 110
+loadmap 1 21 1 0
+STARTCHAPTER 6 1
+callback
+原野阡12左:
+clrevent 107
+setevent 112
+loadmap 1 21 1 0
+STARTCHAPTER 6 1
+callback
+
+
+gutevent 41 左出口
+gutevent 42 右出口
+
+
+@转折路口1
+
+SETSCENENAME "转折路口"
+callback
+
+左出口:
+if 101 原野阡2右
+if 102 原野阡4右
+if 103 原野阡5右
+callback
+原野阡2右:
+clrevent 101
+setevent 102
+loadmap 1 21 22 0
+STARTCHAPTER 6 1
+callback
+原野阡4右:
+clrevent 102
+setevent 104
+loadmap 1 21 22 0
+STARTCHAPTER 6 1
+callback
+原野阡5右:
+clrevent 103
+setevent 105
+loadmap 1 21 22 0
+STARTCHAPTER 6 1
+callback
+
+上出口:
+if 101 原野陌1下
+if 102 原野陌3下
+if 103 钟山
+callback
+原野陌1下:
+@clrevent 101
+@setevent 101
+loadmap 1 22 0 25
+STARTCHAPTER 6 2
+callback
+原野陌3下:
+clrevent 102
+setevent 103
+loadmap 1 22 0 25
+STARTCHAPTER 6 2
+callback
+
+钟山:
+clrevent 103
+loadmap 1 40 7 10
+STARTCHAPTER 6 13
+callback
+
+gutevent 41 左出口
+gutevent 42 上出口
+
+
+@转折路口2
+
+SETSCENENAME "转折路口"
+callback
+
+左出口:
+setevent 108
+loadmap 1 21 22 0
+STARTCHAPTER 6 1
+callback
+下出口:
+setevent 105
+loadmap 1 22 0 1
+STARTCHAPTER 6 2
+callback
+
+gutevent 41 左出口
+gutevent 42 下出口
+
+
+@转折路口3
+
+SETSCENENAME "转折路口"
+callback
+
+上出口:
+if 101 原野陌7
+if 102 原野陌8
+callback
+原野陌7:
+clrevent 101
+setevent 107
+goto 原野陌
+原野陌8:
+clrevent 102
+setevent 108
+原野陌:
+loadmap 1 22 0 25
+STARTCHAPTER 6 2
+callback
+
+右出口:
+if 101 南山
+if 102 原野阡
+callback
+原野阡:
+clrevent 102
+setevent 113
+loadmap 1 21 1 0
+STARTCHAPTER 6 1
+callback
+
+南山:
+clrevent 101
+loadmap 1 35 0 11
+STARTCHAPTER 12 1
+callback
+
+gutevent 41 右出口
+gutevent 42 上出口
+
+
+@转折路口4
+
+SETSCENENAME "转折路口"
+callback
+
+右出口:
+setevent 103
+loadmap 1 21 1 0
+STARTCHAPTER 6 1
+callback
+callback
+下出口:
+setevent 102
+loadmap 1 22 0 1
+STARTCHAPTER 6 2
+callback
+
+gutevent 41 下出口
+gutevent 42 右出口
+
+
+@竖桥
+
+SETSCENENAME "竖桥"
+callback
+
+上出口:
+if 101 竖桥2下
+if 102 竖桥3下
+if 103 台子
+callback
+竖桥2下:
+clrevent 101
+setevent 102
+loadmap 1 11 0 34
+STARTCHAPTER 6 8
+callback
+竖桥3下:
+clrevent 102
+setevent 103
+loadmap 1 11 0 34
+STARTCHAPTER 6 8
+callback
+台子:
+clrevent 103
+loadmap 1 15 4 10
+STARTCHAPTER 6 9
+callback
+
+
+下出口:
+if 101 钟山入口
+if 102 竖桥1上
+if 103 竖桥2上
+callback
+
+钟山入口:
+clrevent 101
+loadmap 1 40 7 0
+STARTCHAPTER 6 13
+callback
+竖桥1上:
+clrevent 102
+setevent 101
+loadmap 1 11 0 0
+STARTCHAPTER 6 8
+callback
+竖桥2上:
+clrevent 103
+setevent 102
+loadmap 1 11 0 0
+STARTCHAPTER 6 8
+callback
+
+gutevent 41 上出口
+gutevent 42 下出口
+
+
+
+@台子4
+
+SETSCENENAME "台子"
+callback
+
+
+上出口:
+loadmap 1 17 5 9
+STARTCHAPTER 6 11
+callback
+下出口:
+setevent 103
+loadmap 1 11 0 0
+STARTCHAPTER 6 8
+callback
+右出口:
+loadmap 1 10 0 1
+STARTCHAPTER 6 12
+callback
+左出口:
+loadmap 1 19 9 4
+STARTCHAPTER 6 10
+callback
+
+
+gutevent 41 上出口
+gutevent 42 下出口
+gutevent 43 右出口
+gutevent 44 左出口
+
+
+@台子右
+
+SETSCENENAME "台子"
+callback
+
+
+右出口:
+loadmap 1 15 0 5
+STARTCHAPTER 6 9
+callback
+
+gutevent 41 右出口
+
+
+@台子下
+
+SETSCENENAME "台子"
+callback
+
+下出口:
+loadmap 1 15 5 0
+STARTCHAPTER 6 9
+callback
+
+gutevent 41 下出口
+
+
+@横桥
+
+SETSCENENAME "横桥"
+callback
+
+台子:
+loadmap 1 15 9 5
+STARTCHAPTER 6 9
+callback
+
+钟山道院:
+loadmap 1 44 0 4
+STARTCHAPTER 8 1
+callback
+
+gutevent 41 钟山道院
+gutevent 42 台子
+
+
+@钟山入口
+
+if 219 正常
+STARTCHAPTER 8 11
+正常:
+SETSCENENAME "钟山入口"
+callback
+
+转折路口:
+if 224 下山
+if 219 支援
+下山:
+setevent 103
+loadmap 1 26 6 0
+STARTCHAPTER 6 4
+callback
+支援:
+say 1 "赶快上山支援！"
+callback
+
+竖桥:
+setevent 101
+loadmap 1 11 0 34
+STARTCHAPTER 6 8
+callback
+
+gutevent 41 转折路口
+gutevent 42 竖桥
+
+
+
+@北海
+
+if 245 不能下海
+if 242 不能下海
+if 238 可以下海
+goto 不能下海
+可以下海:
+createbox 1 27 10 2
+不能下海:
+SETSCENENAME "北海"
+callback
+
+原野阡:
+setevent 106
+loadmap 1 22 0 1
+STARTCHAPTER 6 2
+callback
+
+北海迷宫:
+say 1 "有旋涡，这样我们就可以下海去了。"
+loadmap 3 10 9 5
+STARTCHAPTER 13 1
+callback
+海水:
+say 1 "这里海水比重这么大，就是石头也难下沉，更别说是人了。"
+callback
+
+gutevent 1 北海迷宫
+gutevent 41 原野阡
+gutevent 42 海水
+
+
+
+@建业城
+
+createbox 21 18 13 11
+SETSCENENAME "建业城"
+SHOWSCENENAME
+callback
+
+原野陌:
+if 255 非白水方向
+if 224 问人
+setevent 104
+delallnpc
+loadmap 1 22 0 0
+STARTCHAPTER 6 2
+callback
+问人:
+say 2 "这里人多，我们可以去问问有没有人见到袁姐姐。"
+say 1 "对，到上次的那家客栈去问问。"
+callback
+非白水方向:
+say 2 "到白水镇好象不是朝这个方向走。"
+callback
+原野阡:
+setevent 105
+delallnpc
+loadmap 1 21 0 0
+STARTCHAPTER 6 1
+callback
+去白水镇:
+if 225 寻袁
+if 224 问人
+if 216 方向错
+寻袁:
+delallnpc
+setevent 106
+loadmap 1 21 22 0
+STARTCHAPTER 6 1
+callback
+方向错:
+say 2 "到钟山好象不是朝这个方向走。"
+say 1 "对。"
+callback
+
+去建业客栈:
+delallnpc
+loadmap 2 22 9 14
+STARTCHAPTER 7 2
+callback
+武器店:
+delallnpc
+loadmap 2 17 4 9
+STARTCHAPTER 7 3
+callback
+杂货铺:
+delallnpc
+loadmap 2 16 5 0
+STARTCHAPTER 7 4
+callback
+当铺:
+delallnpc
+loadmap 2 19 6 0
+STARTCHAPTER 7 5
+callback
+药铺:
+delallnpc
+loadmap 2 9 6 9
+STARTCHAPTER 7 6
+callback
+民宅1:
+delallnpc
+loadmap 2 10 8 16
+STARTCHAPTER 7 7
+callback
+民宅2:
+delallnpc
+loadmap 2 23 15 11
+STARTCHAPTER 7 8
+callback
+民宅3:
+delallnpc
+loadmap 2 24 0 11
+STARTCHAPTER 7 9
+callback
+民宅4:
+delallnpc
+loadmap 2 10 8 16
+STARTCHAPTER 7 10
+callback
+民宅5:
+delallnpc
+loadmap 2 11 8 13
+STARTCHAPTER 7 11
+callback
+
+宝箱1:
+if 1117 宝箱1开
+if 1118 宝箱1开
+say 1 "哇！这是谁把钱袋放在这里面啦？！"
+GAINMONEY 250
+createnpc 30 13 18 12
+createnpc 31 14 18 13
+createnpc 32 15 18 13
+move 30 14 12
+move 31 14 13
+move 32 15 13
+facetoface 30 0
+facetoface 31 0
+facetoface 32 0
+say 0 "游人:喂，那是我的钱袋，快给我！"
+NPCSTEP 0 2 0
+CHOICE "不给" "奉还" 奉还
+say 0 "游人:小子你想挨揍！兄弟们，给我打！！！"
+ENTERFIGHT 0 9 20 26 1 111 31 0 0 0 0 0 0 lost win
+win:
+say 1 "地上捡到宝，见官都没得讨！"
+say 0 "游人:算你狠，我们走。"
+move 30 18 12
+deletenpc 30
+move 32 18 13
+deletenpc 32
+move 31 18 13
+deletenpc 31
+setevent 1118
+callback
+lost:
+gameover
+callback
+奉还:
+USEMONEY 250
+say 0 "游人:算你小子识相，兄弟们，我们去喝酒去。"
+move 30 16 12
+move 30 16 7
+deletenpc 30
+move 32 16 13
+move 32 16 7
+deletenpc 32
+move 31 16 13
+move 31 16 7
+deletenpc 31
+setevent 1117
+say 1 "我怎么有点上当的感觉……"
+宝箱1开:
+callback
+
+gutevent 21 宝箱1
+gutevent 41 原野陌
+gutevent 42 原野阡
+gutevent 43 去白水镇
+gutevent 44 去建业客栈
+gutevent 45 武器店
+gutevent 46 杂货铺
+gutevent 47 当铺
+gutevent 48 药铺
+gutevent 49 民宅1
+gutevent 50 民宅2
+gutevent 51 民宅3
+gutevent 52 民宅5
+gutevent 53 民宅4
+
+
+
+@建业客栈
+
+SETSCENENAME "建业客栈"
+if 221 钟山回
+if 1117 追捡到的钱
+钟山回:
+callback
+追捡到的钱:
+createnpc 30 13 12 15
+createnpc 31 14 12 14
+createnpc 32 15 13 15
+facetoface 30 0
+facetoface 31 0
+facetoface 32 0
+say 0 "游人:你小子又追来干吗？想挨揍。"
+ENTERFIGHT 0 9 20 26 1 111 31 0 0 0 0 0 0 lost win
+lost:
+gameover
+callback
+win:
+gaingoods 6 12
+GAINMONEY 250
+say 0 "游人:算你狠，我们走。"
+move 30 12 19
+deletenpc 30
+move 31 12 19
+deletenpc 31
+move 32 12 15
+move 32 12 19
+deletenpc 32
+setevent 1118
+callback
+
+callback
+
+建业城:
+delallnpc
+loadmap 1 39 12 2
+STARTCHAPTER 7 1
+callback
+提示信息:
+say 0 "客官，楼上正在建设中，目前不开放。"
+say 1 "我只是想随便走走。"
+callback
+客栈客房:
+delallnpc
+loadmap 2 4 0 5
+STARTCHAPTER 7 12
+callback
+客栈厨房:
+delallnpc
+loadmap 2 5 0 6
+STARTCHAPTER 7 13
+callback
+交易事件:
+if 225 做生意
+if 224 问袁
+goto 做生意
+问袁:
+say 0 "掌柜：请问客官有什么吩咐？"
+say 1 "请问掌柜的是否见到过上次和我们在一起的那位姑娘？"
+say 0 "哦，见过，昨天还在这里吃过午饭呢。她出门时好象是往白水镇方向。"
+say 1 "多谢！"
+setevent 225
+callback
+做生意:
+say 0 "掌柜：请问客官是住店还是吃饭？"
+say 1 "不了，我们还要赶路。"
+callback
+
+gutevent 41 建业城
+gutevent 42 提示信息
+gutevent 43 客栈客房
+gutevent 44 客栈厨房
+gutevent 45 交易事件
+
+
+
+
+@武器店
+CREATENPC 1 14 12 10
+NPCMOVEMOD 1 0
+SETSCENENAME "武器店"
+callback
+
+建业城:
+delallnpc
+loadmap 1 39 18 5
+STARTCHAPTER 7 1
+callback
+
+买武器:
+facetoface 1 0
+say 0 "我这里有许多上好武器。"
+BUY "7004 7005 7006 7018 7019 7020 7027 7028 7029 4003 4004 4005 4006 2003 2004 2009 2010 2011 8001 8002 8004 8005 8006 8017 8020 8029"
+callback
+
+gutevent 41 建业城
+gutevent 42 买武器
+
+
+@杂货铺
+
+CREATENPC 1 16 11 11
+NPCMOVEMOD 1 0
+SETSCENENAME "杂货铺"
+callback
+
+建业城:
+delallnpc
+loadmap 1 39 18 6
+STARTCHAPTER 7 1
+callback
+买武器:
+facetoface 1 0
+say 0 "我这里有许多上好货物。"
+BUY "10002 12004 12005 8008 8009 8010 8012 8013 8015 8022 1002 1003 1009 1010 5002 5006 6004 6005 6006 3003 3004 3008 3009 3010 9007 9024 9027"
+callback
+gutevent 41 建业城
+gutevent 42 买武器
+
+
+
+@当铺
+
+SETSCENENAME "当铺"
+callback
+
+建业城:
+delallnpc
+loadmap 1 39 5 6
+STARTCHAPTER 7 1
+callback
+当货:
+say 0 "我这里是最公道的。"
+sale
+callback
+gutevent 41 建业城
+gutevent 42 当货
+
+
+@药铺
+
+SETSCENENAME "药铺"
+callback
+
+建业城:
+delallnpc
+loadmap 1 39 5 5
+STARTCHAPTER 7 1
+callback
+买武器:
+say 0 "我这里有许多上好药物。"
+BUY "9002 9003 9004 9006 9009 9010 9011 9015 9023 9025 9026 12001 12002 12003 12006 8021 8028"
+callback
+gutevent 42 买武器
+gutevent 41 建业城
+
+
+@民宅1
+
+SETSCENENAME "民宅1"
+callback
+
+建业城:
+delallnpc
+loadmap 1 39 2 14
+STARTCHAPTER 7 1
+callback
+
+gutevent 41 建业城
+
+
+@民宅2
+
+SETSCENENAME "民宅2"
+callback
+
+建业城:
+delallnpc
+loadmap 1 39 7 12
+STARTCHAPTER 7 1
+callback
+
+gutevent 41 建业城
+
+
+@民宅3
+
+createnpc 1 15 17 5
+SETSCENENAME "民宅3"
+callback
+
+建业城:
+delallnpc
+loadmap 1 39 16 12
+STARTCHAPTER 7 1
+callback
+
+阿军话:
+if 264 想回家
+say 0 "阿军:我在城里人称万锁开,什么锁都能开.不知道老孟的信什么时候能到！"
+if 201 送信
+callback
+送信:
+say 1 "这么说你就是老孟的男友阿军咯？"
+facetoface 1 0
+say 0 "阿军:是啊，你认识她？"
+say 1 "我在忘忧村时她托我送了这封信给你。"
+message "把情书交给阿军"
+usegoods 14 3 没情书
+say 0 "阿军:多谢你这么远来送信，我这里有三把钥匙，是我研究多年所制，就算是薄谢吧。"
+setevent 264
+say 1 "客气了。"
+gaingoods 14 2
+gaingoods 14 2
+gaingoods 14 2
+callback
+想回家:
+say 0 "阿军:好久没回家了,该回去看看了."
+callback
+
+没情书:
+message "没此物品"
+callback
+
+gutevent 1 阿军话
+gutevent 41 建业城
+
+
+@民宅4
+
+SETSCENENAME "民宅4"
+callback
+
+建业城:
+delallnpc
+loadmap 1 39 17 18
+STARTCHAPTER 7 1
+callback
+
+gutevent 41 建业城
+
+
+@民宅5
+
+SETSCENENAME "民宅5"
+callback
+
+建业城:
+delallnpc
+loadmap 1 39 21 14
+STARTCHAPTER 7 1
+callback
+
+gutevent 41 建业城
+
+
+@客栈客房
+
+SETSCENENAME "客栈客房"
+callback
+
+建业客栈:
+delallnpc
+loadmap 2 22 17 5
+STARTCHAPTER 7 2
+callback
+
+gutevent 41 建业客栈
+
+
+
+
+@客栈厨房
+
+SETSCENENAME "客栈厨房"
+callback
+
+建业客栈:
+delallnpc
+loadmap 2 22 17 10
+STARTCHAPTER 7 2
+callback
+
+gutevent 41 建业客栈
+
+
+
+
+@结识袁萍芷
+
+setevent 218
+
+loadmap 1 39 11 21
+say 0 "路人:抓小偷……"
+CREATENPC 1 13 20 22
+move 1 15 22
+move 1 15 23
+say 0 "小偷:闪开！闪开！"
+say 1 "抓小偷我最拿手了，让我来。"
+ENTERFIGHT 0 0 20 0 1 111 31 0 0 0 0 0 0 lossto winto
+lossto:
+gameover
+callback
+winto:
+deletenpc 1
+CREATENPC 1 7 15 23
+NPCSTEP 1 2 0
+say 1 "奇怪，怎么变成女的了……"
+movie 1 3 0 0 0
+delallnpc
+loadmap 2 22 12 9
+CREATENPC 1 7 16 13
+CREATENPC 2 6 17 12
+NPCSTEP 0 1 0
+NPCSTEP 1 1 0
+NPCSTEP 2 3 0
+say 2 "这位姐姐，看你身手不凡，为何会……"
+say 3 "我叫袁萍芷，往事我不想提。"
+say 1 "这么好的身手，可惜了。"
+say 2 "袁姐姐，当今妖魔横行，以你的身手，何不为民除害呢？"
+say 3 "这……"
+movie 1 3 0 0 0
+message "一夜过去了。"
+DELETENPC 1
+say 2 "今早我一醒来，就没看到袁姐姐，可能走了。"
+say 1 "算了，人各有志，咱们还是去钟山吧。"
+DELETENPC 2
+message "慕容小梅加入队列"
+STARTCHAPTER 7 2
+callback
+
+
+
+
+@钟山道院
+
+createbox 21 18 9 17
+if 220 第一次灭妖
+INITFIGHT 1 12 13 15 16 17 0 0 1 111 31
+第一次灭妖:
+SETSCENENAME "钟山道院"
+callback
+
+横桥:
+if 224 下山寻钟
+if 216 继续留
+下山寻钟:
+delallnpc
+loadmap 1 10 31 1
+STARTCHAPTER 6 12
+callback
+继续留:
+say 1 "这里还有要紧是要办呢！"
+callback
+
+霸王钟洞口:
+delallnpc
+loadmap 1 35 0 12
+STARTCHAPTER 8 2
+callback
+参虚阁:
+delallnpc
+loadmap 2 7 8 18
+STARTCHAPTER 8 3
+callback
+药房:
+delallnpc
+loadmap 2 9 6 9
+STARTCHAPTER 8 4
+callback
+炼丹房:
+delallnpc
+loadmap 2 6 6 14
+STARTCHAPTER 8 5
+callback
+冲虚居:
+delallnpc
+loadmap 2 2 12 7
+STARTCHAPTER 8 6
+callback
+弟子居:
+delallnpc
+loadmap 2 4 0 5
+STARTCHAPTER 8 7
+callback
+厨房:
+delallnpc
+loadmap 2 5 0 6
+STARTCHAPTER 8 8
+callback
+
+宝箱1:
+if 1066 宝箱1开
+GAINGOODS 1 10
+setevent 1066
+宝箱1开:
+callback
+
+gutevent 21 宝箱1
+gutevent 41 横桥
+gutevent 42 霸王钟洞口
+gutevent 43 参虚阁
+gutevent 44 药房
+gutevent 45 炼丹房
+gutevent 46 冲虚居
+gutevent 47 弟子居
+gutevent 48 厨房
+
+
+
+
+
+@霸王钟洞口
+if 224 正常
+if 221 师叔回
+goto 正常
+师叔回:
+createnpc 1 1 11 10
+move 1 11 4
+say 0 "冲虚道人:清风，妖魔已经退了，……你们怎么出来了。"
+say 1 "师叔，都怪我学艺不精，霸王钟已经被抢跑了。"
+say 0 "冲虚道人:天意啊……，你们有没有受伤，……袁姑娘呢？"
+say 1 "我们没事，我和小梅被打晕了，醒来就不见她了。"
+say 0 "冲虚道人:此事关系天下苍生，一定要把霸王钟找回来。"
+say 1 "我前去愿寻回霸王钟。"
+say 0 "冲虚道人:好，你即刻下山，先寻找袁姑娘，我看此事与她关系甚大。"
+say 1 "是，师叔。"
+say 0 "冲虚道人:山上事务还需我主持，希望你们能尽快找回霸王钟，以免生灵涂炭。"
+move 1 11 10
+deletenpc 1
+setevent 224
+正常:
+SETSCENENAME "霸王钟洞口"
+callback
+
+钟山道院:
+delallnpc
+loadmap 1 44 13 6
+STARTCHAPTER 8 1
+callback
+霸王迷宫:
+delallnpc
+loadmap 3 10 39 15
+STARTCHAPTER 8 9
+callback
+
+gutevent 41 钟山道院
+gutevent 42 霸王迷宫
+
+
+@参虚阁
+
+if 220 第一次灭妖
+ENTERFIGHT 0 48 50 51 1 111 31 0 0 0 0 0 0 lossto winto1
+lossto:
+gameover
+callback
+winto1:
+ENTERFIGHT 0 52 53 54 1 111 31 0 0 0 0 0 0 lossto winto2
+winto2:
+ENTERFIGHT 0 55 57 58 1 111 31 0 0 0 0 0 0 lossto winto3
+winto3:
+setevent 220
+FIGHTDISENABLE
+STARTCHAPTER 8 12
+callback
+第一次灭妖:
+SETSCENENAME "参虚阁"
+callback
+
+钟山道院:
+delallnpc
+loadmap 1 44 7 3
+STARTCHAPTER 8 1
+callback
+
+gutevent 41 钟山道院
+
+
+
+@药房
+
+SETSCENENAME "药房"
+callback
+
+钟山道院:
+delallnpc
+loadmap 1 44 1 1
+STARTCHAPTER 8 1
+callback
+买卖:
+say 0 "这里有不少的好药才供选择。"
+BUY "9001 9002 9003 9008 9009 9010 9011 9021 9026 9027 9006 10001 12001 12002 12003 8022 8027"
+callback
+
+gutevent 41 钟山道院
+gutevent 42 买卖
+
+
+
+@炼丹房
+
+createbox 21 18 12 2
+SETSCENENAME "炼丹房"
+callback
+
+钟山道院:
+delallnpc
+loadmap 1 44 12 1
+STARTCHAPTER 8 1
+callback
+
+宝箱1:
+if 1067 宝箱1开
+GAINGOODS 12 1
+setevent 1067
+宝箱1开:
+callback
+
+gutevent 21 宝箱1
+gutevent 41 钟山道院
+
+
+
+@冲虚居
+
+createbox 21 18 7 12
+SETSCENENAME "冲虚居"
+callback
+
+钟山道院:
+delallnpc
+loadmap 1 44 3 9
+STARTCHAPTER 8 1
+callback
+
+宝箱1:
+if 1068 宝箱1开
+GAINGOODS 3 3
+setevent 1068
+宝箱1开:
+callback
+
+gutevent 21 宝箱1
+gutevent 41 钟山道院
+
+
+
+@弟子居
+
+SETSCENENAME "弟子居"
+callback
+
+钟山道院:
+delallnpc
+loadmap 1 44 10 9
+STARTCHAPTER 8 1
+callback
+
+gutevent 41 钟山道院
+
+
+
+@厨房
+
+SETSCENENAME "厨房"
+callback
+
+钟山道院:
+delallnpc
+loadmap 1 44 10 11
+STARTCHAPTER 8 1
+callback
+
+gutevent 41 钟山道院
+
+
+
+@霸王迷宫
+
+
+INITFIGHT 13 10 22 25 49 0 0 0 2 112 32
+createbox 21 9 14 5
+createbox 22 9 12 2
+createbox 23 9 10 41
+createbox 24 9 27 43
+createbox 25 9 31 28
+createbox 26 9 29 12
+createbox 27 9 40 26
+createbox 28 9 45 34
+
+if 1069 宝箱1已开
+goto 宝箱2开否
+宝箱1已开:
+deletebox 21
+宝箱2开否:
+if 1070 宝箱2已开
+goto 宝箱2未开
+宝箱2已开:
+deletebox 22
+宝箱2未开:
+if 1071 宝箱3已开
+goto 宝箱3未开
+宝箱3已开:
+deletebox 23
+宝箱3未开:
+if 1072 宝箱4已开
+goto 宝箱5开否
+宝箱4已开:
+deletebox 24
+宝箱5开否:
+if 1073 宝箱5已开
+goto 宝箱5未开
+宝箱5已开:
+deletebox 25
+宝箱5未开:
+if 1074 宝箱6已开
+goto 宝箱6未开
+宝箱6已开:
+deletebox 26
+宝箱6未开:
+if 1075 宝箱7已开
+goto 宝箱8开否
+宝箱7已开:
+deletebox 27
+宝箱8开否:
+if 1076 宝箱8已开
+goto 宝箱8未开
+宝箱8已开:
+deletebox 28
+宝箱8未开:
+
+
+CREATEBOX 1 11 43 19
+NPCSTEP 1 0 1
+CREATEBOX 2 11 31 3
+NPCSTEP 1 0 0
+SETSCENENAME "霸王迷宫"
+callback
+
+霸王钟洞:
+FIGHTDISENABLE
+delallnpc
+loadmap 3 9 10 9
+STARTCHAPTER 8 10
+callback
+霸王钟洞口:
+FIGHTDISENABLE
+delallnpc
+loadmap 1 35 7 0
+STARTCHAPTER 8 2
+callback
+
+宝箱1:
+if 1069 宝箱1开
+deletebox 21
+GAINGOODS 5 6
+setevent 1069
+宝箱1开:
+callback
+宝箱2:
+if 1070 宝箱2开
+deletebox 22
+GAINGOODS 1 2
+setevent 1070
+宝箱2开:
+callback
+宝箱3:
+if 1071 宝箱3开
+deletebox 23
+GAINGOODS 3 2
+setevent 1071
+宝箱3开:
+callback
+宝箱4:
+if 1072 宝箱4开
+deletebox 24
+GAINGOODS 9 2
+setevent 1072
+宝箱4开:
+callback
+宝箱5:
+if 1073 宝箱5开
+deletebox 25
+GAINGOODS 9 9
+setevent 1073
+宝箱5开:
+callback
+宝箱6:
+if 1074 宝箱6开
+deletebox 26
+GAINGOODS 9 25
+setevent 1074
+宝箱6开:
+callback
+宝箱7:
+if 1075 宝箱7开
+deletebox 27
+GAINGOODS 11 1
+setevent 1075
+宝箱7开:
+callback
+宝箱8:
+if 1076 宝箱8开
+deletebox 28
+GAINGOODS 12 3
+setevent 1076
+宝箱8开:
+callback
+
+gutevent 21 宝箱1
+gutevent 22 宝箱2
+gutevent 23 宝箱3
+gutevent 24 宝箱4
+gutevent 25 宝箱5
+gutevent 26 宝箱6
+gutevent 27 宝箱7
+gutevent 28 宝箱8
+gutevent 51 霸王钟洞
+gutevent 54 霸王钟洞口
+
+
+@霸王钟洞
+
+CREATEBOX 1 11 15 12
+NPCSTEP 1 0 1
+if 221 钟被抢
+CREATEBOX 2 21 8 9
+CREATEBOX 3 18 9 9
+CREATEBOX 4 18 10 9
+钟被抢:
+SETSCENENAME "霸王钟洞"
+callback
+
+霸王迷宫:
+delallnpc
+loadmap 3 10 28 0
+STARTCHAPTER 8 9
+callback
+
+gutevent 44 霸王迷宫
+
+
+
+@钟山遇袁萍芷
+
+setevent 219
+CREATENPC 1 7 11 12
+NPCSTEP 1 2 0
+say 3 "我在这里等你们好久了，我想通了，我加入你们。"
+say 2 "太好了！"
+say 1 "那我们走吧！"
+CREATEACTOR 3 4 3
+message "袁萍芷加入队列"
+deletenpc 1
+ENTERFIGHT 0 14 14 14 1 111 31 0 0 0 1 0 0 lossto winto
+lossto:
+gameover
+callback
+winto:
+INITFIGHT 1 12 13 15 16 17 0 0 1 111 31
+say 1 "怎么这么奇怪？糟了，师叔有危险。"
+STARTCHAPTER 6 13
+callback
+
+小雷公:
+say 0 "小雷公:你们这班妖魔，竟敢在这撒野，我雷爷今儿个就把你们给收了。"
+say 1 "…………"
+say 0 "小雷公:受死吧。"
+callback
+
+gutevent 1 小雷公
+
+
+@洞口见师叔
+
+CREATENPC 1 2 12 17
+move 1 12 20
+say 0 "钟山道士:多亏柳师兄及时赶到，不然我们就遭殃了。"
+say 1 "快带我去见师叔。"
+say 0 "钟山道士:好，师父在后山等你。"
+movie 1 3 0 0 0
+delallnpc
+loadmap 1 35 5 3
+CREATENPC 1 1 10 6
+CREATENPC 2 6 6 4
+CREATENPC 3 7 6 5
+NPCSTEP 3 0 0
+NPCSTEP 2 2 0
+NPCSTEP 1 3 0
+NPCSTEP 0 1 0
+say 0 "冲虚道人:清风来得及时啊，正好解了此次群妖犯我钟山之围。"
+say 1 "师叔见外了，除魔卫道是我的本分。"
+say 0 "冲虚道人:好样的。此次群魔大举进犯我钟山，我想应该是为霸王钟而来，此物威力无比，如果落入妖魔之手，后果不堪设想。"
+say 1 "弟子一定会竭力保护霸王钟。"
+say 0 "冲虚道人:好，还有一件是要提醒你，你身后的袁姑娘身上带有很重的妖气，但又不乏正气，你要多留心。"
+say 1 "是。"
+say 0 "冲虚道人:你们先回去歇息吧。"
+movie 1 3 0 0 0
+delallnpc
+loadmap 2 4 6 5
+message "第二天黎明"
+say 1 "外面怎么这么吵？？？"
+CREATENPC 1 2 4 8
+move 1 9 8
+facetoface 1 0
+say 0 "钟山道士:师父请你们到后山去。"
+movie 1 3 0 0 0
+delallnpc
+loadmap 1 35 5 3
+CREATENPC 1 1 10 6
+CREATENPC 2 6 6 4
+CREATENPC 3 7 6 5
+NPCSTEP 3 0 0
+NPCSTEP 2 2 0
+NPCSTEP 1 3 0
+NPCSTEP 0 1 0
+say 0 "冲虚道人:清风，我算出群妖会在今天大举进攻钟山，我怕弟子们顶不住。你应该能守住洞中宝钟，我去迎敌。"
+say 1 "是，我这就进洞去。"
+movie 1 3 0 0 0
+delallnpc
+loadmap 3 9 9 3
+CREATENPC 1 6 12 6
+CREATENPC 2 7 13 7
+NPCSTEP 2 1 0
+NPCSTEP 1 0 0
+NPCSTEP 0 3 0
+say 3 "不知外面战况如何。"
+say 1 "我有点担心。"
+CREATENPC 3 27 9 3
+move 3 9 6
+move 3 11 6
+ENTERFIGHT 0 0 18 0 2 112 32 0 0 0 1 0 0 lossto winto
+winto:
+say 0 "赤血:算你们有本事，不过,决挡不住我的绝招！"
+lossto:
+RESUMEACTORHP 1 30
+RESUMEACTORHP 2 30
+RESUMEACTORHP 3 30
+SHOWSCREEN
+deletenpc 3
+deletenpc 2
+setevent 221
+movie 1 3 0 0 0
+message "柳清风慕容小梅昏倒"
+movie 1 3 0 0 0
+DELETEACTOR 3
+say 1 "这老妖还真厉害."
+SHOWSCREEN
+facetoface 0 1
+say 2 "钟不见啦!"
+say 1 "啊……，完了完了……"
+NPCSTEP 0 2 0
+NPCSTEP 0 1 0
+NPCSTEP 0 0 0
+facetoface 0 1
+say 1 "袁姑娘呢？"
+say 2 "醒了就没见到她。"
+say 1 "莫非被师叔言中。去找师叔。"
+deletenpc 1
+message "慕容小梅加入队列"
+STARTCHAPTER 8 10
+callback
+
+赤血话:
+say 0 "赤血:哈哈哈哈，霸王钟是我的啦，哈哈……"
+say 1 "有我们在，你休想！"
+callback
+gutevent 1 赤血话
+
+
+
+@白水镇
+
+SETSCENENAME "白水镇"
+createbox 21 18 7 4
+@if 1077 宝箱1已开
+@goto 宝箱2开否
+@宝箱1已开:
+@deletebox 21
+@宝箱2开否:
+if 234 全镇正常
+if 227 镇长
+goto 守卫
+镇长:
+createnpc 3 26 12 19
+NPCMOVEMOD 3 0
+守卫:
+if 229 让路
+createnpc 1 14 11 20
+createnpc 2 15 12 20
+goto 守卫动作
+让路:
+createnpc 1 14 10 20
+createnpc 2 15 13 20
+守卫动作:
+NPCMOVEMOD 1 0
+NPCMOVEMOD 2 0
+if 232 镇长道谢
+if 233 全镇正常
+createnpc 10 13 12 9
+createnpc 11 14 4 9
+createnpc 12 15 17 15
+createnpc 13 16 7 12
+createnpc 14 17 8 15
+全镇正常:
+SHOWSCENENAME
+callback
+
+镇长道谢:
+facetoface 3 0
+say 0 "镇长:你们都回来了，没受伤吧。"
+say 1 "我们都没事。"
+say 0 "镇长:好好，里面情况如何？"
+say 1 "里面的妖魔已经被我我们给灭了，那些丢失的小孩被老妖放在老宅的枯井里，你们去把他们救出来，他们现在处于昏死状态，七天后他们就会苏醒过来。"
+say 0 "镇长:你们两个，去救人。"
+move 2 11 20
+move 2 11 24
+deletenpc 2
+move 1 11 20
+move 1 11 24
+deletenpc 1
+say 0 "镇长:几位是我镇的大恩人，小镇没什么好的物品招待，但请到寒舍喝杯茶。"
+say 1 "那就多谢了。"
+STARTCHAPTER 9 14
+callback
+
+原野阡:
+if 234 向北走 
+delallnpc
+setevent 107
+loadmap 1 21 0 0
+STARTCHAPTER 6 1
+callback
+向北走:
+say 1 "我们还是向北去追霸王钟吧。"
+callback
+
+老宅子:
+delallnpc
+loadmap 1 24 8 0
+STARTCHAPTER 9 2
+callback
+原野陌:
+if 234 出镇
+goto 先找找
+出镇:
+delallnpc
+setevent 105
+loadmap 1 22 0 26
+STARTCHAPTER 6 2
+callback
+先找找:
+say 1 "我们先在镇上找找。"
+callback
+武器店:
+delallnpc
+loadmap 2 17 4 9
+STARTCHAPTER 9 3
+callback
+村长家:
+delallnpc
+loadmap 2 10 8 16
+STARTCHAPTER 9 4
+callback
+客栈:
+delallnpc
+loadmap 2 26 6 9
+STARTCHAPTER 9 5
+callback
+民宅1:
+delallnpc
+loadmap 2 11 8 13
+STARTCHAPTER 9 6
+callback
+药店:
+delallnpc
+loadmap 2 18 3 9
+STARTCHAPTER 9 7
+callback
+杂货店:
+delallnpc
+loadmap 2 16 5 0
+STARTCHAPTER 9 8
+callback
+当铺:
+delallnpc
+loadmap 2 19 6 0
+STARTCHAPTER 9 9
+callback
+民宅2:
+delallnpc
+loadmap 2 10 8 16
+STARTCHAPTER 9 10
+callback
+
+守宅人:
+if 227 守宅人话
+facetoface 1 0
+facetoface 2 0
+say 0 "守宅人：这里不能进去。"
+if 226 想进宅
+callback
+想进宅:
+setevent 228
+say 1 "我们想进去看看。"
+say 0 "守宅人：里面有鬼，村长叫我们守在这里，以免有人进去了受害。"
+callback
+守宅人话:
+say 0 "守宅人：我们听镇长的吩咐。"
+callback
+
+镇长人:
+facetoface 3 0
+say 0 "镇长:你们要小心啊！"
+if 229 进老宅门
+move 1 10 20
+move 2 13 20
+NPCMOVEMOD 1 0
+NPCMOVEMOD 2 0
+setevent 229
+进老宅门:
+callback
+
+
+宝箱1:
+if 1077 宝箱1开
+CHOICE "取消" "使用万能钥匙" 打开
+callback
+没有钥匙:
+message "没有钥匙"
+callback
+打开:
+usegoods 14 2 没有钥匙
+@deletebox 21
+GAINGOODS 14 5
+setevent 2008
+setevent 1077
+宝箱1开:
+callback
+
+疯癫人1:
+facetoface 10 0
+say 0 "游人:诶，儿子，你长这么大了，你旁边是儿媳妇吧。"
+say 2 "你疯了。"
+say 0 "游人:我是你爹啊……"
+say 1 "别理他，走。"
+callback
+疯癫人2:
+facetoface 11 0
+say 0 "游人:你不是我儿子，你是谁，你是谁？"
+callback
+疯癫人3:
+say 0 "游人:我的儿啊，儿啊……儿……"
+callback
+疯癫人4:
+facetoface 11 0
+say 0 "游人:你们干吗带走我儿子？你们……"
+say 1 "怎么这人这么奇怪。"
+callback
+疯癫人5:
+say 0 "游人:天将降大任于我儿也，必将……"
+callback
+
+gutevent 21 宝箱1
+gutevent 1 守宅人
+gutevent 2 守宅人
+gutevent 3 镇长人
+gutevent 10 疯癫人1
+gutevent 11 疯癫人2
+gutevent 12 疯癫人3
+gutevent 13 疯癫人4
+gutevent 14 疯癫人5
+gutevent 41 原野阡
+gutevent 42 老宅子
+gutevent 43 原野陌
+gutevent 44 武器店
+gutevent 45 村长家
+gutevent 46 客栈
+gutevent 47 民宅1
+gutevent 48 药店
+gutevent 49 杂货店
+gutevent 50 当铺
+gutevent 51 民宅2
+
+
+
+@老宅子
+
+SETSCENENAME "老宅子"
+createbox 1 19 5 5
+NPCSTEP 1 0 1
+if 231 正常
+if 230 冒烟
+goto 正常
+冒烟:
+createbox 2 25 17 4
+createbox 3 26 18 4
+正常:
+callback
+
+白水镇:
+if 231 出老宅
+goto 到处看
+出老宅:
+loadmap 1 42 8 18
+STARTCHAPTER 9 1
+callback
+到处看:
+say 2 "我们先四处查看查看吧？"
+say 1 "好。"
+callback
+
+老宅主房:
+loadmap 2 13 12 0
+STARTCHAPTER 9 11
+callback
+
+枯井迷宫:
+say 1 "这口井有点古怪。"
+say 2 "声音好象是从井里传出来的。"
+say 1 "下去看看。"
+loadmap 3 10 10 18
+STARTCHAPTER 9 12
+callback
+
+gutevent 2 枯井迷宫
+gutevent 3 枯井迷宫
+gutevent 41 白水镇
+gutevent 42 老宅主房
+
+
+
+
+@武器店
+
+CREATENPC 1 14 12 10
+NPCMOVEMOD 1 0
+SETSCENENAME "武器店"
+callback
+
+白水镇:
+loadmap 1 42 12 3
+STARTCHAPTER 9 1
+callback
+交易事件:
+say 0 "武功高不一定有用，但是武器好定能占上风。"
+buy "7007 7008 7020 7021 7028 7029 4005 4006 2005 2010 2011 8004 8006 8020 8023 8024"
+callback
+
+gutevent 41 白水镇
+gutevent 42 交易事件
+
+
+@村长家
+
+SETSCENENAME "村长家"
+if 234 恢复正常
+if 227 去老宅
+恢复正常:
+createnpc 1 26 15 10
+NPCMOVEMOD 1 0
+去老宅:
+callback
+
+白水镇:
+loadmap 1 42 3 4
+STARTCHAPTER 9 1
+callback
+
+村长话:
+if 234 村长谢
+if 228 想进老宅
+say 0 "哎，这么多的丢失孩童，到底应该去哪找呢……"
+callback
+想进老宅:
+facetoface 1 0
+say 1 "请问你可是镇长."
+say 0 "镇长:正是,我就是白水镇镇长."
+say 1 "我听说你们这里每天都有孩童丢失,我怀疑与这里南边的老宅有关,我们想进去查看."
+say 0 "镇长:不不不,两位的好意心领了,这老宅太危险了."
+say 1 "我们不怕,我们是会除妖的人."
+say 0 "镇长:不不不,这老宅实在太危险了."
+say 0 "镇长:进去的人凶多吉少，以前曾经有一个道士说要进去降妖，结果进去就没有再出来了；昨天也有一个姑娘坚持要进去，到现在还没出来。"
+say 0 "镇长:我不想让同样的错再次发生，我不同意你们进入。"
+say 2 "姑娘……"
+say 0 "镇长:哎，说起那姑娘，我现在还愧疚，她一个外地……"
+say 2 "柳大哥，袁姐姐！"
+say 1 "镇长，你所说的姑娘是我们的朋友，我们从钟山到这里就是为了找她。除魔卫道@!$#@!$，何况#$%!#@!@#"
+say 0 "镇长:那好吧，我让你们进去，但是你们要答应我，一有危险就马上往回跑。"
+say 1 "好。"
+say 0 "镇长:你们随我来。"
+loadmap 2 10 10 8
+move 1 15 12
+move 1 11 12
+move 1 11 16
+deletenpc 1
+setevent 227
+callback
+
+村长谢:
+facetoface 1 0
+say 0 "镇长:几位有空常来。"
+callback
+
+
+gutevent 1 村长话
+gutevent 41 白水镇
+
+
+@客栈
+
+SETSCENENAME "客栈"
+callback
+
+白水镇:
+loadmap 1 42 3 9
+STARTCHAPTER 9 1
+callback
+交易事件:
+if 226 掌柜问客
+say 0 "掌柜:请问客官是吃饭还是住店?"
+say 1 "我们看到街上甚多疯癫之人游走，想问个究竟.不知掌柜可否告知?"
+say 0 "掌柜:客官估计是外地来的吧.这里最近出了许多怪事."
+say 1 "什么怪事?"
+say 0 "掌柜:这镇上,每天晚上都有一户家的孩童莫名其妙的丢失,街上的疯人就是因失去孩儿,无处寻觅，忧虑成颠。"
+say 1 "原来如此."
+say 0 "掌柜:还有,南边的一座老宅中最近夜夜能听到妇人的哭声,很恐怖."
+say 1 "多谢相告."
+setevent 226
+callback
+掌柜问客:
+say 0 "掌柜:请问客官是吃饭还是住店?"
+say 1 "不了,现在还早."
+callback
+
+gutevent 41 白水镇
+gutevent 43 交易事件
+
+
+
+@民宅1
+
+SETSCENENAME "民宅"
+callback
+
+白水镇:
+loadmap 1 42 9 11
+STARTCHAPTER 9 1
+callback
+
+gutevent 41 白水镇
+
+
+@药店
+
+SETSCENENAME "药店"
+callback
+
+白水镇:
+loadmap 1 42 13 11
+STARTCHAPTER 9 1
+callback
+交易事件:
+say 0 "本店是老字号，这里人人都知。"
+buy "9002 9003 9009 9010 9011 9022 9025 9026 12001 12002 12003 12006 8021 8027"
+callback
+
+gutevent 41 白水镇
+gutevent 42 交易事件
+
+
+@杂货店
+
+CREATENPC 1 16 11 11
+NPCMOVEMOD 1 0
+SETSCENENAME "杂货店"
+callback
+
+白水镇:
+loadmap 1 42 14 13
+STARTCHAPTER 9 1
+callback
+交易事件:
+facetoface 1 0
+say 0 "我这里虽小，但是好东西还是有的。"
+buy "10003 12004 12005 8009 8011 8012 1003 1004 1010 1011 6004 3004 3009 3010 9007 9022 9026"
+callback
+
+gutevent 41 白水镇
+gutevent 42 交易事件
+
+
+@当铺
+
+
+SETSCENENAME "当铺"
+callback
+
+白水镇:
+loadmap 1 42 11 13
+STARTCHAPTER 9 1
+callback
+交易事件:
+say 0 "我这里是最公道的。"
+sale
+say 0 "欢迎下次再来。"
+callback
+
+gutevent 41 白水镇
+gutevent 42 交易事件
+
+
+@民宅2
+
+SETSCENENAME "民宅"
+callback
+
+
+白水镇:
+loadmap 1 42 2 15
+STARTCHAPTER 9 1
+callback
+
+gutevent 41 白水镇
+
+
+@老宅主房
+
+createbox 1 16 19 11
+SETSCENENAME "老宅主房"
+callback
+
+老宅子:
+loadmap 1 24 3 7
+STARTCHAPTER 9 2
+callback
+
+老宅机关:
+if 230 机关已开
+setevent 230
+say 1 "外面好象有什么声音。"
+say 2 "好象哭声更大了。"
+机关已开:
+callback
+
+gutevent 1 老宅机关
+gutevent 41 老宅子
+
+
+@枯井迷宫
+
+INITFIGHT 12 16 21 22 23 0 0 0 2 112 32
+createbox 21 9 14 5
+createbox 22 9 10 41
+createbox 23 9 31 28
+createbox 24 9 40 26
+createbox 25 9 45 34
+
+if 1078 宝箱1已开
+goto 宝箱2开否
+宝箱1已开:
+deletebox 21
+宝箱2开否:
+if 1079 宝箱2已开
+goto 宝箱2未开
+宝箱2已开:
+deletebox 22
+宝箱2未开:
+if 1080 宝箱3已开
+goto 宝箱3未开
+宝箱3已开:
+deletebox 23
+宝箱3未开:
+if 1081 宝箱4已开
+goto 宝箱5开否
+宝箱4已开:
+deletebox 24
+宝箱5开否:
+if 1082 宝箱5已开
+goto 宝箱5未开
+宝箱5已开:
+deletebox 25
+宝箱5未开:
+
+createbox 1 14 17 29
+NPCSTEP 1 0 0
+say 1 "这里阴森森的，有点毛骨悚然。"
+SETSCENENAME "枯井迷宫"
+callback
+
+摄魂阵:
+FIGHTDISENABLE
+loadmap 3 9 5 0
+STARTCHAPTER 9 13
+callback
+
+
+宝箱1:
+if 1078 宝箱1开
+deletebox 21
+GAINGOODS 12 2
+setevent 1078
+宝箱1开:
+callback
+
+宝箱2:
+if 1079 宝箱2开
+deletebox 22
+GAINGOODS 11 7
+setevent 1079
+宝箱2开:
+callback
+
+宝箱3:
+if 1080 宝箱3开
+deletebox 23
+GAINGOODS 9 18
+setevent 1080
+宝箱3开:
+callback
+
+宝箱4:
+if 1081 宝箱4开
+deletebox 24
+GAINGOODS 8 25
+setevent 1081
+宝箱4开:
+callback
+
+宝箱5:
+if 1082 宝箱5开
+deletebox 25
+GAINGOODS 6 8
+setevent 1082
+宝箱5开:
+callback
+
+gutevent 21 宝箱1
+gutevent 22 宝箱2
+gutevent 23 宝箱3
+gutevent 24 宝箱4
+gutevent 25 宝箱5
+gutevent 49 摄魂阵
+
+
+
+
+@摄魂阵
+
+createbox 11 25 9 7
+createbox 12 25 10 7
+createbox 13 25 9 9
+createbox 14 25 10 9
+createbox 15 25 8 8
+createbox 16 25 11 8
+
+createbox 1 10 6 6
+createbox 2 10 8 7
+createbox 3 10 11 7
+createbox 4 10 13 6
+createbox 5 10 6 10
+createbox 6 10 8 9
+createbox 7 10 11 9
+createbox 8 10 13 10
+createnpc 9 7 9 8
+NPCMOVEMOD 9 0
+say 1 "这里煞气冲天，必定有比较厉害的妖魔在此摆阵练功。"
+say 2 "那里有个人，好象是袁姐姐。"
+say 1 "过去看看。"
+SETSCENENAME "摄魂阵"
+callback
+
+
+摄魂阵:
+if 233 想走
+if 231 老宅
+if 232 未消灭
+facetoface 9 0
+say 3 "小心，这里有摄魂阵，专门摄取闯入阵中人的魂魄灵气，用以修炼邪功--摄魂术，是七大邪阵之一。"
+say 1 "有什么破解的方法没有？"
+say 3 "破解的方法是将阵周围八卦方位下倒埋孕妇的尸体掘出放正即可。但由于所有的孕妇都是倒着被活埋的，所以阴气极重。她们可以幻化成任何形式的妖怪。"
+say 1 "那八个方位在哪里？"
+say 3 "就在那八个石头的位置。小心。"
+setevent 232
+callback
+老宅:
+createnpc 1 27 9 8
+NPCSTEP 1 0 0
+NPCSTEP 1 1 0
+NPCSTEP 1 2 0
+NPCSTEP 1 3 0
+say 0 "赤血:啊，我的摄魂阵@!#!@$@$@!#"
+facetoface 1 0
+ENTERFIGHT 0 0 18 0 2 112 32 0 5 0 20 21 0 lossto 打败赤血
+打败赤血:
+GAINGOODS 13 1
+setevent 233
+deletenpc 1
+想走:
+say 1 "此地不宜久留，我们快点走。"
+callback
+回老宅:
+movie 1 3 0 0 0
+loadmap 1 24 15 1
+STARTCHAPTER 9 2
+callback
+
+赤血对话:
+say 0 "赤血:又是你们，上次没杀了你们，现在竟毁了我的摄魂阵，这次要你们不杀了你们，难解我心头之恨。"
+say 1 "哼，那天你盗走了霸王钟，害得我背黑锅，今天，我也不会饶你。"
+callback
+战赤血话:
+say 0 "赤血:小子，还真有长进了。"
+say 1 "怕了吧，把霸王钟交出来，不然让你连妖也做不成。"
+say 0 "赤血:口气不小，霸王钟我已经交给了应该拥有它的人了，只可惜你见不到了。哈哈……看招"
+callback
+
+
+
+袁萍芷:
+facetoface 9 0
+say 3 "我现在动不得了，全靠你们了!"
+callback
+
+
+战怨妇1:
+if 232 开打1
+goto 未消灭
+开打1:
+deletenpc 1
+ENTERFIGHT 0 0 34 0 2 112 32 0 0 0 0 0 0 lossto winto
+战怨妇2:
+if 232 开打2
+goto 未消灭
+开打2:
+deletenpc 2
+ENTERFIGHT 0 0 27 0 2 112 32 0 0 0 0 0 0 lossto winto
+战怨妇3:
+if 232 开打3
+goto 未消灭
+开打3:
+deletenpc 3
+ENTERFIGHT 0 0 28 0 2 112 32 0 0 0 0 0 0 lossto winto
+战怨妇4:
+if 232 开打4
+goto 未消灭
+开打4:
+deletenpc 4
+ENTERFIGHT 0 0 29 0 2 112 32 0 0 0 0 0 0 lossto winto
+战怨妇5:
+if 232 开打5
+goto 未消灭
+开打5:
+deletenpc 5
+ENTERFIGHT 0 0 30 0 2 112 32 0 0 0 0 0 0 lossto winto
+战怨妇6:
+if 232 开打6
+goto 未消灭
+开打6:
+deletenpc 6
+ENTERFIGHT 0 0 31 0 2 112 32 0 0 0 0 0 0 lossto winto
+战怨妇7:
+if 232 开打7
+goto 未消灭
+开打7:
+deletenpc 7
+ENTERFIGHT 0 0 32 0 2 112 32 0 0 0 0 0 0 lossto winto
+战怨妇8:
+if 232 开打8
+goto 未消灭
+开打8:
+deletenpc 8
+ENTERFIGHT 0 0 33 0 2 112 32 0 0 0 0 0 0 lossto winto
+
+winto:
+add 1 1
+ifcmp 1 8 全部怨妇散
+goto 未消灭
+全部怨妇散:
+deletenpc 11
+deletenpc 12
+deletenpc 13
+deletenpc 14
+deletenpc 15
+deletenpc 16
+
+loadmap 3 9 6 5
+createnpc 10 6 9 9
+facetoface 9 10
+facetoface 0 9
+NPCMOVEMOD 10 0
+say 1 "袁姑娘，你怎么会在这里。"
+say 3 "那天在钟山大战赤血后，我见你们二人被赤血摄魂术所迷惑，就独自一人下山追查赤血的下落。在白水镇发现有童子失踪的怪事，就追查到这里，不想误入摄魂阵，被困在阵中不得动。"
+say 1 "那你有什么发现。"
+say 3 "没有，要不是你们，我可能连命都没有了。对了，你们怎么也来到这里。"
+say 2 "我们也是追寻而来的。"
+say 1 "此处甚是凶险，我们先走再说。"
+deletenpc 9
+deletenpc 10
+createactor 3 4 3
+message "慕容小梅袁萍芷加入队列"
+setevent 231
+未消灭:
+callback
+
+
+
+lossto:
+gameover
+callback
+
+gutevent 1 战怨妇1
+gutevent 2 战怨妇2
+gutevent 3 战怨妇3
+gutevent 4 战怨妇4
+gutevent 5 战怨妇5
+gutevent 6 战怨妇6
+gutevent 7 战怨妇7
+gutevent 8 战怨妇8
+gutevent 9 袁萍芷
+gutevent 20 赤血对话
+gutevent 21 战赤血话
+gutevent 45 摄魂阵
+gutevent 255 回老宅
+
+
+@离开白水镇
+
+movie 1 3 0 0 0
+loadmap 2 10 10 7
+createnpc 1 26 15 10
+createnpc 2 6 15 11
+createnpc 3 7 14 11
+facetoface 1 0
+say 0 "镇长:几位恩公真的不再多留会儿？"
+say 1 "不了，我们还有要事在身，就不多留了，多谢你的热情招待。"
+say 0 "镇长:应该的，不知有什么事我能帮的上忙的？"
+say 3 "不知镇长可见到近两天有人带着一个大钟从此经过？"
+say 0 "镇长:那还真是有，前天，有一帮长象古怪的人，拖着一个大钟从本镇经过。"
+say 2 "知不知道他们的身份？"
+say 0 "镇长:不清楚，只知道他们往北走去。"
+say 1 "多谢，我们要走了。"
+say 0 "镇长:我送你们。"
+say 1 "不用了。"
+say 0 "镇长:那几位有空常来。"
+deletenpc 2
+deletenpc 3
+message "慕容小梅袁萍芷加入队列"
+setevent 234
+STARTCHAPTER 9 4
+callback
+
+
+
+@南北村
+
+createbox 21 18 20 22
+createbox 22 18 22 16
+createbox 23 18 4 11
+
+createnpc 3 14 17 6
+createnpc 4 15 17 8
+createnpc 5 16 11 11
+createnpc 6 17 19 17
+createnpc 7 18 20 17
+NPCMOVEMOD 6 0
+NPCMOVEMOD 7 0
+facetoface 6 7
+
+createbox 1 19 10 7
+NPCSTEP 1 0 0
+createbox 2 20 10 6
+NPCSTEP 2 0 2
+SETSCENENAME "南北村"
+SHOWSCENENAME
+callback
+
+酆都阡:
+if 246 去酆都
+if 245 没得重谢
+goto 到处看看
+去酆都:
+delallnpc
+setevent 110
+loadmap 1 21 23 0
+STARTCHAPTER 6 1
+callback
+白水阡:
+if 246 往前走
+delallnpc
+setevent 109
+loadmap 1 21 0 0
+STARTCHAPTER 6 1
+callback
+往前走:
+say 1 "还是往前走吧。"
+callback
+南山陌:
+delallnpc
+setevent 107
+loadmap 1 22 0 0
+STARTCHAPTER 6 2
+callback
+周处庙:
+if 235 找周公
+goto 到处看看
+找周公:
+delallnpc
+loadmap 1 36 5 1
+STARTCHAPTER 10 2
+callback
+北海陌:
+delallnpc
+setevent 106
+loadmap 1 22 0 26
+STARTCHAPTER 6 2
+callback
+武器店:
+delallnpc
+loadmap 2 17 4 9
+STARTCHAPTER 10 3
+callback
+杂货店:
+delallnpc
+loadmap 2 16 5 0
+STARTCHAPTER 10 4
+callback
+皮皮家:
+delallnpc
+loadmap 2 11 8 13
+STARTCHAPTER 10 5
+callback
+药店:
+delallnpc
+loadmap 2 18 3 9
+STARTCHAPTER 10 6
+callback
+民宅2:
+delallnpc
+loadmap 2 12 11 0
+STARTCHAPTER 10 7
+callback
+民宅1:
+delallnpc
+loadmap 2 13 12 0
+STARTCHAPTER 10 8
+callback
+小客栈:
+delallnpc
+loadmap 2 26 6 9
+STARTCHAPTER 10 9
+callback
+
+村民1:
+say 0 "村民:这里是周公的故乡。我听说这村中藏有一件魔族至宝，特远道来寻。哎，可不想直到现在还没找到！"
+callback
+村民2:
+say 0 "村民:前几天周公显灵，说最近南北村将有血光之灾。"
+callback
+村民3:
+if 235 夸周公
+facetoface 5 0
+setevent 235
+say 0 "村民:周公显灵说村中将会有一男两女三个外人到来，只有他们才能化解这场灾难。"
+say 1 "一男两女？"
+say 0 "村民:咦，一男两女，你们不就是一男两女，周公真是灵验啊！"
+夸周公:
+say 0 "村民:周公真是灵验啊！"
+callback
+村民4:
+村民5:
+if 245 北海回
+if 241 送丹药
+if 240 救村民
+if 239 知村民昏迷
+if 238 村民昏迷
+say 0 "村民甲:周公显灵了，说我们有血光之灾。"
+say 0 "村民乙:我倒不怕，平日不做亏心事，夜半敲门也不惊。"
+callback
+村民昏迷:
+setevent 239
+say 0 "村民甲:刚才不知道从那里刮来的一阵醒风，好难闻哦。"
+say 0 "村民乙:可不是吗！村口有两个人被这股风给熏倒了，现在还在昏迷中呢！"
+say 1 "这死白虎，@@$%@#$%#%@#@#@#@#!!!"
+callback
+知村民昏迷:
+say 0 "村民甲:这世道，真是……哎……"
+callback
+救村民:
+facetoface 6 0
+facetoface 7 0
+setevent 241
+say 1 "两位，请问昏迷的村民现在怎么样了?"
+say 0 "村民甲:还是没醒，估计是凶多吉少。"
+say 1 "我这里有两颗丹药，给他们服用，可保性命。"
+usegoods 11 6 没有药
+usegoods 11 6 没有药
+送丹药:
+facetoface 6 0
+facetoface 7 0
+say 0 "村民乙:你们真是好人啊！"
+callback
+北海回:
+say 0 "村民乙:听说酆都是鬼城，不知是否真的是。"
+callback
+没有药:
+message "无此物品"
+callback
+
+
+到处看看:
+say 1 "到处看看再说。"
+callback
+没得重谢:
+say 1 "还没得到周处的重谢，这样走太可惜了吧……"
+callback
+
+宝箱1:
+if 1114 宝箱1开
+CHOICE "取消" "使用万能钥匙" 打开
+callback
+没有钥匙:
+message "没有钥匙"
+callback
+打开:
+usegoods 14 2 没有钥匙
+GAINGOODS 6 13
+say 3 "此物本为魔界的一大法宝，后在神魔大战时，被不遗落到了人间。"
+say 1 "你怎么对这个这么清楚?"
+say 3 "我……呃……这个……"
+say 2 "袁姐姐知道东西多，忘了很正常嘛。"
+setevent 1114
+宝箱1开:
+callback
+宝箱2:
+if 1115 宝箱2开
+GAINGOODS 9 8
+setevent 1115
+宝箱2开:
+callback
+宝箱3:
+if 1116 宝箱3开
+GAINGOODS 11 8
+setevent 1116
+宝箱3开:
+callback
+
+gutevent 21 宝箱1
+gutevent 21 宝箱1
+gutevent 21 宝箱1
+gutevent 3 村民1
+gutevent 4 村民2
+gutevent 5 村民3
+gutevent 6 村民4
+gutevent 7 村民5
+gutevent 41 酆都阡
+gutevent 42 白水阡
+gutevent 43 南山陌
+gutevent 44 周处庙
+gutevent 45 北海陌
+gutevent 46 武器店
+gutevent 47 杂货店
+gutevent 48 皮皮家
+gutevent 49 药店
+gutevent 50 民宅2
+gutevent 51 民宅1
+gutevent 52 小客栈
+
+
+
+
+@周处庙
+
+SETSCENENAME "周处庙"
+callback
+
+南北村:
+loadmap 1 23 12 23
+STARTCHAPTER 10 1
+周处显灵:
+if 246 最后显灵结束
+if 245 最后显灵
+if 240 第二次显灵结束
+if 239 第二次显灵
+if 236 第一次显灵结束
+createnpc 1 5 8 6
+NPCSTEP 1 0 0
+say 0 "周处:我待三位多时了。"
+say 3 "原来是周处。"
+say 0 "周处:根据最近我的推算，当初已经被我除去的南山白虎和北海苍龙，似有复活之象，但是此次与以往很不同，我的推算结果很杂乱，似有干扰。"
+say 0 "周处:我想让你们去搞清楚怎么回事，将来必有重谢。"
+setevent 236
+deletenpc 1
+第一次显灵结束:
+第二次显灵结束:
+最后显灵结束:
+callback
+第二次显灵:
+createnpc 1 5 8 6
+NPCSTEP 1 0 0
+say 0 "周处:我想三位应该已经除去了白虎。"
+say 1 "哼，你说话也不说清楚，是，白虎是除了，现在有两个村民受白虎的醒风袭击昏迷，你说怎么办。"
+say 0 "周处:哦，我这里有两颗无忧丹，你尽快给那两人服用，不然不但其性命不保，还可能引起瘟疫。"
+gaingoods 11 6
+gaingoods 11 6
+say 1 "这还差不多。"
+say 0 "周处:苍龙血雨与白虎醒风同样祸害人间，你们要尽快将其除去。"
+setevent 240
+deletenpc 1
+callback
+最后显灵:
+createnpc 1 5 8 6
+NPCSTEP 1 0 0
+say 0 "周处:三位果然守信，我代苍生谢你们。"
+say 1 "就只是谢吗，不是说要重谢吗？"
+say 0 "周处:我这里有本书，就送给三位吧。"
+gaingoods 6 18
+setevent 246
+deletenpc 1
+callback
+
+
+gutevent 41 南北村
+gutevent 42 周处显灵
+
+
+
+@武器店
+
+CREATENPC 1 14 12 10
+NPCMOVEMOD 1 0
+SETSCENENAME "武器店"
+callback
+
+南北村:
+loadmap 1 23 13 12
+STARTCHAPTER 10 1
+交易事件:
+say 0 "最近不是很太平，有武器防身最好。"
+buy "7007 7008 7021 7022 7028 7029 4007 4008 2005 2012 2013 8002 8005 8020 8023 8025"
+callback
+
+
+gutevent 41 南北村
+gutevent 42 交易事件
+
+
+
+@杂货店
+
+CREATENPC 1 16 11 11
+NPCMOVEMOD 1 0
+SETSCENENAME "杂货店"
+callback
+
+南北村:
+loadmap 1 23 2 7
+STARTCHAPTER 10 1
+交易事件:
+say 0 "现在世道不好，只能便宜点卖了。"
+buy "10002 12004 12005 8003 8007 8010 8026 1003 1004 1011 1012 6006 6007 6008 3005 3010 3011 9007"
+callback
+
+
+gutevent 41 南北村
+gutevent 42 交易事件
+
+
+
+@皮皮家
+
+SETSCENENAME "皮皮家"
+callback
+
+南北村:
+loadmap 1 23 16 4
+STARTCHAPTER 10 1
+交易事件:
+callback
+
+
+gutevent 41 南北村
+gutevent 42 交易事件
+
+
+
+@药店
+
+SETSCENENAME "药店"
+callback
+
+南北村:
+loadmap 1 23 17 12
+STARTCHAPTER 10 1
+交易事件:
+say 0 "我这里的药材都是我亲自采办的，保证质量。"
+buy "9003 9004 9010 9011 9021 9025 9026 12002 12006 8022 8027 8018"
+callback
+
+
+gutevent 41 南北村
+gutevent 42 交易事件
+
+
+
+@民宅2
+
+SETSCENENAME "民宅"
+callback
+
+南北村:
+loadmap 1 23 17 16
+STARTCHAPTER 10 1
+
+
+gutevent 41 南北村
+
+
+
+@民宅1
+
+SETSCENENAME "民宅"
+callback
+
+南北村:
+loadmap 1 23 2 11
+STARTCHAPTER 10 1
+
+
+gutevent 41 南北村
+
+
+
+@小客栈
+
+SETSCENENAME "小客栈"
+callback
+
+南北村:
+loadmap 1 23 6 5
+STARTCHAPTER 10 1
+交易事件:
+callback
+
+
+gutevent 41 南北村
+gutevent 42 交易事件
+
+
+
+@酆都城
+
+createbox 21 18 25 11
+createnpc 1 13 9 5
+createnpc 2 14 15 9
+createnpc 3 15 10 10
+createnpc 4 16 7 10
+createnpc 5 17 20 11
+createnpc 6 18 20 12
+NPCMOVEMOD 5 0
+NPCMOVEMOD 6 0
+facetoface 5 6
+SETSCENENAME "酆都城"
+SHOWSCENENAME
+callback
+
+
+@原野阡11:
+@setevent 111
+@loadmap 1 21 0 0
+@STARTCHAPTER 6 1
+@callback
+@原野阡12:
+@setevent 112
+@loadmap 1 21 23 0
+@STARTCHAPTER 6 1
+@callback
+神童家:
+delallnpc
+loadmap 2 11 8 13
+STARTCHAPTER 11 2
+callback
+武器店:
+delallnpc
+loadmap 2 17 4 9
+STARTCHAPTER 11 3
+callback
+小客栈:
+delallnpc
+loadmap 2 26 6 9
+STARTCHAPTER 11 4
+callback
+药店:
+delallnpc
+loadmap 2 18 3 9
+STARTCHAPTER 11 5
+callback
+民宅1:
+delallnpc
+loadmap 2 12 11 0
+STARTCHAPTER 11 6
+callback
+当铺:
+delallnpc
+loadmap 2 19 6 0
+STARTCHAPTER 11 7
+callback
+民宅2:
+delallnpc
+loadmap 2 13 12 0
+STARTCHAPTER 11 8
+callback
+杂货店:
+delallnpc
+loadmap 2 16 5 0
+STARTCHAPTER 11 9
+callback
+打鬼:
+
+callback
+
+普通人1:
+facetoface 1 0
+say 0 "游人:哇，你们是谁啊？没见过你们，是人还是鬼？"
+say 1 "这人真是奇怪，大白天的，见鬼？"
+setevent 247
+callback
+普通人2:
+say 0 "游人:人吓人，吓死人，现在大白天的，连半个“鬼”字都不敢提。"
+setevent 247
+callback
+普通人3:
+say 0 "游人:不知道怎么回事，我记得我晚上没出过门啊，怎么白天也会见到呢，我没得罪他们啊……"
+callback
+普通人4:
+say 0 "游人:不知道昨天见到的那个是不是我去世好久的曾祖父，我看我明天一定要去烧香。"
+setevent 247
+callback
+普通人5:
+普通人6:
+say 0 "游人甲:我昨天中午又被吓了一次，搞得我现在都有点神经紧张了。"
+say 0 "游人乙:哎，我老婆昨天下午去买菜被吓晕了，现在还下不了床呢！真是作孽啊……"
+setevent 247
+callback
+
+宝箱1:
+if 1094 宝箱1开
+say 1 "哇，是什么东西在井里呀？亮晃晃的。"
+GAINGOODS 7 23
+setevent 1094
+宝箱1开:
+callback
+
+gutevent 21 宝箱1
+gutevent 1 普通人1
+gutevent 2 普通人2
+gutevent 3 普通人3
+gutevent 4 普通人4
+gutevent 5 普通人5
+gutevent 6 普通人6
+@gutevent 41 原野阡11
+@gutevent 42 原野阡12
+gutevent 43 神童家
+gutevent 44 武器店
+gutevent 45 小客栈
+gutevent 46 药店
+gutevent 47 民宅1
+gutevent 48 当铺
+gutevent 49 民宅2
+gutevent 50 杂货店
+gutevent 51 打鬼
+
+
+
+
+
+@神童家
+
+SETSCENENAME "神童家"
+callback
+
+酆都城:
+loadmap 1 43 20 2
+STARTCHAPTER 11 1
+callback
+
+gutevent 41 酆都城
+
+
+
+
+@武器店
+
+CREATENPC 1 14 12 10
+NPCMOVEMOD 1 0
+SETSCENENAME "武器店"
+callback
+
+酆都城:
+loadmap 1 43 16 2
+STARTCHAPTER 11 1
+callback
+
+交易事件:
+say 0 "我这里的武器都很不错，来，看看。"
+buy "7008 7009 7022 7029 7030 4007 4009 2006 2007 2013 2014 8007"
+callback
+
+
+gutevent 41 酆都城
+gutevent 42 交易事件
+
+
+
+
+@小客栈
+
+createbox 21 18 10 2
+SETSCENENAME "小客栈"
+callback
+
+酆都城:
+loadmap 1 43 11 2
+STARTCHAPTER 11 1
+callback
+
+交易事件:
+if 247 打听
+say 0 "掌柜:客官是吃饭还是住店？"
+say 1 "不了，还早。"
+callback
+打听:
+say 1 "请问掌柜的，这里的人怎么有点象见了鬼似的？"
+say 0 "掌柜:客官还真是说对了，他们还真是被鬼吓的。"
+say 1 "哦……"
+say 0 "掌柜:客官有所不知，这里是酆都鬼城。这里的规矩是晚上绝对不能有人在街上行走，因为在这里是人占白天，鬼占黑夜，互不侵扰。但最近好象有些鬼白天也会出来，经常把人吓一跳。"
+say 1 "哦，是吗。掌柜的，我们今天就在这里住下了。"
+movie 1 3 0 0 0
+SHOWSCREEN
+message "天黑后"
+say 0 "掌柜:客官要去哪里？"
+say 1 "我们到处瞧瞧。"
+say 0 "掌柜:客官千万不要出去，现在外面全都不是人。我连店门都不开的。"
+say 1 "没事，我们只是找老友聊聊天。"
+movie 1 3 0 0 0
+loadmap 1 43 11 2
+STARTCHAPTER 11 10
+callback
+
+宝箱1:
+if 1095 宝箱1开
+CHOICE "取消" "使用万能钥匙" 打开
+callback
+没有钥匙:
+message "没有钥匙"
+callback
+打开:
+usegoods 14 2 没有钥匙
+GAINGOODS 14 6
+setevent 2009
+setevent 1095
+宝箱1开:
+callback
+
+gutevent 21 宝箱1
+gutevent 41 酆都城
+gutevent 43 交易事件
+
+
+
+
+@药店
+
+SETSCENENAME "药店"
+callback
+
+酆都城:
+loadmap 1 43 1 2
+STARTCHAPTER 11 1
+callback
+
+交易事件:
+say 0 "我的药材，不论人鬼神通通能用。"
+buy "9003 9004 9005 9006 9010 9011 9012 9013 9019 9023 8022 8027 8019 8018 12001 12002 12003 12006 10004"
+callback
+
+
+gutevent 41 酆都城
+gutevent 42 交易事件
+
+
+
+
+@民宅1
+
+SETSCENENAME "民宅"
+callback
+
+酆都城:
+loadmap 1 43 1 3
+STARTCHAPTER 11 1
+callback
+
+gutevent 41 酆都城
+
+
+
+
+@当铺
+
+SETSCENENAME "当铺"
+callback
+
+酆都城:
+loadmap 1 43 5 3
+STARTCHAPTER 11 1
+callback
+
+交易事件:
+say 0 "当铺不需要大，但一定要公道。"
+sale
+callback
+
+
+gutevent 41 酆都城
+gutevent 42 交易事件
+
+
+
+
+@民宅2
+
+SETSCENENAME "民宅"
+callback
+
+酆都城:
+loadmap 1 43 13 2
+STARTCHAPTER 11 1
+callback
+
+gutevent 41 酆都城
+
+
+
+
+@杂货店
+
+CREATENPC 1 16 11 11
+NPCMOVEMOD 1 0
+SETSCENENAME "杂货店"
+callback
+
+酆都城:
+loadmap 1 43 16 3
+STARTCHAPTER 11 1
+callback
+
+交易事件:
+say 0 "最近进了不少的新货，不买也可以看看。"
+buy "10003 12004 12005 8020 8025 8028 1005 1012 1013 6009 6010 3005 3006 3011 3012 9027 8018"
+callback
+
+
+gutevent 41 酆都城
+gutevent 42 交易事件
+
+
+
+
+@酆都夜
+
+INITFIGHT 21 23 24 17 48 49 0 0 1 111 31
+createnpc 1 30 23 5
+say 1 "这里阴气很盛，我们去找鬼王，他肯定知道……"
+callback
+
+战白无常:
+facetoface 1 0
+say 0 "白无常:你们是人？你们不知道这的规矩吗？"
+say 1 "我们想见鬼王。"
+say 0 "白无常:哦，嘻嘻哈哈，要见鬼王，就得死。"
+say 1 "我们一定要见到鬼王！"
+ENTERFIGHT 0 0 38 0 1 111 31 0 0 0 20 0 0 lossto 打败白无常
+打败白无常:
+say 1 "怎么样啊，带我们去见鬼王吧。"
+say 0 "白无常:若不是我兄弟黑无常去出了差，你们怎么可能赢。有机会我们再比试!要见鬼王，可到城南的城隍庙。我就不去了，最近他老人家火气比较大。"
+deletenpc 1
+setevent 248
+callback
+
+lossto:
+gameover
+callback
+
+白无常话:
+say 0 "白无常:那我就成全你们。"
+callback
+
+鬼王话:
+if 250 鬼王败
+if 249 鬼王出现
+if 248 鬼王说话
+goto 未打白无常
+鬼王说话:
+createnpc 2 27 15 13
+NPCMOVEMOD 2 0
+鬼王出现:
+say 0 "鬼王:现下阴气太盛，都是因天下群魔复活所致。群魔经常骚扰鬼族，使鬼魂们不的安息，大白天的也要出来活动。"
+setevent 249
+未打白无常:
+鬼王败:
+callback
+
+战鬼王:
+facetoface 2 0
+say 1 "在下是三清宫的……"
+say 0 "鬼王:三清宫!来得好。"
+ENTERFIGHT 0 0 39 0 1 111 31 0 4 0 21 22 0 lossto 打败鬼王
+打败鬼王:
+FIGHTDISENABLE
+say 0 "鬼王:我技不如人，要杀便杀。"
+say 1 "我们来找你真的无恶意。"
+say 0 "鬼王:少假惺惺的，我鬼族是不会称臣于天道祖师的。"
+say 1 "我想你误会了，我们是来找数日前我们丢失的霸王钟的，不是来劝降的。"
+say 0 "鬼王:那个钟叫霸王钟？是你们丢失的钟？"
+say 1 "是啊，是被魔族的人抢走的。"
+say 0 "鬼王:你们不是天道的人。"
+say 1 "我是三清宫的。你见过那个钟？"
+say 0 "鬼王:最近魔族经常骚扰鬼族，前来寻衅闹事的妖怪留下了话，三日内鬼族要称臣于天道祖师，否则要鬼界从此消失。天道是现在五斗米道的掌教，我因恼怒天道而对所有道士恨之入骨。寻衅的妖怪带着一个钟，威力无穷，鬼族中人，凡是被该钟扣住的，都会化为一滩血水，形神俱灭，无一幸免，所以每次打仗，都是鬼族损兵折将。鬼族已经因此损失了牛头马面两位先锋。那个钟应该就是你们所说的霸王钟。"
+say 1 "抢钟的妖怪与天道有关……"
+say 0 "鬼王:钟是你们丢的，希望你们能解决此事，天道在鹤鸣山，西出酆都一直走就可到达。"
+deletenpc 2
+setevent 250
+callback
+
+战鬼王话1:
+say 0 "鬼王:我发过誓，被我碰到的道士必死！"
+callback
+战鬼王话2:
+say 1 "我们来找你并无恶意。"
+say 0 "鬼王:少废话，看打……"
+callback
+
+
+
+@原野阡11:
+@if 250 
+@setevent 111
+@loadmap 1 21 0 0
+@STARTCHAPTER 6 1
+@callback
+原野阡12:
+if 250 出酆都
+goto 未战鬼王
+出酆都:
+setevent 112
+loadmap 1 21 23 0
+STARTCHAPTER 6 1
+未战鬼王:
+callback
+
+
+gutevent 1 战白无常
+gutevent 2 战鬼王
+gutevent 20 白无常话
+gutevent 21 战鬼王话1
+gutevent 22 战鬼王话2
+@gutevent 41 原野阡11
+gutevent 42 原野阡12
+gutevent 51 鬼王话
+
+
+@南山入口
+
+SETSCENENAME "南山入口"
+callback
+
+转折路口3:
+setevent 101
+loadmap 1 28 7 9
+STARTCHAPTER 6 6
+callback
+南山迷宫:
+say 1 "哇，好大的腥味@#$!#"
+say 2 "我觉得有点反胃。"
+if 238 白虎已死
+if 236 进迷宫
+白虎已死:
+callback
+进迷宫:
+loadmap 3 7 12 13
+STARTCHAPTER 12 2
+callback
+
+
+gutevent 41 转折路口3
+gutevent 42 南山迷宫
+
+
+
+
+@南山迷宫
+
+
+INITFIGHT 21 24 17 22 55 0 0 0 2 112 32
+createbox 21 9 12 23
+createbox 22 9 27 43
+createbox 23 9 29 12
+createbox 24 9 45 34
+
+if 1083 宝箱1已开
+goto 宝箱2开否
+宝箱1已开:
+deletebox 21
+宝箱2开否:
+if 1084 宝箱2已开
+goto 宝箱2未开
+宝箱2已开:
+deletebox 22
+宝箱2未开:
+if 1085 宝箱3已开
+goto 宝箱3未开
+宝箱3已开:
+deletebox 23
+宝箱3未开:
+if 1086 宝箱4已开
+goto 宝箱5开否
+宝箱4已开:
+deletebox 24
+宝箱5开否:
+
+createbox 1 10 4 4
+createbox 2 14 20 4
+NPCSTEP 2 0 0
+if 237 伥鬼死
+ENTERFIGHT 0 33 33 33 2 112 32 0 5 0 30 31 0 lossto 伥鬼死
+伥鬼死:
+say 1 "白虎肯定在附近，咱们仔细找找。"
+SETSCENENAME "南山迷宫"
+callback
+
+南山虎穴:
+loadmap 3 8 0 22
+STARTCHAPTER 12 3
+callback
+
+lossto:
+gameover
+callback
+
+伥鬼话1:
+say 0 "伥鬼:喂，小子，乱闯我们的山洞，你可知道要死！"
+say 1 "哦，是吗，我倒想试试。"
+say 0 "伥鬼:不知死活的家伙，兄弟们，上……"
+callback
+伥鬼话2:
+say 0 "伥鬼:不赖嘛，难怪大王有点忌讳。"
+callback
+
+宝箱1:
+if 1083 宝箱1开
+deletebox 21
+GAINGOODS 11 9
+setevent 1083
+宝箱1开:
+callback
+宝箱2:
+if 1084 宝箱2开
+deletebox 22
+GAINGOODS 12 5
+setevent 1084
+宝箱2开:
+callback
+宝箱3:
+if 1085 宝箱3开
+deletebox 23
+GAINGOODS 9 22
+setevent 1085
+宝箱3开:
+callback
+宝箱4:
+if 1086 宝箱4开
+deletebox 24
+GAINGOODS 9 1
+setevent 1086
+宝箱4开:
+callback
+
+gutevent 21 宝箱1
+gutevent 22 宝箱2
+gutevent 23 宝箱3
+gutevent 24 宝箱4
+gutevent 30 伥鬼话1
+gutevent 31 伥鬼话2
+gutevent 41 南山虎穴
+
+
+
+@南山虎穴
+
+createbox 21 9 4 24
+createbox 22 18 11 2
+createbox 23 9 8 24
+
+if 1087 宝箱1已开
+goto 宝箱3开否
+宝箱1已开:
+deletebox 21
+宝箱3开否:
+if 1089 宝箱3已开
+goto 宝箱3未开
+宝箱3已开:
+deletebox 23
+宝箱3未开:
+createbox 2 13 13 6
+createbox 3 10 25 4
+@createbox 4 30 4 20
+
+createbox 1 30 4 20
+SETSCENENAME "南山虎穴"
+callback
+
+找白虎:
+if 238 白虎已死
+say 1 "咦!怎么没人嗄?"
+say 2 "我们好好找找,别再让它给逃了."
+白虎已死:
+callback
+
+战白虎:
+say 0 "白虎:Shit,都变成草堆了，这样都骗不了你!!!"
+ENTERFIGHT 0 0 40 0 2 112 32 0 5 0 30 31 0 lossto 打死白虎
+打死白虎:
+gaingoods 14 9
+deletenpc 1
+SHOWSCREEN
+setevent 238
+say 0 "白虎:青山不改，绿水常流，我们后会有期。"
+say 1 "哇，好大的一股腥臭味啊……"
+callback
+
+lossto:
+gameover
+callback
+
+比功夫:
+say 0 "白虎:来吧,我们功夫上见真章."
+callback
+白虎抱怨:
+say 0 "白虎:哼，要不是你们乘我练腥风魔功的时候来，要是我练成腥风魔功，你们肯定撑不到现在。"
+callback
+
+出虎穴:
+FIGHTDISENABLE
+delallnpc
+loadmap 1 35 7 1
+STARTCHAPTER 12 1
+callback
+
+宝箱1:
+if 1087 宝箱1开
+deletebox 21
+GAINMONEY 500
+setevent 1087
+宝箱1开:
+callback
+宝箱2:
+if 1088 宝箱2开
+GAINMONEY 300
+setevent 1088
+宝箱2开:
+callback
+宝箱3:
+if 1089 宝箱3开
+deletebox 23
+GAINMONEY 100
+setevent 1089
+宝箱3开:
+callback
+
+gutevent 21 宝箱1
+gutevent 22 宝箱2
+gutevent 23 宝箱3
+gutevent 1 战白虎
+gutevent 30 比功夫
+gutevent 31 白虎抱怨
+gutevent 43 找白虎
+gutevent 255 出虎穴
+
+
+
+
+@北海迷宫
+
+
+INITFIGHT 59 60 61 62 55 0 0 0 2 112 32
+createbox 21 9 31 28
+createbox 22 9 29 12
+createbox 23 9 40 26
+createbox 24 9 45 34
+
+if 1090 宝箱1已开
+goto 宝箱2开否
+宝箱1已开:
+deletebox 21
+宝箱2开否:
+if 1091 宝箱2已开
+goto 宝箱2未开
+宝箱2已开:
+deletebox 22
+宝箱2未开:
+if 1092 宝箱3已开
+goto 宝箱3未开
+宝箱3已开:
+deletebox 23
+宝箱3未开:
+if 1093 宝箱4已开
+goto 宝箱5开否
+宝箱4已开:
+deletebox 24
+宝箱5开否:
+
+createbox 1 14 19 14
+NPCSTEP 1 0 0
+say 1 "怎么到处是血红的水，一点生机都没有，就仿佛时间在这里停止了。"
+say 2 "这里好恐怖哦！"
+SETSCENENAME "北海迷宫"
+callback
+
+北海龙潭:
+FIGHTDISENABLE
+delallnpc
+loadmap 3 3 13 12
+STARTCHAPTER 13 2
+callback
+
+宝箱1:
+if 1090 宝箱1开
+deletebox 21
+GAINGOODS 9 14
+setevent 1090
+宝箱1开:
+callback
+宝箱2:
+if 1091 宝箱2开
+deletebox 22
+GAINGOODS 9 25
+setevent 1091
+宝箱2开:
+callback
+宝箱3:
+if 1092 宝箱3开
+deletebox 23
+GAINGOODS 11 1
+setevent 1092
+宝箱3开:
+callback
+宝箱4:
+if 1093 宝箱4开
+deletebox 24
+GAINGOODS 12 3
+setevent 1093
+宝箱4开:
+callback
+
+gutevent 21 宝箱1
+gutevent 22 宝箱2
+gutevent 23 宝箱3
+gutevent 24 宝箱4
+gutevent 44 北海龙潭
+
+
+
+
+@北海龙潭
+
+createbox 1 28 7 5
+createbox 2 29 28 5
+NPCMOVEMOD 1 0
+NPCMOVEMOD 2 0
+SETSCENENAME "北海龙潭"
+SHOWSCENENAME
+callback
+
+战蛟龙:
+if 245 战胜苍龙
+if 243 是否龙
+goto 蛟未死
+是否龙:
+if 244 大战蛟龙
+蛟未死:
+callback
+大战蛟龙:
+ENTERFIGHT 0 35 36 0 2 112 32 0 0 0 35 0 0 lossto 打败蛟龙
+打败蛟龙:
+say 1 "功夫这么菜，也敢自称蛟龙。"
+ENTERFIGHT 0 0 41 0 2 112 32 0 7 0 36 37 0 lossto 打败苍龙
+打败苍龙:
+setevent 245
+gaingoods 14 8
+战胜苍龙:
+callback
+
+发现蛟:
+say 1 "这只蜥蜴好奇怪哦！!$#@$%!!"
+ENTERFIGHT 0 0 35 0 2 112 32 0 5 0 30 31 0 lossto 打败蛟
+打败蛟:
+say 0 "北海蛟:你们等着，我还!@#$!#!$#!@@#$!"
+setevent 243
+deletenpc 1
+SHOWSCREEN
+callback
+
+发现龙:
+say 2 "好可爱的小狗哦。"
+ENTERFIGHT 0 0 36 0 2 112 32 0 5 0 32 33 0 lossto 打败龙
+打败龙:
+say 0 "北海龙:你们给我记住，我不会@#$!#!$#!@@#$!"
+setevent 244
+deletenpc 2
+callback
+
+lossto:
+gameover
+callback
+
+蛟话1:
+if 244 龙已败
+say 0 "北海蛟:什么，你敢说我北海蛟是蜥蜴，说什么我也要跟你理论理论……"
+say 1 "哇，我好怕怕……"
+say 0 "北海蛟:哼，怕了吧，怕也没用，我要割了你的舌头。"
+say 1 "我怕你太大了，我们吃不完哦，哈哈……"
+say 0 "北海蛟:气死我了。"
+callback
+龙已败:
+say 0 "北海蛟:什么，你说我龙兄弟是狗也就算了，不跟你计较，你还敢侮辱我，你是找死。"
+say 1 "哎，又一个，真烦……"
+callback
+蛟话2:
+say 0 "北海蛟:知道我的厉害了吧。"
+say 1 "哎，看来真的吃不完了。"
+say 0 "北海蛟:!@#$!#$!@#$!@#$"
+callback
+龙话1:
+if 243 蛟已败
+say 0 "北海龙:什么，你敢说我北海蛟是小狗，说什么我也要跟你理论理论……"
+say 1 "哇，我好怕怕……"
+say 0 "北海龙:哼，怕了吧，怕也没用，我要割了你的舌头。"
+say 1 "我怕你太大了，我们吃不完哦，哈哈……"
+say 0 "北海龙:气死我了。"
+callback
+蛟已败:
+say 0 "北海龙:什么，你说我蛟兄弟是蜥蜴也就算了，不跟你计较，你还敢侮辱我是狗，你是找死。"
+say 1 "哎，又一个，真烦……"
+callback
+龙话2:
+say 0 "北海龙:侮辱我的无论是人还是魔，从来都没有好下场。"
+say 1 "那就看谁功夫硬吧！"
+callback
+蛟龙话:
+say 0 "北海蛟:刚才你们趁我们分开打败了我们,我们不服气。"
+say 0 "北海龙:现在我们一起来。"
+say 1 "放马过来吧！"
+callback
+
+苍龙话1:
+say 0 "苍龙:哈哈哈哈……我没有估计错你们的实力，能打败白虎，应该也不会输给我的蛟护院和龙护院才对。不过，你们想战胜我是不可能的。让你们尝尝我的血雨大法。"
+say 1 "终于来了个称头的。"
+callback
+苍龙话2:
+say 0 "苍龙:还真有点水平，可惜，你们是打不过我的。"
+callback
+
+回北海面:
+if 245 出去
+goto 苍龙未死
+出去:
+loadmap 1 45 6 0
+STARTCHAPTER 6 14
+苍龙未死:
+callback
+
+
+gutevent 1 发现蛟
+gutevent 2 发现龙
+gutevent 30 蛟话1
+gutevent 31 蛟话2
+gutevent 32 龙话1
+gutevent 33 龙话2
+gutevent 35 蛟龙话
+gutevent 36 苍龙话1
+gutevent 37 苍龙话2
+gutevent 43 战蛟龙
+gutevent 255 回北海面
+
+
+
+@鹤鸣山入口
+
+createbox 1 23 13 7
+createnpc 2 13 13 6
+createnpc 3 14 12 7
+NPCMOVEMOD 2 0
+NPCMOVEMOD 3 0
+NPCSTEP 2 2 0
+NPCSTEP 3 1 0
+createnpc 4 15 7 6
+createnpc 5 16 6 9
+say 1 "这里是村落吗，为何景象如此苍凉……"
+SETSCENENAME "鹤鸣山脚"
+SHOWSCENENAME
+callback
+
+原野陌:
+if 250 杀上山
+setevent 108
+loadmap 1 22 0 0
+STARTCHAPTER 6 2
+callback
+杀上山:
+say 1 "还等什么，直接上山！"
+callback
+竖桥:
+setevent 101
+loadmap 1 11 0 34
+STARTCHAPTER 14 2
+callback
+
+村民死:
+say 0 "村民甲:那些妖怪三天两头的来一次，可能下次躺在地上的就是我们了。"
+say 0 "村民乙:哎，真是老天无眼啊……"
+say 3 "魔族太过分了。"
+say 2 "我们杀上山去！"
+say 1 "好！"
+setevent 250
+callback
+村民1:
+say 0 "村民:怎么办，怎么办？那些妖怪肯定会……"
+callback
+村民2:
+say 0 "村民:死定了，还是逃吧……"
+callback
+
+gutevent 1 村民死
+gutevent 2 村民死
+gutevent 3 村民死
+gutevent 4 村民1
+gutevent 5 村民2
+gutevent 41 原野陌
+gutevent 42 竖桥
+
+
+
+
+@竖桥
+
+SETSCENENAME "竖桥"
+callback
+
+上出口:
+if 101 竖桥2下
+if 102 竖桥3下
+if 103 台子3下
+callback
+
+
+竖桥2下:
+clrevent 101
+setevent 102
+loadmap 1 11 0 34
+STARTCHAPTER 14 2
+callback
+竖桥3下:
+clrevent 102
+setevent 103
+loadmap 1 11 0 34
+STARTCHAPTER 14 2
+callback
+台子3下:
+clrevent 103
+loadmap 1 15 5 10
+STARTCHAPTER 14 3
+callback
+
+下出口:
+if 101 鹤鸣山入口
+if 102 竖桥1上
+if 103 竖桥2上
+callback
+
+鹤鸣山入口:
+say 3 "我们现在不能回头了。"
+callback
+@clrevent 101
+@loadmap 1 41 4 0
+@STARTCHAPTER 14 1
+callback
+竖桥1上:
+clrevent 102
+setevent 101
+loadmap 1 11 0 0
+STARTCHAPTER 14 2
+callback
+竖桥2上:
+clrevent 103
+setevent 102
+loadmap 1 11 0 0
+STARTCHAPTER 14 2
+callback
+
+gutevent 41 上出口
+gutevent 42 下出口
+
+
+
+@台子3
+
+SETSCENENAME "台子"
+callback
+
+台子5:
+loadmap 1 17 5 9
+STARTCHAPTER 14 4
+callback
+竖桥3:
+setevent 103
+loadmap 1 11 0 0
+STARTCHAPTER 14 2
+callback
+台子6:
+loadmap 1 18 0 4
+STARTCHAPTER 14 5
+callback
+横桥1:
+setevent 101
+loadmap 1 10 31 1
+STARTCHAPTER 14 6
+callback
+
+gutevent 41 台子5
+gutevent 42 竖桥3
+gutevent 43 台子6
+gutevent 44 横桥1
+
+
+
+@台子5
+
+createbox 21 9 11 11
+if 1096 宝箱1已开
+goto 宝箱2开否
+宝箱1已开:
+deletebox 21
+宝箱2开否:
+SETSCENENAME "台子"
+callback
+
+
+台子3:
+loadmap 1 15 5 0
+STARTCHAPTER 14 3
+callback
+
+宝箱1:
+if 1096 宝箱1开
+deletebox 21
+GAINGOODS 3 14
+setevent 1096
+宝箱1开:
+callback
+
+gutevent 21 宝箱1
+gutevent 41 台子3
+
+
+
+@台子6
+
+createbox 21 9 5 5
+if 1097 宝箱1已开
+goto 宝箱2开否
+宝箱1已开:
+deletebox 21
+宝箱2开否:
+SETSCENENAME "台子"
+callback
+
+
+台子3:
+loadmap 1 15 9 5
+STARTCHAPTER 14 3
+callback
+
+宝箱1:
+if 1097 宝箱1开
+deletebox 21
+GAINGOODS 11 8
+setevent 1097
+宝箱1开:
+callback
+
+gutevent 21 宝箱1
+gutevent 41 台子3
+
+
+
+@横桥
+
+SETSCENENAME "横桥"
+callback
+
+右出口:
+if 101 台子3
+if 102 横桥1左
+callback
+
+
+台子3:
+clrevent 101
+loadmap 1 15 0 5
+STARTCHAPTER 14 3
+callback
+
+横桥1左:
+clrevent 102
+setevent 101
+loadmap 1 10 0 1
+STARTCHAPTER 14 6
+callback
+
+
+
+左出口:
+if 101 横桥2右
+if 102 森林道路
+callback
+
+横桥2右:
+clrevent 101
+setevent 102
+loadmap 1 10 31 1
+STARTCHAPTER 14 6
+callback
+森林道路:
+clrevent 102
+loadmap 1 38 15 13
+STARTCHAPTER 14 7
+callback
+
+gutevent 41 右出口
+gutevent 42 左出口
+
+
+
+
+@森林道路
+
+
+INITFIGHT 2 3 2 3 2 3 2 3 2 112 32
+createbox 21 9 6 21
+if 1098 宝箱1已开
+goto 宝箱2开否
+宝箱1已开:
+deletebox 21
+宝箱2开否:
+SETSCENENAME "森林道路"
+callback
+
+鹤鸣山洞口:
+FIGHTDISENABLE
+loadmap 1 46 8 14
+STARTCHAPTER 14 8
+callback
+横桥2:
+FIGHTDISENABLE
+setevent 102
+loadmap 1 10 0 1
+STARTCHAPTER 14 6
+callback
+
+
+宝箱1:
+if 1098 宝箱1开
+deletebox 21
+GAINGOODS 7 13
+setevent 1098
+宝箱1开:
+callback
+
+gutevent 21 宝箱1
+gutevent 41 鹤鸣山洞口
+gutevent 42 横桥2
+
+
+
+@鹤鸣山洞口
+
+createbox 1 31 10 5
+createnpc 2 28 9 4
+createnpc 3 29 11 4
+createnpc 4 30 10 7
+createnpc 5 31 11 7
+@NPCMOVEMOD 1 0
+NPCMOVEMOD 2 0
+NPCMOVEMOD 3 0
+NPCMOVEMOD 4 0
+NPCMOVEMOD 5 0
+SETSCENENAME "鹤鸣山洞口"
+callback
+
+
+森林道路:
+if 252 先进山洞
+delallnpc
+loadmap 1 38 3 2
+STARTCHAPTER 14 7
+callback
+先进山洞:
+say 2 "我们还是先进山洞再说吧。"
+callback
+鹤鸣山洞:
+if 252 进山洞
+goto 天道未死
+进山洞:
+loadmap 3 6 10 54
+STARTCHAPTER 14 9
+天道未死:
+callback
+
+天道手下开打:
+if 251 天道手下败
+ENTERFIGHT 0 24 37 0 2 112 32 0 0 0 10 0 0 lossto 打败天道手下
+打败天道手下:
+setevent 251
+say 1 "我要杀光你们所有妖魔……杀……"
+deletenpc 4
+deletenpc 5
+NPCSTEP 1 0 1
+天道手下败:
+callback
+
+天道手下话:
+say 0 "谁胆子这么大，竟敢闯鹤鸣山？"
+say 1 "杀……杀……杀……"
+callback
+
+战天道:
+ENTERFIGHT 0 37 44 33 2 112 32 0 4 0 20 21 0 lossto 打败天道
+打败天道:
+setevent 252
+loadmap 1 46 6 3
+deletenpc 2
+deletenpc 3
+createnpc 6 6 9 6
+createnpc 7 7 11 6
+say 0 "天道:既然我无法一统魔神人三界了，别人也别想完成。"
+deletenpc 1
+createbox 1 31 11 5
+NPCSTEP 1 0 1
+say 0 "天道:哈哈……哈哈……"
+deletenpc 1
+message "天道长笑后死去"
+deletenpc 7
+createbox 7 42 11 6
+move 6 9 7
+move 6 10 7
+NPCSTEP 0 1 0
+say 2 "啊，这……怎么回……事？"
+say 0 "朱雀（袁萍芷）:我因在南北村被周处点化她弃恶向善，后有见魔族强大了，竟然会是如此凄惨的景象，早就有回头是岸的想法了，只是怕你们不能接受这样的现实，所以一直没有机会说。今天既然事实已经摆在面前，无可回避，反而坦然多了。"
+say 1 "怎么……会这样……？？？"
+say 0 "朱雀:我本是四象星君之一，只因为禁不住心魔的诱惑，修炼魔功火羽化魔而遭天谴，被玄虚真人封印在三清宫后山的伏魔洞中。在被封印期间，我想了好多，本有向善之心，却被无机以解除封印作为交换条件再次不禁诱惑，为他布下了四象诛仙阵，以阻挡上山妨碍他修炼魔功的人。"
+say 1 "啊，是师父……"
+say 0 "朱雀:当初忘忧村的妖怪，以及群魔打闹钟山，都是无机安排好的。至于群魔的复活，却是由柳清风一手造成的。无机修炼魔功--万魔幻化到第7层，发现要借用天下民怨的戾气，才能成功，而自己目前已经七分是魔了，若自己到伏魔洞解除众妖魔的封印，必然会被洞内的先天伏魔阵打的形神俱灭。最后利用柳清风解除了群魔的封印。"
+say 2 "是他……"
+say 0 "朱雀:我是无机安排在柳清风身边的，等待柳清风杀死天道后，将柳清风除去。当初打闹钟山的妖怪，都是天道的人马。虽然天道知道无机的安排，但霸王钟确实是他觊觎了很久的，这次无机不出面干涉他抢夺，实是千载难逢的好时机。天道也知道我在柳清风身边的使命。所以，即使死也要把我逼出原形，以破坏无机的如意算盘。但他却没料到用霸王钟对付柳清风时却失效了，更没料到我会受到周处的感化……"
+say 1 "不会的，不可能，……"
+deleteactor 3
+ENTERFIGHT 4 0 42 0 2 112 32 0 1 2 30 31 32 lossto 朱雀死
+朱雀死:
+say 0 "朱雀:要在三天内赶到三清宫，除去无机，否则等到无机修炼成了万魔幻化第十层时，就是大罗神仙也对付不了他了。万魔幻化第十层可以将万事万物幻化成魔，且被幻化的妖魔，具有不死之身。既然我已感悟，也就无怨无悔了！！"
+say 0 "朱雀:四象诛仙阵中放置有混元金斗，用来布阵的四象魂魄，都被吸入其中，用于控制阵法的变化。只要能使四象的魂魄归位，阵法自然失灵。目前还缺少玄武之精，可惜我不能陪你们去找了。尽管阵法失去控制，其中的混元金斗也能吸取闯入阵中人的魂魄，所以必须由天心灯护体，才能确保无虞。"
+if 2015 学会妙手空空
+goto 没装备书
+学会妙手空空:
+say 0 "朱雀:我有一招“妙手空空”，希望你能用得上。"
+LEARNMAGIC 1 5 1
+没装备书:
+deletenpc 7
+message "朱雀自杀"
+say 1 "袁……"
+say 1 "怎么会这样……"
+gaingoods 14 10
+message "传来群魔的响动"
+say 2 "柳大哥，好象有大批的妖魔朝这边过来，我们还是先躲躲吧。"
+say 1 "啊……什……，那边有个山洞，先进去……"
+deletenpc 6
+message "慕容小梅加入队列"
+callback
+
+战天道话1:
+say 1 "你就是天道？"
+say 0 "天道:就是我，小子，终于来了！"
+say 1 "天道，你引群魔祸害人间，今天我要替天行道……"
+callback
+战天道话2:
+say 0 "天道:小子，你不过是无机的一个棋子，他才是危害人间的真正魔头。群魔的复活和残忍本性，都是无机一手造成的，我只不过是借力使力而已。我看你是个人才，怎么样？跟我吧，我起码比无机为人更直爽一些。"
+say 1 "可恶，自己堕入魔道还诬陷我师父，我今天一定要杀了你……"
+callback
+
+lossto:
+gameover
+callback
+
+战朱雀话1:
+say 1 "骗人，全都是骗人的……"
+callback
+战朱雀话2:
+say 0 "朱雀:你们听我说……"
+say 1 "骗人……"
+callback
+战朱雀话3:
+say 0 "朱雀:柳清风，你是唯一可以对付无机的人……"
+callback
+
+gutevent 1 战天道
+gutevent 2 战天道
+gutevent 3 战天道
+gutevent 10 天道手下话
+gutevent 20 战天道话1
+gutevent 21 战天道话2
+gutevent 30 战朱雀话1
+gutevent 31 战朱雀话2
+gutevent 32 战朱雀话3
+gutevent 41 森林道路
+gutevent 42 鹤鸣山洞
+gutevent 43 天道手下开打
+
+
+
+
+@鹤鸣山洞
+
+
+INITFIGHT 50 51 52 53 54 0 0 0 2 112 32
+createbox 21 9 11 11
+createbox 22 9 15 11
+
+if 1099 宝箱1已开
+goto 宝箱2开否
+宝箱1已开:
+deletebox 21
+宝箱2开否:
+if 1100 宝箱2已开
+goto 宝箱2未开
+宝箱2已开:
+deletebox 22
+宝箱2未开:
+
+createbox 1 10 24 35
+createbox 2 32 10 7
+createbox 3 33 12 7
+createbox 4 34 14 7
+createbox 5 35 16 7
+SETSCENENAME "鹤鸣山洞"
+callback
+
+
+鹤鸣山洞口:
+@loadmap 1 46 7 0
+@STARTCHAPTER 14 8
+callback
+陵墓迷宫:
+FIGHTDISENABLE
+delallnpc
+loadmap 3 10 7 0
+STARTCHAPTER 14 10
+callback
+
+字替:
+if 1100 知道机关
+callback
+知道机关:
+SET 1 1
+message "叮"
+callback
+字天:
+IFCMP 1 1 第二字
+goto 未第一字
+第二字:
+SET 1 2
+message "当"
+callback
+未第一字:
+SET 1 0
+callback
+字行:
+IFCMP 1 2 第三字
+goto 未第二字
+第三字:
+SET 1 3
+message "咚"
+callback
+未第二字:
+SET 1 0
+callback
+字道:
+IFCMP 1 3 第四字
+goto 未第三字
+第四字:
+message "呛"
+if 253 机关已触发
+say 1 "那边好象有石头破碎的声音。"
+goto 战玄武
+callback
+未第三字:
+SET 1 0
+机关已触发:
+callback
+
+战玄武:
+ENTERFIGHT 0 0 43 0 2 112 32 0 2 0 30 31 0 lossto 打败玄武
+打败玄武:
+gaingoods 14 11
+deletenpc 1
+setevent 253
+callback
+
+lossto:
+gameover
+callback
+
+玄武话1:
+say 0 "玄武:闯陵者死。"
+callback
+玄武话2:
+say 0 "玄武:哼哼，知道我玄武的厉害了吧！"
+say 2 "你是玄武，那你有玄武之精咯？"
+say 0 "玄武:哦，那就要看你们的本事了。"
+callback
+
+宝箱1:
+if 1099 宝箱1开
+CHOICE "取消" "使用万能钥匙" 打开
+callback
+没有钥匙:
+message "没有钥匙"
+callback
+打开:
+usegoods 14 2 没有钥匙
+deletebox 21
+GAINGOODS 14 7
+setevent 2010
+setevent 1099
+宝箱1开:
+callback
+宝箱2:
+if 1100 宝箱2开
+deletebox 22
+GAINGOODS 6 16
+setevent 1100
+say 2 "后面的几个字很是奇怪。"
+say 1 "仔细看看！"
+宝箱2开:
+callback
+
+gutevent 21 宝箱1
+gutevent 22 宝箱2
+gutevent 2 字替
+gutevent 3 字天
+gutevent 4 字行
+gutevent 5 字道
+gutevent 30 玄武话1
+gutevent 31 玄武话2
+gutevent 41 鹤鸣山洞口
+gutevent 42 陵墓迷宫
+
+
+
+@陵墓迷宫
+
+INITFIGHT 55 56 57 58 14 51 52 53 2 112 32
+createbox 1 14 17 3
+NPCSTEP 1 0 0
+SETSCENENAME "陵墓迷宫"
+callback
+
+天师陵墓:
+FIGHTDISENABLE
+@ENTERFIGHT 0 0 43 0 2 112 32 0 2 0 30 31 0 lossto 打败玄武
+@打败玄武:
+delallnpc
+loadmap 3 11 5 14
+STARTCHAPTER 14 11
+callback
+
+@lossto:
+@gameover
+@callback
+@玄武话1:
+@say 0 "玄武:闯陵者死。"
+@callback
+@玄武话2:
+@say 0 "玄武:哼哼，知道我玄武的厉害了吧！"
+@say 2 "你是玄武，那你有玄武之精咯？"
+@say 0 "玄武:哦，那就要看你们的本事了。"
+@callback
+@gutevent 30 玄武话1
+@gutevent 31 玄武话2
+
+gutevent 50 天师陵墓
+
+
+
+
+@天师陵墓
+
+createbox 1 36 9 5
+SETSCENENAME "天师陵墓"
+SHOWSCENENAME
+callback
+
+天师精魄:
+say 1 "老伯伯你好……"
+ENTERFIGHT 0 0 45 0 1 111 31 0 2 0 30 31 0 lossto 打败天师精魄
+打败天师精魄:
+GAINGOODS 6 14 
+setevent 254
+say 1 "你究竟是谁？"
+say 0 "天师精魄:我是张道陵的一个魂魄，因六根未净，不能升仙，今日你们刚好帮我解脱了。"
+say 1 "你是天师魂魄，那你应该知道我师父无机子是什么样的人了？"
+say 0 "天师精魄:真是道门的不幸，竟然出了天道和无机两个丧心病狂的魔头……"
+say 1 "师父真的成魔，怎么会……这样……"
+movie 1 3 0 0 0
+message "柳清风昏厥过去"
+movie 1 3 0 0 0
+loadmap 1 31 10 4
+createnpc 20 6 13 7
+facetoface 20 0
+say 1 "这是哪里？"
+say 2 "这里离忘忧村很近，是天师的魂魄升仙时送我们过来的，你刚才昏迷了，不知道。他要我转告你，要尽快将无机除掉，不然等他修炼成魔后，恐怕人世间又是一场空前灾难。"
+say 1 "那我们走吧。"
+deletenpc 20		@高国军添加
+STARTCHAPTER 2 52
+callback
+
+天师精魄话:
+say 0 "谁又来扰我清修，我不得正果，你也休逃……"
+callback
+
+柳清风话:
+say 1 "你到底是谁？"
+say 0 "我是你祖师爷！"
+callback
+
+lossto:
+gameover
+callback
+
+gutevent 1 天师精魄
+gutevent 30 天师精魄话
+gutevent 31 柳清风话
+
+
+
+伏魔记事件说明
+
+1		师父训示
+19		取得宝剑
+21		下山除妖
+201		送信
+202		出发除妖
+203		探瘴气林
+204		猎户对话
+205		东东对话
+206		阿霞对话
+207		答应救蔡婆婆的女儿
+208		去夺芦藤甲
+209		打败李虎门卫
+210		打败李虎
+211		放走老王
+212		得知密道
+213		老王死
+214		救小画家
+215		打败死妖
+216		准备向钟山出发
+217		与小梅去钟山
+218		结识袁萍芷
+219		与袁萍芷上钟山
+220		消灭大殿妖魔
+221		打败赤血
+222		蔡婆婆送宝
+223		鲁送甲
+
+
+
+
