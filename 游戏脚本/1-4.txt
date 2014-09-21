@@ -1,62 +1,62 @@
-@æ¯”å¥‡çœ
+@±ÈÆæÊ¡
 
-SETSCENENAME "æ¯”å¥‡çœ"
+SETSCENENAME "±ÈÆæÊ¡"
 SHOWSCENENAME
 SET 1 14
 @INITFIGHT 1 2 3 0 0 0 0 0 2 112 32
 callback
 
-é“¶ææ‘:
+ÒøĞÓ´å:
 loadmap 1 3 1 8
 startchapter 1 3
 callback
 
-é“¶ææ‘å‘Šç¤º:
-message "é“¶ææ‘"
+ÒøĞÓ´å¸æÊ¾:
+message "ÒøĞÓ´å"
 callback
 
-æ¯”å¥‡çŸ¿æ´å…¥å£:
+±ÈÆæ¿ó¶´Èë¿Ú:
 loadmap 3 1 1 0
 startchapter 3 1
 callback
 
-æ¯”å¥‡çŸ¿æ´å‘Šç¤º:
-message "æ¯”å¥‡çŸ¿æ´"
+±ÈÆæ¿ó¶´¸æÊ¾:
+message "±ÈÆæ¿ó¶´"
 callback
 
 
-æ¯”å¥‡å—é—¨:
+±ÈÆæÄÏÃÅ:
 loadmap 1 2 23 43
 startchapter 1 2
 callback
 
-æ¯”å¥‡ä¸œé—¨:
+±ÈÆæ¶«ÃÅ:
 loadmap 1 2 46 25
 startchapter 1 2
 callback
 
-æ¯”å¥‡åŒ—é—¨:
+±ÈÆæ±±ÃÅ:
 loadmap 1 2 23 1
 startchapter 1 2
 callback
 
-æ¯”å¥‡è¥¿é—¨:
+±ÈÆæÎ÷ÃÅ:
 loadmap 1 2 1 25
 startchapter 1 2
 callback
 
-é«˜çº§æ­¦å£«ä¹‹å®¶:
+¸ß¼¶ÎäÊ¿Ö®¼Ò:
 loadmap 1 5 12 7
 startchapter 1 5
 callback
 
 
-gutevent 41 é“¶ææ‘
-gutevent 42 é“¶ææ‘å‘Šç¤º
-gutevent 43 æ¯”å¥‡çŸ¿æ´å…¥å£
-gutevent 44 æ¯”å¥‡çŸ¿æ´å‘Šç¤º
-gutevent 45 æ¯”å¥‡å—é—¨
-gutevent 46 æ¯”å¥‡ä¸œé—¨
-gutevent 47 æ¯”å¥‡åŒ—é—¨
-gutevent 48 æ¯”å¥‡è¥¿é—¨
-gutevent 55 é«˜çº§æ­¦å£«ä¹‹å®¶
+gutevent 41 ÒøĞÓ´å
+gutevent 42 ÒøĞÓ´å¸æÊ¾
+gutevent 43 ±ÈÆæ¿ó¶´Èë¿Ú
+gutevent 44 ±ÈÆæ¿ó¶´¸æÊ¾
+gutevent 45 ±ÈÆæÄÏÃÅ
+gutevent 46 ±ÈÆæ¶«ÃÅ
+gutevent 47 ±ÈÆæ±±ÃÅ
+gutevent 48 ±ÈÆæÎ÷ÃÅ
+gutevent 55 ¸ß¼¶ÎäÊ¿Ö®¼Ò

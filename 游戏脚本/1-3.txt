@@ -1,72 +1,72 @@
-@银杏村
+@���Ӵ�
 
-SETSCENENAME "银杏村"
+SETSCENENAME "���Ӵ�"
 SHOWSCENENAME
-SET 1 13 @地图索引
+SET 1 13 @��ͼ����
 callback
 
 
-武器店:
-SAY 0 "欢迎光临，有什么事情需要我帮忙的"
-menu 200 "买武器 询问"
+������:
+SAY 0 "��ӭ���٣���ʲô������Ҫ�Ұ�æ��"
+menu 200 "������ ѯ��"
 ifcmp 200 0 exitaddr
-ifcmp 200 1 买武器
-ifcmp 200 2 武器店询问
+ifcmp 200 1 ������
+ifcmp 200 2 ������ѯ��
 callback
 
-买武器:
+������:
 BUY "7001 7002 7003 7021 7005 7006 7007 7008 7009 7010 7011 7012 7013 7014 7015 7016 7017 7018 7019"
 callback
 
-武器店询问:
-SAY 0 "少年，如果缺钱的话，矿工是一份很有前途的职业，买一把鹤嘴锄去北边的比奇矿区开始创业吧，传言，越是地下深处，越容易挖到高价值的矿石"
+������ѯ��:
+SAY 0 "���꣬���ȱǮ�Ļ�������һ�ݺ���ǰ;��ְҵ����һ�Ѻ����ȥ���ߵı��������ʼ��ҵ�ɣ����ԣ�Խ�ǵ������Խ�����ڵ��߼�ֵ�Ŀ�ʯ"
 callback
 
 exitaddr:
 callback
 
-衣服店:
-SAY 0 "刀剑无眼，盔甲有情"
-menu 200 "买衣服 询问"
+�·���:
+SAY 0 "�������ۣ���������"
+menu 200 "���·� ѯ��"
 ifcmp 200 0 exitaddr
-ifcmp 200 1 买衣服
-ifcmp 200 2 衣服店询问
+ifcmp 200 1 ���·�
+ifcmp 200 2 �·���ѯ��
 
 callback
 
-买衣服:
-SAY 0 "本店铺还未开张"
+���·�:
+SAY 0 "�����̻�δ����"
 callback
 
-衣服店询问:
-SAY 0 "天工神剪是我的师傅，听师兄弟说，师傅被沃玛教主囚禁了，不知道你能不能帮助我们找到我们的师傅。"
+�·���ѯ��:
+SAY 0 "�칤������ҵ�ʦ������ʦ�ֵ�˵��ʦ����������������ˣ���֪�����ܲ��ܰ��������ҵ����ǵ�ʦ����"
 callback
 
-药店:
-SAY 0 "本店铺还未开张"
+ҩ��:
+SAY 0 "�����̻�δ����"
 callback
 
-当铺:
+����:
 sale
 callback
 
-比奇省:
+����ʡ:
 loadmap 1 4 59 72
 startchapter 1 4
 callback
 
-告示牌:
-message "银杏村"
+��ʾ��:
+message "���Ӵ�"
 callback
 
-许愿树:
-message "许愿树"
+��Ը��:
+message "��Ը��"
 callback
 
-gutevent 41 武器店
-gutevent 42 衣服店
-gutevent 43 药店
-gutevent 44 当铺
-gutevent 45 比奇省
-gutevent 46 告示牌
-gutevent 47 许愿树
+gutevent 41 ������
+gutevent 42 �·���
+gutevent 43 ҩ��
+gutevent 44 ����
+gutevent 45 ����ʡ
+gutevent 46 ��ʾ��
+gutevent 47 ��Ը��

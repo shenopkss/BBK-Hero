@@ -1,12 +1,12 @@
-SETSCENENAME "å°¸ç‹å¤§æ®¿"
+SETSCENENAME "Ê¬Íõ´óµî"
 SHOWSCENENAME
 SET 1 33
 callback
 
-æ¯”å¥‡çŸ¿åŒºäºŒ:
+±ÈÆæ¿óÇø¶ş:
 loadmap 3 2 40 43
 startchapter 3 2
 callback
 
 
-gutevent 41 æ¯”å¥‡çŸ¿åŒºäºŒ
+gutevent 41 ±ÈÆæ¿óÇø¶ş
