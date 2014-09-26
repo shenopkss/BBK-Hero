@@ -1,8 +1,8 @@
-@查找功能
+@���ҹ���
 
-menu 200 "挖掘 返回 Test"
-ifcmp 200 1 挖掘
-ifcmp 200 2 返回
+menu 200 "�ھ� ���� Test"
+ifcmp 200 1 �ھ�
+ifcmp 200 2 ����
 ifcmp 200 3 Test
 return
 
@@ -21,59 +21,59 @@ GAINGOODS 14 1
 GAINGOODS 14 1
 return
 
-返回:
+����:
 return
 
-挖掘:
-if 2000 允许挖矿
-message "未装备鹤嘴锄，无法进行挖掘"
+�ھ�:
+if 2000 �����ڿ�
+message "δװ����������޷������ھ�"
 return
 
-允许挖矿:
-IFCMP 1 31 比奇矿区一
-IFCMP 1 32 比奇矿区二
-IFCMP 1 33 尸王大殿
-message "该地图不能挖掘"
+�����ڿ�:
+IFCMP 1 31 �������һ
+IFCMP 1 32 ���������
+IFCMP 1 33 ʬ�����
+message "�õ�ͼ�����ھ�"
 return
 
-比奇矿区一:
-TIMEMSG 200 "挖矿中...."
-RANDRADE 80 获得铜矿石
-RANDRADE 60 获得银矿石
-message "未挖到任何东西"
+�������һ:
+TIMEMSG 200 "�ڿ���...."
+RANDRADE 80 ���ͭ��ʯ
+RANDRADE 60 �������ʯ
+message "δ�ڵ��κζ���"
 return
 
-比奇矿区二:
-TIMEMSG 200 "挖矿中...."
-RANDRADE 100 获得铜矿石
-RANDRADE 80 获得银矿石
-RANDRADE 60 获得金矿石
-RANDRADE 40 获得黑铁矿石
-message "未挖到任何东西"
+���������:
+TIMEMSG 200 "�ڿ���...."
+RANDRADE 100 ���ͭ��ʯ
+RANDRADE 80 �������ʯ
+RANDRADE 60 ��ý��ʯ
+RANDRADE 40 ��ú�����ʯ
+message "δ�ڵ��κζ���"
 return
 
-尸王大殿:
-TIMEMSG 200 "挖矿中...."
-RANDRADE 120 获得铜矿石
-RANDRADE 100 获得银矿石
-RANDRADE 80 获得金矿石
-RANDRADE 60 获得黑铁矿石
-message "未挖到任何东西"
+ʬ�����:
+TIMEMSG 200 "�ڿ���...."
+RANDRADE 120 ���ͭ��ʯ
+RANDRADE 100 �������ʯ
+RANDRADE 80 ��ý��ʯ
+RANDRADE 60 ��ú�����ʯ
+message "δ�ڵ��κζ���"
 return
 
-获得黑铁矿石:
+��ú�����ʯ:
 GAINGOODS 14 1
 return
 
-获得金矿石:
+��ý��ʯ:
 GAINGOODS 14 2
 return
 
-获得银矿石:
+�������ʯ:
 GAINGOODS 14 3
 return
 
-获得铜矿石:
+���ͭ��ʯ:
 GAINGOODS 14 4
 return
 

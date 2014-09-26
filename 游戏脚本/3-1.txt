@@ -1,6 +1,10 @@
 SETSCENENAME "比奇矿区一"
 SHOWSCENENAME
 SET 1 31
+CREATENPC 1 4 12 7
+NPCMOVEMOD 1 1
+CREATENPC 2 2 7 16
+NPCMOVEMOD 2 1
 callback
 
 比奇省:
@@ -13,6 +17,97 @@ loadmap 3 2 1 0
 startchapter 3 2
 callback
 
+幻灵游侠:
+menu 200 "对话 查看 交易 挑战"
+ifcmp 200 1 幻灵游侠_对话
+ifcmp 200 2 幻灵游侠_查看
+ifcmp 200 3 幻灵游侠_交易
+ifcmp 200 4 幻灵游侠_挑战
+callback
+
+幻灵游侠_对话:
+SAY 0 "幻灵游侠：锄和日当午，挖矿真辛苦，刨的全是铜，纯度只有五。"
+callback
+
+幻灵游侠_查看:
+MESSAGE "姓名：幻灵游侠  等级：7级     职业：法师    行会：无      装备：垃圾一套"
+callback
+
+幻灵游侠_交易:
+SAY 0 "幻灵游侠：兄弟，我的鹤嘴锄持久快掉光了，现在又不想回村，你能不能卖我一把，我给你1000快。"
+MESSAGE "系统提示：由于引擎限制，每次交易包裹只能有一把鹤嘴锄，多余数量会被系统全部回收"
+CHOICE "接受" "拒绝" exitaddr
+TESTGOODSNUM 7 21 1 交易鹤嘴锄 交易鹤嘴锄
+SAY 0 "幻灵游侠：你没有鹤嘴锄还跟我交易，我最讨厌你这种骗子!"
+GOTO 幻灵游侠_挑战
+callback
+
+交易鹤嘴锄:
+DELETEGOODS 7 21 exitaddr
+GAINMONEY 1000
+MESSAGE "获得1000金币"
+SAY 0 "幻灵游侠：哈哈，合作愉快，这周练级的药水钱就靠它了~"
+callback
+
+幻灵游侠_挑战:
+ENTERFIGHT 0 0 9 0 2 112 32 0 0 0 0 0 0 lossto winto
+callback
+
+lossto:
+SAY 0 "小样，就你这装备还敢PK我？下次长点记性！"
+callback
+
+winto:
+SAY 0 "少侠，好功夫...挖点也矿不容易，行行好，您去其他地方吧"
+callback
+
+exitaddr:
+callback
+
+幼儿园猪头:
+menu 200 "对话 查看 交易 挑战"
+ifcmp 200 1 幼儿园猪头_对话
+ifcmp 200 2 幼儿园猪头_查看
+ifcmp 200 3 幼儿园猪头_交易
+ifcmp 200 4 幼儿园猪头_挑战
+callback
+
+幼儿园猪头_挑战:
+ENTERFIGHT 0 0 9 0 2 112 32 0 0 0 0 0 0 lossto 幼儿园猪头_winto
+callback
+
+幼儿园猪头_winto:
+SAY 0 "哎呦！这梁子算截下来了，以后我们杀人集团行会遇到你一次杀一次！"
+callback
+
+幼儿园猪头_交易:
+SAY 0 "幼儿园猪头：哥很忙，不要来烦我。"
+callback
+
+幼儿园猪头_查看:
+MESSAGE "姓名：幼儿园猪头等级：20级      职业：战士      行会：杀人集团  装备：商店一套"
+callback
+
+幼儿园猪头_对话:
+RANDRADE 250 徐志摩_挖矿
+RANDRADE 500 张爱玲_挖矿
+RANDRADE 750 鲁迅_挖矿
+SAY 0 "张小娴说：世上最远的距离，不是天涯海角，而是我就在陪你挖矿，你却不知道我爱你。"
+callback
+
+徐志摩_挖矿:
+SAY 0 "徐志摩说：挖矿，提一把锄头，向深洞更深处挖去，满载一包黑铁，在星光斑斓里放歌。"
+callback
+
+张爱玲_挖矿:
+SAY 0 "张爱玲说：生命是一袭华美的魔法长袍，上面沾满了矿硝"
+callback
+
+鲁迅_挖矿:
+SAY 0 "鲁迅说：过了很久，男孩又来挖矿，只是已被打断了腿，口中叫到：收购黑铁矿，纯度要高，这回是现钱。"
+callback
 
 gutevent 41 比奇省
 gutevent 42 比奇矿区二
+gutevent 1 幻灵游侠
+gutevent 2 幼儿园猪头
