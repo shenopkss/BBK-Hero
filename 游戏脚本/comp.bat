@@ -8,6 +8,9 @@ test 2-1.txt
 test 3-1.txt
 test 3-2.txt
 test 3-3.txt
+test 4-1.txt
+test 4-2.txt
+test 4-3.txt
 
 del *.lst
 del *.hex
@@ -22,5 +25,8 @@ setgut 1-5.gut .\gut\1-5.gut 1 5 高级武士家
 setgut 3-1.gut .\gut\3-1.gut 3 1 比奇矿区1
 setgut 3-2.gut .\gut\3-2.gut 3 2 比奇矿区2
 setgut 3-3.gut .\gut\3-3.gut 3 3 比奇矿区3
+setgut 4-1.gut .\gut\4-1.gut 4 1 半兽人古墓一
+setgut 4-2.gut .\gut\4-2.gut 4 2 半兽人古墓二
+setgut 4-3.gut .\gut\4-3.gut 4 3 半兽人古墓三
 
 del *.gut

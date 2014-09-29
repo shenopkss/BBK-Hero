@@ -1,0 +1,14 @@
+@半兽古墓三
+
+SETSCENENAME "半兽古墓三"
+SHOWSCENENAME
+SET 1 43
+@INITFIGHT 1 2 3 0 0 0 0 0 2 112 32
+callback
+
+半兽人古墓二:
+loadmap 3 2 40 43
+startchapter 4 2
+callback
+
+gutevent 41 半兽人古墓二

@@ -50,6 +50,15 @@ loadmap 1 5 12 7
 startchapter 1 5
 callback
 
+半兽人古墓入口:
+loadmap 4 1 20 0
+startchapter 4 1
+callback
+
+半兽人古墓告示:
+MESSAGE "半兽人古墓入口"
+callback
+
 
 gutevent 41 银杏村
 gutevent 42 银杏村告示
@@ -59,4 +68,6 @@ gutevent 45 比奇南门
 gutevent 46 比奇东门
 gutevent 47 比奇北门
 gutevent 48 比奇西门
+gutevent 53 半兽人古墓入口
+gutevent 54 半兽人古墓告示
 gutevent 55 高级武士之家

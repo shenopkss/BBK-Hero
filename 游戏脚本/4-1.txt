@@ -1,0 +1,20 @@
+@半兽古墓一
+
+SETSCENENAME "半兽古墓一"
+SHOWSCENENAME
+SET 1 41
+@INITFIGHT 1 2 3 0 0 0 0 0 2 112 32
+callback
+
+比奇省:
+loadmap 1 4 1 5
+startchapter 1 4
+callback
+
+半兽人古墓二:
+loadmap 3 2 1 0
+startchapter 4 2
+callback
+
+gutevent 41 比奇省
+gutevent 42 半兽人古墓二
