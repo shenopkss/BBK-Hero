@@ -6,6 +6,7 @@ SET 1 42
 @INITFIGHT 1 2 3 0 0 0 0 0 2 112 32
 callback
 
+
 ∞Î ﬁ»Àπ≈ƒπ“ª:
 loadmap 4 1 20 24
 startchapter 4 1

@@ -6,6 +6,33 @@ SET 1 41
 @INITFIGHT 1 2 3 0 0 0 0 0 2 112 32
 callback
 
+海也之墓:
+if 1 寻找海也
+say 0 "哪里来的羔羊，敢吵醒本大爷睡觉！"
+ENTERFIGHT 0 1 2 3 2 112 32 0 0 0 0 0 0 lossto winto
+callback
+
+lossto:
+GAMEOVER
+callback
+
+winto:
+callback
+
+寻找海也:
+say 0 "前面是。。。"
+say 0 "啊，这个墓碑是。。。"
+say 0 "海也之墓，银杏村阿兰的恋人——战士海也！难道他战死在这？——可恶的半兽人！"
+message "嗄嗄嗄"
+say 0 "哪里来的羔羊，敢吵醒本大爷睡觉！"
+ENTERFIGHT 0 1 2 3 2 112 32 0 0 0 0 0 0 lossto 打败海也墓半兽人
+callback
+
+打败海也墓半兽人:
+say 0 "半兽人还真不好对付啊"
+setevent 2
+callback
+
 比奇省:
 loadmap 1 4 1 5
 startchapter 1 4
@@ -18,3 +45,4 @@ callback
 
 gutevent 41 比奇省
 gutevent 42 半兽人古墓二
+gutevent 43 海也之墓
